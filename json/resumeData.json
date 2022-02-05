@@ -1,0 +1,212 @@
+{
+  "NextJs": [
+    {
+      "name": "Next Amazon",
+      "src": "/projectImages/Next_Amazon.PNG",
+      "link": "https://github.com/JawadAmmar700/Next_Amazon",
+      "videoUrl": "https://www.youtube.com/watch?v=93jYyhGfeJw",
+      "technology": "Nextjs, NextAuth, Firebase, Tailwindcss, Redux, Stripe, Stripe webhook",
+      "description": "In the home page a list of products is rendered fetched from an external api in addition to a filtration functionality like routing by price, filter products by prodeuct name ---etc, each time the user clicks the add to cart button, the clicked productis stored in a cart component and a success alert is appear, even if the user clicked the same product again and again the cart stays the same but the quantity and the price will change and the user has capability to decrement the quentity and by removing the whole product. A checkout button is rendered in the cart component it will be disabled either if the cart is empty nor the uder is not authenticated, the payment functionality is done by using the backend with stripe library and a webhook that fires when the payment is successfull after that the products choosen by the user is stored in the database related to the authenticated user using firebase. When it's all done the user is redirected to a success page and an email will be sent to the him, moreover an orders button is placed in the success page that takes him to an order page which it will contains all of the products he placed each is seperated by the date and tome the payment is placed.",
+      "site": "https://next-amazon-alpha.vercel.app/"
+    },
+    {
+      "name": "Tesla Clone",
+      "src": "/projectImages/teslaHomePage.PNG",
+      "link": "https://github.com/JawadAmmar700/Tesla",
+      "videoUrl": "https://www.youtube.com/watch?v=hdFj75GSz8o",
+      "technology": "Nextjs, Styled components, SSG page generation",
+      "description": "The main page contains a header component placed at the top with sticky position to stick when scrolling. It contains some Tesla model car links which redirects to a dynamic route showing the details of the selected model car. The body of the home page is sliced into sections and each section includes a model car image and two buttons which animates on scroll using framer-motion and when scrolled to the last sectionthe footer will fade in. The details page specifies the details of the car like its speed, hp and millage, it is revealed after clicking the model link in the header component.",
+      "site": "https://tesla-beta.vercel.app/"
+    },
+    {
+      "name": "Next Spotify",
+      "src": "/projectImages/Next_Spotify.PNG",
+      "link": "https://github.com/JawadAmmar700/Next_Spotify",
+      "videoUrl": "https://www.youtube.com/watch?v=QVUKs3qxqbA",
+      "technology": "Nextjs, Tailwindcss, Recoil, NextAuth, Spotify api, hero-icons",
+      "description": "",
+      "site": "https://next-spotify-kappa.vercel.app/"
+    },
+    {
+      "name": "Next Instagram",
+      "src": "/projectImages/Next_Instagram.PNG",
+      "link": "https://github.com/JawadAmmar700/Next_Instagram",
+      "videoUrl": "https://www.youtube.com/watch?v=m8eEjFpTMBQ",
+      "technology": "Nextjs, Tailwindcss, Recoil, NextAuth, Firebase v9",
+      "description": "",
+      "site": "https://next-instagram-ivory.vercel.app/"
+    },
+    {
+      "name": "Icon Picker",
+      "src": "/projectImages/IconpickerHomePage.PNG",
+      "link": "https://github.com/JawadAmmar700/IconPicker",
+      "videoUrl": "https://www.youtube.com/watch?v=43ox9mXRWYo",
+      "technology": "Nextjs, SSG page generation, Tailwindcss, IconFinder api, Material tailwind ui, Redux ",
+      "description": "This main idea of this application is to search for a specific icon which are fetched from an api with a data filtration and downloading capabilities by collecting the icon and choosing different image sizes from a pop-up to download it."
+    },
+    {
+      "name": "LinkedIn Clone",
+      "src": "/projectImages/linkedinHomePage.PNG",
+      "link": "https://github.com/JawadAmmar700/LinkedInwithNodeandMongo",
+      "videoUrl": "https://www.youtube.com/watch?v=p88hrpmrcpA",
+      "technology": "Nextjs, Nodejs, Google auth using Firebase, Mongodb",
+      "description": "The main concept of this application to log in using google provider which redirects you to the main page where you can create a post with uploading an image or a video url and by sending the post, the information will be send to the nodejs server and then stored in the mongodb database and shown on the screen.",
+      "site": "https://next-linked-in.vercel.app/"
+    },
+
+    {
+      "name": "Uberized",
+      "src": "/projectImages/UberHomePage.PNG",
+      "link": "https://github.com/JawadAmmar700/Uber-Mapbox",
+      "videoUrl": "https://www.youtube.com/watch?v=aBpy1c8Fg28",
+      "technology": "Nextjs, Magic link, Firebase, Material ui, Mapbox, Prisma database, Paypal integration, Tailwindcss, Redux",
+      "description": "The whole main idea is that user will sign in using magic link passwordless authentication, then he will be redirected to the home page which it contains a location todo app with it's all functionality by creating all new todo which then it will be added to the prisma database for the logged in user, also he can remove a specific todo. Moreover a logout and view map buton which it will redirects him to the map route which in his turn can search for a place to visit which then a direction line is drawn from his current location to the visited location on the map, in addition to a tooltip which contains the time travel and the distance between the two points or he can click on a specific todo also he will be redirected to the same map route but the location is automatically viewed in the geocoder search input after he picked a location a menu in the top right corner of the screen will appear with a ride cost buttons when clicj=ked a popup menu will appear on the screen which you can pay using paypal.",
+      "site": "https://uber-mapbox.vercel.app/"
+    },
+    {
+      "name": "Next GoogleDocs",
+      "src": "/projectImages/Next_GoogleDocs.PNG",
+      "link": "https://github.com/JawadAmmar700/Next_Google_docs",
+      "videoUrl": "https://www.youtube.com/watch?v=53MKGvAxmpE",
+      "technology": "Nextjs, NextAuth, Firebase, Rich Text Editor, Tailwindcss, Redux",
+      "description": "On the initial render a sign in page with goog;e button is displayed when clicked we can authenticate using google with nextauth after it's all done we will be redirected to the home screen, even if we hot reload the page the user is still loged in so the sign in page will not render in the dom instead the hoome screen, in this page we have a navbar with content and a profile avatar when clicked the user will be sign out, a add document field and a list of all user documents created at that time, whnever the add document is pressed a popup will appear inside it a todo app which adds all the logic behind storing the document in the firebase database and then it will automatically adds it to the documents list, each of this list is a link which redirects to the rich tesxt editor page and in here we can dp anything we want like writing notes,adding images and emojies ---etc at the mean tme every letter we press the new content is replaced in the database.",
+      "site": "https://next-google-docs.vercel.app/"
+    },
+    {
+      "name": "Next Disney",
+      "src": "/projectImages/Next_Disney.PNG",
+      "link": "https://github.com/JawadAmmar700/Next_Disney",
+      "videoUrl": "https://www.youtube.com/watch?v=xF9kW9FvVj0",
+      "technology": "Nextjs, Firebase, Redux",
+      "description": "In the first render a login screen will be displayed click sign in to authenticate with google when it's done we will be redirected to the home page which contains a slider and a list of disney movies, each movie is a link so when clicked we will be navigated through a details page for that specific movie and we also can sign out by clicking the button which is rendered in the navbar.",
+      "site": "https://next-disney.vercel.app/"
+    },
+    {
+      "name": "Next NetlifyAuth",
+      "src": "/projectImages/Next_NetlifyAuth.PNG",
+      "link": "https://github.com/JawadAmmar700/Next_NetlifyAuth",
+      "videoUrl": "https://www.youtube.com/watch?v=KUZwgltua84",
+      "technology": "Nextjs, Netlify Auth, React context api.",
+      "description": "In the Home page a header is rendered with two links home and view content also two buttons login/signup and logout, a body with h1 tag. If we click view content link without loging in we will be redirected to a 404 page when login/signup button is clicked a netlify signIn popup will appear we can signup or login with existing email, when it's all done, now we can click the view content link which will redirect us to the content page which displays the same navbar bit with signout button which logout the user and redirect to the home page, an image and the secret content.",
+      "site": "https://sad-villani-760153.netlify.app/"
+    }
+  ],
+  "ReactJs": [
+    {
+      "name": "React VideoChat",
+      "src": "/projectImages/React_VideoChat.PNG",
+      "link": "https://github.com/JawadAmmar700/React_VideoChat",
+      "videoUrl": "https://www.youtube.com/watch?v=ub3FLsLI4h4",
+      "technology": "ReactJs, Firebase Google auth, socket.io-client, peerjs, nodejs socket.io server.",
+      "description": "The main idea of this app is to create a video chat application like google meet, the entry page contains a header which we can sign in with google and a body of two buttons start meeting and join a room they are unclickable until a user is logged in, the start button directs to a chat page that displays our stream and a footer with some features mute, hide the stream, end the call, chat messages, screen share --etc, also a cpoy room id button is placed in top of the page. Now if another user visits our domain he simply paste the room id in the input feild and click join that takes him to a new page which displays his stream and all the users which is currently in that room, now he can click join to enter the room. ",
+      "site": "https://video-chat-2000.herokuapp.com/"
+    },
+    {
+      "name": "React Amazon",
+      "src": "/projectImages/React_Amazon.PNG",
+      "link": "https://github.com/JawadAmmar700/React_Amazon",
+      "videoUrl": "https://www.youtube.com/watch?v=jkwwrz_O6tw",
+      "technology": "ReactJs, Firebase, React context api, Stripe Elements",
+      "description": "In the home screen we have two components header which contains a search input, sign in with google and cart buttons that takes us to the cart page and a body which contains list of products with the price, description and add to the cart button when clicked the cart will increment and store the clicked product usign redux. In the cart page we can see all of our selected products we can delete any one by pressing the remove button when we are satisfied with the se;ection we can press on go to checkout which also render the selected products in addition to the payments card number, we enter the card number click pay wait for the succes alert. ",
+      "site": "https://react-amazon-gilt.vercel.app/"
+    },
+    {
+      "name": "React FoodApp",
+      "src": "/projectImages/React_FoodApp.PNG",
+      "link": "https://github.com/JawadAmmar700/React_foodApp",
+      "videoUrl": "https://www.youtube.com/watch?v=zcuvGgeqeS8",
+      "technology": "ReactJs, Redux, TheMealDb api",
+      "description": "The home screen is the main screen which conains a header with links, logo a slide that shows some food categories with their images and a details button, a video player besides a description which play automatically when in view, below that their is a list of food categories card with image, desc, details button when clicked it takes us to category page that dispalys all of food for the clicked and each food card has a more button which shows the ingredients and the way of cooking in addition to a play button which plays a video for that specific plate.",
+      "site": "https://react-food-app-smoky.vercel.app/"
+    },
+    {
+      "name": "React Google",
+      "src": "/projectImages/React_Google.PNG",
+      "link": "https://github.com/JawadAmmar700/React_Google",
+      "videoUrl": "https://www.youtube.com/watch?v=KnE-yV45Fkc",
+      "technology": "ReactJs, Google Search api, React context api",
+      "description": "The home page looks like a google search page that contains a search input that query all the data and rediret us to the content page listing and displaying only 10 of the available queries.",
+      "site": "https://react-google.vercel.app/"
+    },
+
+    {
+      "name": "React Netflix",
+      "src": "/projectImages/React_Netflix.PNG",
+      "link": "https://github.com/JawadAmmar700/React_Netflix",
+      "videoUrl": "https://www.youtube.com/watch?v=mseBTt0lkQ4",
+      "technology": "ReactJs, Firebase, TheMoviesdb api, React context api",
+      "description": "The main page is similar to netflix where get started is triggered after entering a valid email that opens the sign in page where the email will be set automatically in the email input. Entering the password and clicking enter redirect us to the profile page where we can choose which plan we want for subscriptions. By clicking the top right corner, we go the movie page with has a bunch of movies listed under their specific category.",
+      "site": "https://react-netflix-zeta.vercel.app/"
+    },
+    {
+      "name": "React Facebook",
+      "src": "/projectImages/React_Facebook.PNG",
+      "link": "https://github.com/JawadAmmar700/React_Facebook",
+      "videoUrl": "https://www.youtube.com/watch?v=JSnQ3Q_pJQs",
+      "technology": "ReactJs, Real Time Firebase, React context api",
+      "description": "This app contains two page the sign in and the home page, in the sign in page a facebook logo and sign in with google button is displayed and when clicked a google authentication popup using firebase auth after that we will be redirected to the home page which contains some of facebook design and a post input and a url input for images, upon filling them so when click enter all the data wll be stored in firebase under the autherized user and all the posts will be listed under the inputs in ascending order.",
+      "site": "https://react-facebook.vercel.app/"
+    },
+    {
+      "name": "React QuizApp",
+      "src": "/projectImages/React_QuizApp.PNG",
+      "link": "https://github.com/JawadAmmar700/React_QuizApp",
+      "videoUrl": "https://www.youtube.com/watch?v=ddiyLfRaeJ8",
+      "technology": "ReactJs, Opentdb api",
+      "description": "It's all about rendering a select tag which contains all quiz categories we can select what kind of quiz we ness to do and the question is displayed with his chooses one by one, at the end of the quiz the score is displayed in the screen.",
+      "site": "https://react-quiz-app-eight.vercel.app/"
+    },
+    {
+      "name": "React Stripe",
+      "src": "/projectImages/React_Stripe.PNG",
+      "link": "https://github.com/JawadAmmar700/React_Stripe",
+      "videoUrl": "https://www.youtube.com/watch?v=axliajWcEtg",
+      "technology": "ReactJs, Stripe",
+      "description": "This app is just for testing the two ways of stripe payment integrations one by using the stripe elements and the other by stripe checkout."
+    },
+    {
+      "name": "React Corona",
+      "src": "/projectImages/React_Corona.PNG",
+      "link": "https://github.com/JawadAmmar700/React_corona",
+      "videoUrl": "https://www.youtube.com/watch?v=Ft5tbN0pcuY",
+      "technology": "ReactJs, Corona api",
+      "description": "This app is to track corona cases and deaths in different countries using corona api for the data displayed in the three cards as well as a graph thats shows the last 7 days of corona cases for each country by selecting it from the select menu and at the bottom a table of the largest number of corona cases.",
+      "site": "https://react-corona-coral.vercel.app/"
+    }
+  ],
+  "skills": [
+    {
+      "lng": "HTML/CSS",
+      "percent": "95",
+      "subSkill": [
+        { "lng": "Sass", "percent": 85 },
+        { "lng": "Tailwind ", "percent": 90 }
+      ]
+    },
+    {
+      "lng": "Javascript",
+      "percent": "80",
+      "subSkill": [
+        { "lng": "ReactJs", "percent": 80 },
+        { "lng": "NextJs", "percent": 80 },
+        { "lng": "NodeJs", "percent": 75 },
+        { "lng": "Ajax", "percent": 80 }
+      ]
+    },
+    {
+      "lng": "Java",
+      "percent": "75",
+      "subSkill": [{ "lng": "Android", "percent": 40 }]
+    },
+    {
+      "lng": "Database",
+      "percent": "55",
+      "subSkill": [
+        { "lng": "MySql", "percent": 65 },
+        { "lng": "Firebase", "percent": 80 },
+        { "lng": "Mongo", "percent": 75 },
+        { "lng": "Prisma", "percent": 80 }
+      ]
+    }
+  ]
+}
