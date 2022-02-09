@@ -1,6 +1,6 @@
 import React from "react"
 import { GetStaticProps, GetStaticPaths } from "next"
-import resumeData from "../json/resumeData.json"
+import resumeData from "../data/resume-data.json"
 import {
   CodeIcon,
   PlayIcon,

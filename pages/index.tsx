@@ -11,7 +11,7 @@ import {
   Footer,
 } from "../components"
 
-import resumeData from "../json/resumeData.json"
+import resumeData from "../data/resume-data.json"
 
 export const getStaticProps: GetStaticProps = () => {
   const data = {
