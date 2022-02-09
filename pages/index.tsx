@@ -18,10 +18,7 @@ export const getStaticProps: GetStaticProps = () => {
     skills: {
       skills: resumeData.skills,
     },
-    Projects: {
-      NextJs: resumeData.NextJs,
-      ReactJs: resumeData.ReactJs,
-    },
+    Projects: resumeData.NextJs.concat(resumeData.ReactJs),
   }
 
   return {
@@ -61,7 +58,7 @@ export default function Home({ data }) {
           <Intro aboutRef={aboutRef} ref={IntroRef} />
           <About ContactRef={ContactRef} ref={aboutRef} />
           <SKills {...data.skills} ref={SkillsRef} />
-          <Work {...data.Projects} ref={WorkRef} />
+          <Work all={data.Projects} ref={WorkRef} />
           <Contact ref={ContactRef} />
           <Footer IntroRef={IntroRef} />
         </div>

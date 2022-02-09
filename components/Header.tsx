@@ -17,7 +17,7 @@ const Header = ({ IntroRef, aboutRef, SkillsRef, WorkRef, ContactRef }) => {
       <ProgressBar bgcolor="blue" duration="0.2" />
       <Scrollspy
         className="flex space-x-5 md:space-x-10 lg:space-x-12 xl:space-x-16 items-center justify-center text-white"
-        items={["About", "Skills", "Intro", "Work", "Contact"]}
+        items={["About", "Skills", "Intro", "Showcase", "Contact"]}
         currentClassName="animate-pulse text-blue-500"
         onUpdate={(id: { id: string }) =>
           setDocTitle(id?.id === undefined ? "About" : id?.id)
@@ -39,7 +39,7 @@ const Header = ({ IntroRef, aboutRef, SkillsRef, WorkRef, ContactRef }) => {
           </a>
         </div>
         <div className="scale-90 hover:scale-110 cursor-pointer font-bold hover:animate-pulse">
-          <a onClick={() => ScrollIntoView(WorkRef, "Work")}>Work</a>
+          <a onClick={() => ScrollIntoView(WorkRef, "Showcase")}>Showcase</a>
         </div>
         <div className="scale-90 hover:scale-110 cursor-pointer font-bold hover:animate-pulse">
           <a onClick={() => ScrollIntoView(ContactRef, "Contact")}>Contact</a>

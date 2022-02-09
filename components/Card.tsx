@@ -1,41 +1,45 @@
 import React from "react"
-import { InformationCircleIcon } from "@heroicons/react/outline"
+import { ArrowNarrowRightIcon } from "@heroicons/react/outline"
 import Link from "next/link"
-import Image from "next/image"
+import { motion } from "framer-motion"
 
-const Card = ({ name, src }) => {
-  //state called revealCard to show the card
+const Card = ({ name, src, spanX, spanY }: any) => {
   const [revealCard, setRevealCard] = React.useState(false)
-  const [imageLoad, setImageLoad] = React.useState(false)
+
   return (
-    <div className="inline-block px-3 ">
+    <Link href={name}>
       <div
         onMouseOver={() => setRevealCard(true)}
         onMouseLeave={() => setRevealCard(false)}
-        className="w-64  md:w-96 relative cursor-pointer h-64 max-w-xs overflow-hidden rounded-lg shadow-2xl  hover:shadow-xl transition-shadow duration-300 ease-in-out"
+        className={` col-span-${spanX} row-span-${spanY} cursor-pointer relative`}
       >
-        <Image
+        <img
           src={src}
-          layout="fill"
           alt={src}
-          className="object-cover rounded-lg z-30 "
-          onLoadingComplete={() => setImageLoad(true)}
+          className={`object-cover rounded-lg z-30 w-full h-full ${
+            revealCard && " opacity-50 transition-opacity"
+          }`}
         />
-        {revealCard && imageLoad && (
-          <div className="w-full h-full rounded-lg absolute top-0 flex flex-col justify-evenly items-center ite bg-black opacity-80 z-50">
-            <p className="text-2xl font-bold md:text-3xl">{name}</p>
-            <div className="flex space-x-8">
-              <Link href={`/${name}`}>
-                <a className="text-white hover:text-blue-500 scale-110 hover:scale-125 flex space-x-2 justify-center items-center">
-                  <p>View Details</p>
-                  <InformationCircleIcon className="w-[25px]" />
-                </a>
-              </Link>
-            </div>
-          </div>
+        {revealCard && (
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 0.9, y: 0 }}
+            transition={{ type: "linear" }}
+            className={`absolute  w-full  bg-black  bottom-0 flex flex-col items-center justify-center space-y-2 ${
+              spanX === 0 ? "h-16" : "h-24"
+            }`}
+          >
+            <p className="font-bold text-white">{name}</p>
+            <motion.div
+              animate={{ x: [0, 5, 0] }}
+              transition={{ ease: "easeOut", duration: 2, repeat: Infinity }}
+            >
+              <ArrowNarrowRightIcon className="text-sky-500 animate-pulse w-4 " />
+            </motion.div>
+          </motion.div>
         )}
       </div>
-    </div>
+    </Link>
   )
 }
 

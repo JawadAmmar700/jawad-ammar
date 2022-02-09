@@ -25,7 +25,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ctx => {
-  const param = ctx.params.name
+  const param = ctx.params?.name
   const nextjs = resumeData.NextJs
   const reactjs = resumeData.ReactJs
   const AllProjects = nextjs.concat(reactjs)
@@ -40,7 +40,7 @@ const Details = ({ specificProject: data }) => {
   return (
     <div className="w-full relative text-white z-0">
       <div className="w-full">
-        <Link href="/#Work">
+        <Link href="/#Showcase">
           <div className="fixed top-2 left-5 text-blue-500 flex justify-center items-center hover:scale-100 scale-95 hover:text-blue-600 cursor-pointer">
             <ChevronLeftIcon className="w-[30px]" />
             <p className="font-semibold">Home</p>
