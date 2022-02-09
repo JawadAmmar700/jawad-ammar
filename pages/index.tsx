@@ -1,23 +1,46 @@
 import type { GetStaticProps } from "next"
 import Head from "next/head"
-import { useRef } from "react"
+import resumeData from "../data/resume-data.json"
 import {
   Intro,
   Header,
   About,
   SKills,
-  Work,
+  ShowCase,
   Contact,
   Footer,
 } from "../components"
 
-import resumeData from "../data/resume-data.json"
+type subSkillType = {
+  lng: string
+  percent: number
+}
+
+type ProjectType = {
+  name: string
+  src: string
+  link: string
+  videoUrl: string
+  technology: string
+  description: string
+  site?: string
+  span: number
+}
+
+type Skills = {
+  lng: string
+  percent: string
+  subSkill: Array<subSkillType>
+}
+
+interface Data {
+  skills: Array<Skills>
+  Projects: Array<ProjectType>
+}
 
 export const getStaticProps: GetStaticProps = () => {
   const data = {
-    skills: {
-      skills: resumeData.skills,
-    },
+    skills: resumeData.skills,
     Projects: resumeData.NextJs.concat(resumeData.ReactJs),
   }
 
@@ -26,23 +49,9 @@ export const getStaticProps: GetStaticProps = () => {
   }
 }
 
-export default function Home({ data }) {
-  const IntroRef = useRef<HTMLDivElement>(null)
-  const aboutRef = useRef<HTMLDivElement>(null)
-  const SkillsRef = useRef<HTMLDivElement>(null)
-  const WorkRef = useRef<HTMLDivElement>(null)
-  const ContactRef = useRef<HTMLDivElement>(null)
-
-  const refs = {
-    IntroRef,
-    aboutRef,
-    SkillsRef,
-    WorkRef,
-    ContactRef,
-  }
-
+export default function Home({ data }: { data: Data }) {
   return (
-    <div className="z-50 relative ">
+    <div className="z-50 relative scroll-smooth">
       <Head>
         <title>Intro</title>
         <link rel="icon" href="/J.png" />
@@ -53,14 +62,14 @@ export default function Home({ data }) {
         className="w-full h-screen fixed z-0"
       />
       <main className="w-full absolute top-0">
-        <Header {...refs} />
+        <Header />
         <div>
-          <Intro aboutRef={aboutRef} ref={IntroRef} />
-          <About ContactRef={ContactRef} ref={aboutRef} />
-          <SKills {...data.skills} ref={SkillsRef} />
-          <Work all={data.Projects} ref={WorkRef} />
-          <Contact ref={ContactRef} />
-          <Footer IntroRef={IntroRef} />
+          <Intro />
+          <About />
+          <SKills skills={data.skills} />
+          <ShowCase all={data.Projects} />
+          <Contact />
+          <Footer />
         </div>
       </main>
     </div>

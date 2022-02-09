@@ -1,9 +1,8 @@
 import React from "react"
 import { PaperAirplaneIcon } from "@heroicons/react/outline"
-import ScrollIntoView from "../Functions/ScrollIntoView"
 import { motion, AnimatePresence } from "framer-motion"
 
-const About = React.forwardRef<HTMLDivElement>((props: any, ref) => {
+const About = () => {
   //create a state called viewContent that is set to false
   const [viewContent, setViewContent] = React.useState(false)
   //create a state called hover that is set to false
@@ -11,7 +10,7 @@ const About = React.forwardRef<HTMLDivElement>((props: any, ref) => {
 
   return (
     <div
-      ref={ref}
+      id="About"
       className="w-full relative grid grid-cols-1 md:grid-cols-2 text-white  gap-0"
     >
       <div className=" hidden md:block h-[400px] mt-24  ">
@@ -101,9 +100,8 @@ const About = React.forwardRef<HTMLDivElement>((props: any, ref) => {
             )}
           </AnimatePresence>
         </div>
-        <button
-          onClick={() => ScrollIntoView(props.ContactRef, "Contact")}
-          id="About"
+        <a
+          href="#Contact"
           onMouseOver={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           className="flex items-center space-x-3 justify-center border-2 border-white p-3 rounded hover:bg-white hover:text-black transition-all  duration-75 font-bold  "
@@ -112,10 +110,10 @@ const About = React.forwardRef<HTMLDivElement>((props: any, ref) => {
           <motion.p initial={false} animate={{ scale: hover ? 1.2 : 1 }}>
             <PaperAirplaneIcon className="w-[20px] h-[20px] rotate-180" />
           </motion.p>
-        </button>
+        </a>
       </div>
     </div>
   )
-})
+}
 
 export default About

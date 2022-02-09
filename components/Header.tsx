@@ -2,10 +2,9 @@ import React from "react"
 import useTrackScreenHeight from "../customHook/useTrackScreenHeight"
 import ProgressBar from "react-scroll-progress-bar"
 import Scrollspy from "react-scrollspy"
-import ScrollIntoView from "../Functions/ScrollIntoView"
-import setDocTitle from "../Functions/SetDocTitle"
+import setDocTitle from "../lib/Functions/SetDocTitle"
 
-const Header = ({ IntroRef, aboutRef, SkillsRef, WorkRef, ContactRef }) => {
+const Header = () => {
   const trackHeight = useTrackScreenHeight()
 
   return (
@@ -24,13 +23,13 @@ const Header = ({ IntroRef, aboutRef, SkillsRef, WorkRef, ContactRef }) => {
         }
       >
         <div className="scale-90 hover:scale-110 cursor-pointer font-bold hover:animate-pulse">
-          <a onClick={() => ScrollIntoView(aboutRef, "About")}>About</a>
+          <a href="#About">About</a>
         </div>
         <div className="scale-90 hover:scale-110 cursor-pointer font-bold hover:animate-pulse">
-          <a onClick={() => ScrollIntoView(SkillsRef, "Skills")}>Skills</a>
+          <a href="#Skills">Skills</a>
         </div>
         <div>
-          <a onClick={() => ScrollIntoView(IntroRef, "Into")}>
+          <a href="#Intro">
             <img
               src="/J.png"
               className="w-[50px] scale-110 cursor-pointer"
@@ -39,10 +38,10 @@ const Header = ({ IntroRef, aboutRef, SkillsRef, WorkRef, ContactRef }) => {
           </a>
         </div>
         <div className="scale-90 hover:scale-110 cursor-pointer font-bold hover:animate-pulse">
-          <a onClick={() => ScrollIntoView(WorkRef, "Showcase")}>Showcase</a>
+          <a href="#Showcase">Work</a>
         </div>
         <div className="scale-90 hover:scale-110 cursor-pointer font-bold hover:animate-pulse">
-          <a onClick={() => ScrollIntoView(ContactRef, "Contact")}>Contact</a>
+          <a href="#Contact">Contact</a>
         </div>
       </Scrollspy>
     </div>

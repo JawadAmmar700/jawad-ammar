@@ -4,12 +4,22 @@ import { ChevronDownIcon } from "@heroicons/react/solid"
 import { ChevronUpIcon } from "@heroicons/react/solid"
 import { motion } from "framer-motion"
 
-const SKills = React.forwardRef<HTMLDivElement>((props: any, ref) => {
+type subSkillType = {
+  lng: string
+  percent: number
+}
+type Skills = {
+  lng: string
+  percent: string
+  subSkill: Array<subSkillType>
+}
+
+const SKills = ({ skills }: { skills: Skills[] }) => {
   //craete a state called isOpen
   const [isOpen, setIsOpen] = React.useState(-1)
 
   return (
-    <div ref={ref} className="w-ful relative mt-72">
+    <div className="w-ful relative mt-72 " id="Skills">
       <div className="flex flex-col space-y-4 w-full md:items-center bg-gray-100 relative top-16">
         <div className="mt-16 px-2 flex flex-col md:w-[700px] lg:w-[900px] mb-4 lg:ml-24 ">
           <div>
@@ -35,12 +45,12 @@ const SKills = React.forwardRef<HTMLDivElement>((props: any, ref) => {
           <div className=" px-2">
             <p className="text-2xl font-bold">Skills:</p>
             <div className="p-4 font-medium">
-              {props?.skills?.map((skill: any, index: number) => (
+              {skills?.map((skill: any, index: number) => (
                 <div key={index}>
                   <p>
                     {index + 1}- {skill.lng}- {skill.percent}%
                   </p>
-                  <div id="Skills" className="px-8">
+                  <div className="px-8">
                     <ProgressBar percent={skill.percent} />
                     <p
                       onClick={() => setIsOpen(index === isOpen ? -1 : index)}
@@ -81,6 +91,6 @@ const SKills = React.forwardRef<HTMLDivElement>((props: any, ref) => {
       </div>
     </div>
   )
-})
+}
 
 export default SKills

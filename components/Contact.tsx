@@ -3,13 +3,13 @@ import { CheckCircleIcon } from "@heroicons/react/solid"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
-const Contact = React.forwardRef<HTMLDivElement>((props, refContact) => {
+const Contact = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [subject, setSubject] = useState("")
   const [message, setMessage] = useState("")
 
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     /* Optional options */
     threshold: 0.1,
   })
@@ -59,7 +59,7 @@ const Contact = React.forwardRef<HTMLDivElement>((props, refContact) => {
   }
 
   return (
-    <div id="Contact" ref={refContact} className="w-full h-[900px]">
+    <div id="Contact" className="w-full h-[900px] mt-0">
       <div className="relative top-36 flex justify-center items-center">
         <motion.form
           animate={controls}
@@ -137,6 +137,6 @@ const Contact = React.forwardRef<HTMLDivElement>((props, refContact) => {
       </div>
     </div>
   )
-})
+}
 
 export default Contact

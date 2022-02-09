@@ -2,7 +2,7 @@ import React from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
-const ProgressBar = ({ percent }) => {
+const ProgressBar = ({ percent }: { percent: number }) => {
   //barRef ref
   const { ref, inView, entry } = useInView({
     /* Optional options */

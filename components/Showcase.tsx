@@ -1,22 +1,32 @@
 import React from "react"
 import Card from "./Card"
 
-const Work = React.forwardRef<HTMLDivElement>(({ all }: any, ref) => {
+type ProjectType = {
+  name: string
+  src: string
+  link: string
+  videoUrl: string
+  technology: string
+  description: string
+  site?: string
+  span: number
+}
+
+const ShowCase = ({ all }: { all: ProjectType[] }) => {
   return (
     <div
-      ref={ref}
       id="Showcase"
       className="w-full pb-4 mt-16 bg-black opacity-100 flex flex-col space-y-24 py-10"
     >
       <div className="flex flex-col items-center space-y-4 mt-12">
         <p className="font-bold text-white text-2xl">Showcase</p>
-        <p className="text-gray-300 ">
-          Meet hundreds of beautiful websites built with Next.js by Vercel
+        <p className="text-gray-300 text-sm text-center md:text-xl">
+          Meet couple of beautiful websites built with Next.js and React.js
         </p>
       </div>
 
       <div className="w-full  flex justify-center items-center">
-        <div className=" overflow-y-scroll grid grid-cols-3 gap-10 w-[90%] place-content-center py-2 ">
+        <div className=" overflow-y-scroll grid grid-cols-1 md:grid-cols-3 gap-10 w-[90%] place-content-center py-2">
           {all?.map((item: any, index: number) => (
             <Card key={index} {...item} />
           ))}
@@ -24,6 +34,6 @@ const Work = React.forwardRef<HTMLDivElement>(({ all }: any, ref) => {
       </div>
     </div>
   )
-})
+}
 
-export default Work
+export default ShowCase
