@@ -1,25 +1,15 @@
-import React from "react"
+import { useState } from "react"
 import ProgressBar from "./ProgressBar"
 import { ChevronDownIcon } from "@heroicons/react/solid"
 import { ChevronUpIcon } from "@heroicons/react/solid"
 import { motion } from "framer-motion"
-
-type subSkillType = {
-  lng: string
-  percent: number
-}
-type Skills = {
-  lng: string
-  percent: string
-  subSkill: Array<subSkillType>
-}
+import { Skills, subSkillType } from "../lib/types"
 
 const SKills = ({ skills }: { skills: Skills[] }) => {
-  //craete a state called isOpen
-  const [isOpen, setIsOpen] = React.useState(-1)
+  const [isOpen, setIsOpen] = useState(-1)
 
   return (
-    <div className="w-ful relative mt-72 " id="Skills">
+    <div id="Skills" className="w-ful relative mt-72">
       <div className="flex flex-col space-y-4 w-full md:items-center bg-gray-100 relative top-16">
         <div className="mt-16 px-2 flex flex-col md:w-[700px] lg:w-[900px] mb-4 lg:ml-24 ">
           <div>
@@ -45,12 +35,12 @@ const SKills = ({ skills }: { skills: Skills[] }) => {
           <div className=" px-2">
             <p className="text-2xl font-bold">Skills:</p>
             <div className="p-4 font-medium">
-              {skills?.map((skill: any, index: number) => (
+              {skills?.map((skill: Skills, index: number) => (
                 <div key={index}>
                   <p>
                     {index + 1}- {skill.lng}- {skill.percent}%
                   </p>
-                  <div className="px-8">
+                  <div id="Skills" className="px-8">
                     <ProgressBar percent={skill.percent} />
                     <p
                       onClick={() => setIsOpen(index === isOpen ? -1 : index)}
@@ -65,21 +55,23 @@ const SKills = ({ skills }: { skills: Skills[] }) => {
                     </p>
                     {isOpen === index && (
                       <div className="px-4">
-                        {skill.subSkill.map((subSkill: any, index: number) => (
-                          <div key={index}>
-                            <li>
-                              {subSkill.lng}- {subSkill.percent}%
-                            </li>
-                            <motion.div
-                              initial={{ width: 0 }}
-                              animate={{ width: `${subSkill.percent}%` }}
-                              transition={{ duration: 0.5 }}
-                              className="px-4"
-                            >
-                              <ProgressBar percent={subSkill.percent} />
-                            </motion.div>
-                          </div>
-                        ))}
+                        {skill.subSkill.map(
+                          (subSkill: subSkillType, index: number) => (
+                            <div key={index}>
+                              <li>
+                                {subSkill.lng}- {subSkill.percent}%
+                              </li>
+                              <motion.div
+                                initial={{ width: 0 }}
+                                animate={{ width: `${subSkill.percent}%` }}
+                                transition={{ duration: 0.5 }}
+                                className="px-4"
+                              >
+                                <ProgressBar percent={subSkill.percent} />
+                              </motion.div>
+                            </div>
+                          )
+                        )}
                       </div>
                     )}
                   </div>

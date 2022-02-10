@@ -1,4 +1,3 @@
-import React from "react"
 import TypeWriter from "react-typewriter"
 import { FiFacebook, FiLinkedin, FiGithub } from "react-icons/fi"
 import { ChevronDownIcon } from "@heroicons/react/outline"
@@ -12,7 +11,7 @@ const Intro = () => {
         alt=""
         className="w-full h-screen  object-fill z-50"
       />
-      <div className="w-full  z-30 h-screen  flex-col absolute top-0 flex items-center justify-center text-white">
+      <div className="w-full z-30 h-screen  flex-col absolute top-0 flex items-center justify-center text-white">
         <div className="flex flex-col items-center  space-y-8 justify-center text-white">
           <p className="text-center">
             <TypeWriter typing={0.5}>
@@ -62,7 +61,7 @@ const Intro = () => {
         </div>
         <div className="absolute bottom-4">
           <a href="#About">
-            <ChevronDownIcon className="w-[45px] h-[45px] animate-bounce cursor-pointer  hover:text-blue-500" />
+            <ChevronDownIcon className="w-[45px] h-[45px] animate-bounce cursor-pointer hover:text-blue-500" />
           </a>
         </div>
       </div>

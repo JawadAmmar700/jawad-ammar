@@ -1,12 +1,10 @@
-import React from "react"
+import { useState } from "react"
 import { PaperAirplaneIcon } from "@heroicons/react/outline"
 import { motion, AnimatePresence } from "framer-motion"
 
 const About = () => {
-  //create a state called viewContent that is set to false
-  const [viewContent, setViewContent] = React.useState(false)
-  //create a state called hover that is set to false
-  const [hover, setHover] = React.useState(false)
+  const [viewContent, setViewContent] = useState(false)
+  const [hover, setHover] = useState(false)
 
   return (
     <div

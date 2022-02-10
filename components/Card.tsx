@@ -1,10 +1,10 @@
-import React from "react"
+import { useState } from "react"
 import { ArrowNarrowRightIcon } from "@heroicons/react/outline"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
 const Card = ({ name, src, span }: any) => {
-  const [revealCard, setRevealCard] = React.useState(false)
+  const [revealCard, setRevealCard] = useState(false)
 
   return (
     <div

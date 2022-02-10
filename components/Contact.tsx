@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useEffect, useState } from "react"
 import { CheckCircleIcon } from "@heroicons/react/solid"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
@@ -10,12 +10,11 @@ const Contact = () => {
   const [message, setMessage] = useState("")
 
   const { ref, inView } = useInView({
-    /* Optional options */
     threshold: 0.1,
   })
   const controls = useAnimation()
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (inView) {
       controls.start({
         x: 0,

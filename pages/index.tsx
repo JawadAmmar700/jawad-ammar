@@ -1,6 +1,8 @@
 import type { GetStaticProps } from "next"
 import Head from "next/head"
-import resumeData from "../data/resume-data.json"
+import prisma from "../lib/prisma"
+import { ProjectType, Skills } from "../lib/types"
+import Image from "next/image"
 import {
   Intro,
   Header,
@@ -11,63 +13,49 @@ import {
   Footer,
 } from "../components"
 
-type subSkillType = {
-  lng: string
-  percent: number
-}
+export const getStaticProps: GetStaticProps = async () => {
+  const projects = await prisma.data.findMany()
+  const skillsData = await prisma.skills.findMany()
 
-type ProjectType = {
-  name: string
-  src: string
-  link: string
-  videoUrl: string
-  technology: string
-  description: string
-  site?: string
-  span: number
-}
+  const skills = skillsData.map(skill => {
+    const convertedSubSkill = skill.subSkill.map(str => JSON.parse(str))
+    return {
+      lng: skill.lng,
+      percent: skill.percent,
+      subSkill: convertedSubSkill,
+    }
+  })
 
-type Skills = {
-  lng: string
-  percent: string
-  subSkill: Array<subSkillType>
-}
-
-interface Data {
-  skills: Array<Skills>
-  Projects: Array<ProjectType>
-}
-
-export const getStaticProps: GetStaticProps = () => {
   const data = {
-    skills: resumeData.skills,
-    Projects: resumeData.NextJs.concat(resumeData.ReactJs),
+    skills,
+    projects,
   }
 
   return {
-    props: { data },
+    props: {
+      data: JSON.stringify(data),
+    },
   }
 }
 
-export default function Home({ data }: { data: Data }) {
+export default function Home({ data }: { data: string }) {
+  const skills: Skills[] = JSON.parse(data).skills
+  const projects: ProjectType[] = JSON.parse(data).projects
+
   return (
-    <div className="z-50 relative scroll-smooth">
+    <div className="z-50 relative">
       <Head>
         <title>Intro</title>
         <link rel="icon" href="/J.png" />
       </Head>
-      <img
-        src="/fixedImage.jpg"
-        alt="fixed image"
-        className="w-full h-screen fixed z-0"
-      />
+      <Image src="/fixedImage.jpg" alt="fixed image" layout="fill" />
       <main className="w-full absolute top-0">
         <Header />
         <div>
           <Intro />
           <About />
-          <SKills skills={data.skills} />
-          <ShowCase all={data.Projects} />
+          <SKills skills={skills} />
+          <ShowCase projects={projects} />
           <Contact />
           <Footer />
         </div>

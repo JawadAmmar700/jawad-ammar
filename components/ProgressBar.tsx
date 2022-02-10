@@ -1,16 +1,14 @@
-import React from "react"
+import { useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
-const ProgressBar = ({ percent }: { percent: number }) => {
-  //barRef ref
-  const { ref, inView, entry } = useInView({
-    /* Optional options */
+const ProgressBar = ({ percent }: { percent: string }) => {
+  const { ref, inView } = useInView({
     threshold: 0,
   })
   const controls = useAnimation()
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (inView) {
       controls.start({
         width: `${percent}%`,

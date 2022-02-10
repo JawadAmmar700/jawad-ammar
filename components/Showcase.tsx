@@ -1,18 +1,7 @@
-import React from "react"
+import { ProjectType } from "../lib/types"
 import Card from "./Card"
 
-type ProjectType = {
-  name: string
-  src: string
-  link: string
-  videoUrl: string
-  technology: string
-  description: string
-  site?: string
-  span: number
-}
-
-const ShowCase = ({ all }: { all: ProjectType[] }) => {
+const ShowCase = ({ projects }: { projects: ProjectType[] }) => {
   return (
     <div
       id="Showcase"
@@ -27,7 +16,7 @@ const ShowCase = ({ all }: { all: ProjectType[] }) => {
 
       <div className="w-full  flex justify-center items-center">
         <div className=" overflow-y-scroll grid grid-cols-1 md:grid-cols-3 gap-10 w-[90%] place-content-center py-2">
-          {all?.map((item: any, index: number) => (
+          {projects?.map((item: any, index: number) => (
             <Card key={index} {...item} />
           ))}
         </div>

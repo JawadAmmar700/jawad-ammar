@@ -1,6 +1,7 @@
 import React from "react"
 import { GetStaticProps, GetStaticPaths } from "next"
-import resumeData from "../data/resume-data.json"
+import prisma from "../lib/prisma"
+import { ProjectType } from "../lib/types"
 import {
   CodeIcon,
   PlayIcon,
@@ -10,13 +11,11 @@ import {
 import Link from "next/link"
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const Nextjs = resumeData.NextJs.map(project => ({
+  const projects = await prisma.data.findMany()
+
+  const paths = projects.map(project => ({
     params: { name: project.name },
   }))
-  const Reactjs = resumeData.ReactJs.map(project => ({
-    params: { name: project.name },
-  }))
-  const paths = Nextjs.concat(Reactjs)
 
   return {
     paths: paths,
@@ -26,17 +25,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ctx => {
   const param = ctx.params?.name
-  const nextjs = resumeData.NextJs
-  const reactjs = resumeData.ReactJs
-  const AllProjects = nextjs.concat(reactjs)
-  const specificProject = AllProjects.find(project => project.name === param)
+  const projects = await prisma.data.findMany()
+  const specificProject = projects.find(project => project.name === param)
 
   return {
-    props: { specificProject },
+    props: { specificProject: JSON.stringify(specificProject) },
   }
 }
 
-const Details = ({ specificProject: data }) => {
+const Details = ({ specificProject }: { specificProject: string }) => {
+  const data: ProjectType = JSON.parse(specificProject)
   return (
     <div className="w-full relative text-white z-0">
       <div className="w-full">
@@ -72,7 +70,7 @@ const Details = ({ specificProject: data }) => {
           <a
             href={data.link}
             target="_blank"
-            className=" border-2 font-bold h-[50px] hover:bg-white hover:text-black transition-all duration-75 delay-75 border-white rounded flex space-x-3 w-[150px] items-center justify-center"
+            className="border-2 font-bold h-[50px] hover:bg-white hover:text-black transition-all duration-75 delay-75 border-white rounded flex space-x-3 w-[150px] items-center justify-center"
           >
             <p> View Code</p>
             <CodeIcon className="w-[30px]" />
@@ -80,7 +78,7 @@ const Details = ({ specificProject: data }) => {
           <a
             href={data.videoUrl}
             target="_blank"
-            className=" border-2 text-black bg-white font-bold h-[50px] hover:bg-black hover:text-white transition-all duration-75 delay-75 border-white rounded flex space-x-3 w-[150px] items-center justify-center"
+            className="border-2 text-black bg-white font-bold h-[50px] hover:bg-black hover:text-white transition-all duration-75 delay-75 border-white rounded flex space-x-3 w-[150px] items-center justify-center"
           >
             <p>Watch</p>
             <PlayIcon className="w-[30px]" />
@@ -90,7 +88,7 @@ const Details = ({ specificProject: data }) => {
           <a
             href={data.site}
             target="_blank"
-            className="  font-bold h-[50px]  transition-all duration-75 delay-75  rounded flex space-x-3 w-[150px] items-center justify-center hover:outline-white"
+            className="font-bold h-[50px]  transition-all duration-75 delay-75  rounded flex space-x-3 w-[150px] items-center justify-center hover:outline-white"
           >
             <p>View Site</p>
             <GlobeAltIcon className="w-[30px]" />

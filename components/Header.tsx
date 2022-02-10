@@ -1,8 +1,7 @@
-import React from "react"
-import useTrackScreenHeight from "../customHook/useTrackScreenHeight"
+import useTrackScreenHeight from "../lib/hooks/useTrackScreenHeight"
 import ProgressBar from "react-scroll-progress-bar"
 import Scrollspy from "react-scrollspy"
-import setDocTitle from "../lib/Functions/SetDocTitle"
+import setDocTitle from "../lib/SetDocTitle"
 
 const Header = () => {
   const trackHeight = useTrackScreenHeight()
