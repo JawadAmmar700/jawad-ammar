@@ -1,17 +1,20 @@
 import TypeWriter from "react-typewriter"
 import { FiFacebook, FiLinkedin, FiGithub } from "react-icons/fi"
-import { ChevronDownIcon } from "@heroicons/react/outline"
+import { ChevronDownIcon, ChatAlt2Icon, XIcon } from "@heroicons/react/outline"
 import { motion } from "framer-motion"
+import SideBar from "./SideBar"
+import { useRef } from "react"
 
 const Intro = () => {
+  const sideBarRef = useRef<any>(null)
   return (
     <section id="Intro" className="w-full z-50 h-screen -mt-16">
       <img
         src="https://www.wallpaperup.com/uploads/wallpapers/2012/10/03/18069/8dcd6050eb6fb49944489290ddf26625-700.jpg"
         alt=""
-        className="w-full h-screen  object-fill z-50"
+        className="w-full h-screen object-fill z-50"
       />
-      <div className="w-full z-30 h-screen  flex-col absolute top-0 flex items-center justify-center text-white">
+      <div className="w-full z-30 h-screen flex-col absolute top-0 flex items-center justify-center text-white">
         <div className="flex flex-col items-center  space-y-8 justify-center text-white">
           <p className="text-center">
             <TypeWriter typing={0.5}>
@@ -24,7 +27,7 @@ const Intro = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ ease: "easeOut", duration: 3, delay: 4.6 }}
-              className="mt-4 md:text-xl lg:text-2xl "
+              className="mt-4 md:text-xl lg:text-2xl"
             >
               Full Stack Developer
             </motion.p>
@@ -64,7 +67,14 @@ const Intro = () => {
             <ChevronDownIcon className="w-[45px] h-[45px] animate-bounce cursor-pointer hover:text-blue-500" />
           </a>
         </div>
+        <button
+          className="absolute bottom-0 right-0 m-4 font-bold text-slate-50 scale-95 hover:scale-105 hover:text-sky-500 hover:animate-pulse"
+          onClick={() => sideBarRef.current.toggle()}
+        >
+          <ChatAlt2Icon className="w-5 text-white" />
+        </button>
       </div>
+      <SideBar ref={sideBarRef} />
     </section>
   )
 }

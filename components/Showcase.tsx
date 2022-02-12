@@ -15,7 +15,7 @@ const ShowCase = ({ projects }: { projects: ProjectType[] }) => {
       </div>
 
       <div className="w-full  flex justify-center items-center">
-        <div className=" overflow-y-scroll grid grid-cols-1 md:grid-cols-3 gap-10 w-[90%] place-content-center py-2">
+        <div className=" overflow-y-hidden grid grid-cols-1 md:grid-cols-3 gap-10 w-[90%] place-content-center py-2">
           {projects?.map((item: any, index: number) => (
             <Card key={index} {...item} />
           ))}

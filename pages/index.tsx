@@ -2,7 +2,6 @@ import type { GetStaticProps } from "next"
 import Head from "next/head"
 import prisma from "../lib/prisma"
 import { ProjectType, Skills } from "../lib/types"
-import Image from "next/image"
 import {
   Intro,
   Header,
@@ -43,12 +42,16 @@ export default function Home({ data }: { data: string }) {
   const projects: ProjectType[] = JSON.parse(data).projects
 
   return (
-    <div className="z-50 relative">
+    <div className="relative">
       <Head>
         <title>Intro</title>
         <link rel="icon" href="/J.png" />
       </Head>
-      <Image src="/fixedImage.jpg" alt="fixed image" layout="fill" />
+      <img
+        src="/fixedImage.jpg"
+        alt="fixed image"
+        className="w-full h-screen fixed -z-10"
+      />
       <main className="w-full absolute top-0">
         <Header />
         <div>

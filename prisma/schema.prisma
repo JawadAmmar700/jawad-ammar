@@ -34,3 +34,24 @@ model Skills {
   subSkill String[]
 
 }
+
+model Comment {
+  id String @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  username String
+  comment String
+  image String
+  Replies Reply[]
+}
+
+model Reply {
+  id String @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  reliedComment String
+  repliedUser String
+  commentId String
+  image String
+  replies Comment @relation(fields:[commentId], references:[id])
+}
