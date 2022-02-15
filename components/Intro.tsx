@@ -1,9 +1,9 @@
+import { useRef } from "react"
 import TypeWriter from "react-typewriter"
 import { FiFacebook, FiLinkedin, FiGithub } from "react-icons/fi"
 import { ChevronDownIcon, ChatAlt2Icon, XIcon } from "@heroicons/react/outline"
 import { motion } from "framer-motion"
-import SideBar from "./SideBar"
-import { useRef } from "react"
+import Comments from "./comments"
 
 const Intro = () => {
   const sideBarRef = useRef<any>(null)
@@ -74,7 +74,7 @@ const Intro = () => {
           <ChatAlt2Icon className="w-5 text-white" />
         </button>
       </div>
-      <SideBar ref={sideBarRef} />
+      <Comments ref={sideBarRef} />
     </section>
   )
 }
