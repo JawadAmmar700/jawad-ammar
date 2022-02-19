@@ -11,6 +11,7 @@ import {
   Contact,
   Footer,
 } from "../components"
+import { useRef } from "react"
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await prisma.data.findMany()
@@ -40,11 +41,18 @@ export const getStaticProps: GetStaticProps = async () => {
 export default function Home({ data }: { data: string }) {
   const skills: Skills[] = JSON.parse(data).skills
   const projects: ProjectType[] = JSON.parse(data).projects
+  const refs = [
+    useRef<HTMLDivElement>(null),
+    useRef<HTMLDivElement>(null),
+    useRef<HTMLDivElement>(null),
+    useRef<HTMLDivElement>(null),
+    useRef<HTMLDivElement>(null),
+  ]
 
   return (
     <div className="relative">
       <Head>
-        <title>Intro</title>
+        <title>Jawad's resume</title>
         <link rel="icon" href="/J.png" />
       </Head>
       <img
@@ -53,13 +61,13 @@ export default function Home({ data }: { data: string }) {
         className="w-full h-screen fixed -z-10"
       />
       <main className="w-full absolute top-0">
-        <Header />
+        <Header refs={refs} />
         <div>
-          <Intro />
-          <About />
-          <SKills skills={skills} />
-          <ShowCase projects={projects} />
-          <Contact />
+          <Intro introRef={refs[2]} />
+          <About aboutRef={refs[0]} />
+          <SKills skills={skills} skillRef={refs[1]} />
+          <ShowCase projects={projects} showcaseRef={refs[3]} />
+          <Contact contactRef={refs[4]} />
           <Footer />
         </div>
       </main>

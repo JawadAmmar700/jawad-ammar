@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.link {
+  @apply scale-90 hover:scale-110 cursor-pointer font-bold hover:animate-pulse;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: black;

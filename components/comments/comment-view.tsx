@@ -7,19 +7,21 @@ import moment from "moment"
 import axios from "../../lib/axios"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import { Toaster, toast } from "react-hot-toast"
+import { Reply, Comment, Session } from "../../lib/types"
+import Image from "next/image"
 
-const CommentsView = ({ session }) => {
-  const [comment, setComment] = useState("")
-  const [reply, setReply] = useState("")
-  const [comments, setComments] = useState<any>([])
-  const [openCommentContent, setOpenCommentContent] = useState(-1)
-  const [buttonState, setButtonState] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+const CommentsView = ({ session }: { session: Session | null }) => {
+  const [comment, setComment] = useState<string>("")
+  const [reply, setReply] = useState<string>("")
+  const [comments, setComments] = useState<Comment[]>([])
+  const [openCommentContent, setOpenCommentContent] = useState<number>(-1)
+  const [buttonState, setButtonState] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const commentRef = useRef<any>(null)
 
   const getComments = async () => {
     setIsLoading(true)
-    const { data } = await axios.get("comments")
+    const { data }: { data: Comment[] } = await axios.get("comments")
     if (data) {
       setComments(data)
       setIsLoading(false)
@@ -27,8 +29,9 @@ const CommentsView = ({ session }) => {
   }
 
   useEffect(() => {
+    if (!session) return
     getComments()
-  }, [])
+  }, [session])
 
   const handleComment = async (e: any) => {
     e.preventDefault()
@@ -66,7 +69,7 @@ const CommentsView = ({ session }) => {
           commentId,
           image: session?.user?.image,
         })
-        .then(({ data }) => {
+        .then(({ data }: { data: Reply }) => {
           const Comments = comments.map(comment => {
             if (comment.id !== data.commentId) return comment
             const Replies = !comment.Replies ? [] : comment.Replies
@@ -96,16 +99,16 @@ const CommentsView = ({ session }) => {
           <p className="leading-relaxed">
             Sign in to comment, make a suggestion, or ask a question.
           </p>
-          {!session && (
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              onClick={() => signIn()}
-              className="text-sm flex items-center space-x-2  uppercase mt-4 font-medium scale-90 hover:scale-100 p-3 w-[100px] text-black bg-slate-50 rounded"
-            >
-              <p>login</p>
-              <LoginIcon className="w-5 h-5 text-black" />
-            </motion.button>
-          )}
+
+          <motion.button
+            initial={{ scale: 0.9 }}
+            whileHover={{ scale: 1 }}
+            onClick={() => signIn()}
+            className="text-sm flex items-center space-x-2 font-medium uppercase mt-4 scale-90 hover:scale-100 p-3 w-[100px] text-black bg-slate-50 rounded"
+          >
+            <p>login</p>
+            <LoginIcon className="w-5 h-5 text-black" />
+          </motion.button>
         </div>
       ) : (
         <div className="flex flex-col space-y-3">
@@ -114,30 +117,32 @@ const CommentsView = ({ session }) => {
               <AiOutlineLoading3Quarters className="w-5 h-5 text-white animate-spin mt-10" />
             </div>
           ) : (
-            <div className="mt-8 h-[370px] overflow-y-scroll snap-mandatory snap-y hide-scroll-bar">
+            <div className="mt-8 h-[370px] overflow-y-scroll hide-scroll-bar">
               {comments.length <= 0 ? (
                 <p className="text-center text-xl mx-auto mt-8  h-[370px]">
                   No comments yet
                 </p>
               ) : (
                 <div>
-                  {comments.map((comment: any, id) => (
+                  {comments.map((comment: Comment, id: number) => (
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.3, type: "linear" }}
                       key={comment.id}
-                      className="flex snap-center flex-col p-2 bg-slate-200 rounded mt-2 overflow-y-scroll hide-scroll-bar shadow-[0_15px_70px_-15px_#ffee004b]"
+                      className="flex flex-col p-2 bg-slate-200 rounded mt-2  shadow-[0_15px_70px_-15px_#ffee004b]"
                     >
                       <div
-                        className="flex items-center justify-between space-x-2"
+                        className="flex items-center justify-between space-x-2 cursor-pointer"
                         onClick={() => openComment(id)}
                       >
                         <div className="flex items-center space-x-2">
-                          <img
+                          <Image
                             src={comment.image}
                             alt="user image"
-                            className="w-[25px] h-[25px] rounded-full"
+                            width={25}
+                            height={25}
+                            className="rounded-full"
                           />
                           <h2 className="text-xs font-bold text-slate-700">
                             {comment.username}
@@ -156,7 +161,7 @@ const CommentsView = ({ session }) => {
 
                           {/* replies goes here */}
                           <div className="overflow-y-scroll overflow-x-hidden">
-                            {comment?.Replies?.map((reply: any, id) => (
+                            {comment?.Replies?.map((reply: any, id: number) => (
                               <motion.div
                                 initial={{
                                   x: id == 0 ? 100 : id * 200,
@@ -169,10 +174,12 @@ const CommentsView = ({ session }) => {
                                 <div className="flex flex-col px-4 bg-slate-200 rounded mt-2 py-1 shadow-[0_25px_50px_-15px_#2f00ff49]">
                                   <div className="flex justify-between">
                                     <div className="flex items-center space-x-2">
-                                      <img
+                                      <Image
                                         src={reply.image}
                                         alt="user image"
-                                        className="w-[25px] h-[25px] rounded-full"
+                                        width={25}
+                                        height={25}
+                                        className="rounded-full"
                                       />
                                       <h2 className="text-xs font-bold text-slate-700">
                                         {reply.repliedUser}
@@ -250,7 +257,7 @@ const CommentsView = ({ session }) => {
           )}
 
           <form
-            className="w-full h-10 flex items-center shadow-[0_25px_100px_10px_#ffee004b] justify-center bg-slate-200 rounded"
+            className="w-full h-10 relative top-2 flex items-center shadow-[0_25px_100px_10px_#ffee004b] justify-center bg-slate-200 rounded"
             onSubmit={handleComment}
           >
             <input

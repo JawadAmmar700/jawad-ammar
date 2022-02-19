@@ -2,13 +2,10 @@ import React from "react"
 import { GetStaticProps, GetStaticPaths } from "next"
 import prisma from "../lib/prisma"
 import { ProjectType } from "../lib/types"
-import {
-  CodeIcon,
-  PlayIcon,
-  ChevronLeftIcon,
-  GlobeAltIcon,
-} from "@heroicons/react/outline"
+import { CodeIcon, PlayIcon, GlobeAltIcon } from "@heroicons/react/outline"
+import { ChevronLeftIcon } from "@heroicons/react/solid"
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const projects = await prisma.data.findMany()
@@ -36,63 +33,74 @@ export const getStaticProps: GetStaticProps = async ctx => {
 const Details = ({ specificProject }: { specificProject: string }) => {
   const data: ProjectType = JSON.parse(specificProject)
   return (
-    <div className="w-full relative text-white z-0">
-      <div className="w-full">
+    <div className="w-full min-h-screen md:relative flex flex-col md:flex-none space-y-2 items-center justify-center">
+      <img
+        src={data.src}
+        alt={data.name}
+        className="w-full md:h-screen h-[200px]  object-contain z-10 rounded-lg opacity-90 md:opacity-20"
+      />
+      <div className="w-full md:w-[600px] text-white flex flex-col space-y-3 justify-center z-30 md:absolute md:top-24 opacity-100">
         <Link href="/#Showcase">
-          <div className="fixed top-2 left-5 text-blue-500 flex justify-center items-center hover:scale-100 scale-95 hover:text-blue-600 cursor-pointer">
-            <ChevronLeftIcon className="w-[30px]" />
-            <p className="font-semibold">Home</p>
-          </div>
+          <motion.div
+            initial={{ scale: 0.9 }}
+            whileHover={{ scale: 1 }}
+            className="fixed top-2 left-5 text-blue-500 flex justify-center items-center hover:text-blue-600 cursor-pointer group"
+          >
+            <ChevronLeftIcon className="w-[20px] group-hover:animate-pulse" />
+            <p className="font-medium text-sm">Home</p>
+          </motion.div>
         </Link>
-        <img
-          src={data.src}
-          alt={data.name}
-          className="w-full md:h-[500px] object-contain z-10"
-        />
-      </div>
+        <p className="text-2xl font-bold mx-auto mb-4">{data.name}</p>
 
-      <div className="w-full mb-10 text-white mt-10 flex flex-col space-y-5 justify-center items-center z-30">
-        <div className="flex space-x-2 items-center justify-center">
-          <h1 className="font-bold text-xl">Project Name:</h1>
-          <p className="text-xl">{data.name}</p>
-        </div>
-        <div className="flex flex-col space-y-2 items-center justify-center ">
-          <h1 className="font-bold text-xl">Technology Used:</h1>
-          <p className="text-xl  md:w-auto text-center">{data.technology}</p>
-        </div>
-        <div className="flex flex-col space-y-2 items-center justify-center ">
-          <h1 className="font-bold text-xl">Description:</h1>
-          <p className="text-xl px-4  md:w-[700px] text-center">
-            {data.description}
-          </p>
-        </div>
-        <div className="flex space-x-2 mb-5 items-center justify-center">
-          <a
+        <p className="text-sm font-medium mx-auto w-[400px] md:w-auto text-left break-words">
+          Libraries: {data.technology}
+        </p>
+
+        <p className="first-letter:text-3xl text-sm font-medium text-left md:h-[150px] h-[110px]  break-words w-[400px] mx-auto  md:w-auto overflow-y-scroll hide-scroll-bar cursor-all-scroll">
+          {data.description}
+        </p>
+
+        <div className="flex space-x-2  items-center justify-center">
+          <motion.a
+            whileHover={{
+              scale: [1, 1.2, 1],
+              rotate: [0, -15, 15, 0],
+            }}
             href={data.link}
             target="_blank"
-            className="border-2 font-bold h-[50px] hover:bg-white hover:text-black transition-all duration-75 delay-75 border-white rounded flex space-x-3 w-[150px] items-center justify-center"
+            className="border-2 font-bold h-[50px]  border-white rounded flex space-x-3 w-[150px] items-center justify-center group"
           >
-            <p> View Code</p>
-            <CodeIcon className="w-[30px]" />
-          </a>
-          <a
+            <p> Code</p>
+            <CodeIcon className="w-[30px] group-hover:animate-pulse" />
+          </motion.a>
+          <motion.a
+            whileHover={{
+              scale: [1, 1.2, 1],
+              rotate: [0, -15, 15, 0],
+            }}
             href={data.videoUrl}
             target="_blank"
-            className="border-2 text-black bg-white font-bold h-[50px] hover:bg-black hover:text-white transition-all duration-75 delay-75 border-white rounded flex space-x-3 w-[150px] items-center justify-center"
+            className="border-2 text-black bg-white font-bold h-[50px] hover:bg-black hover:text-white border-white rounded flex space-x-3 w-[150px] items-center justify-center group"
           >
             <p>Watch</p>
-            <PlayIcon className="w-[30px]" />
-          </a>
+            <PlayIcon className="w-[30px]  group-hover:animate-spin" />
+          </motion.a>
         </div>
         {data?.site && (
-          <a
+          <motion.a
+            whileHover={{
+              scale: [1, 1.2, 1],
+              rotate: [0, -15, 15, 0],
+              backgroundColor: "black",
+              color: "white",
+            }}
             href={data.site}
             target="_blank"
-            className="font-bold h-[50px]  transition-all duration-75 delay-75  rounded flex space-x-3 w-[150px] items-center justify-center hover:outline-white"
+            className="bg-black font-bold h-[50px] border-2 border-white mx-auto rounded flex space-x-3 w-[150px] items-center justify-center group"
           >
-            <p>View Site</p>
-            <GlobeAltIcon className="w-[30px]" />
-          </a>
+            <p> Site</p>
+            <GlobeAltIcon className="w-[30px] group-hover:animate-spin " />
+          </motion.a>
         )}
       </div>
     </div>

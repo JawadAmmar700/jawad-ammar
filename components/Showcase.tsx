@@ -1,9 +1,16 @@
 import { ProjectType } from "../lib/types"
 import Card from "./Card"
 
-const ShowCase = ({ projects }: { projects: ProjectType[] }) => {
+const ShowCase = ({
+  projects,
+  showcaseRef,
+}: {
+  projects: ProjectType[]
+  showcaseRef: React.RefObject<HTMLDivElement>
+}) => {
   return (
     <div
+      ref={showcaseRef}
       id="Showcase"
       className="w-full pb-4 mt-16 bg-black opacity-100 flex flex-col space-y-24 py-10"
     >

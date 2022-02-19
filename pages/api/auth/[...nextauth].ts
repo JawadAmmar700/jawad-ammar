@@ -4,10 +4,18 @@ import GoogleProvider from "next-auth/providers/google"
 const GOOGLE_ID: string = `${process.env.GOOGLE_ID}`
 const GOOGLE_SECRET: string = `${process.env.GOOGLE_SECRET}`
 
+const GOOGLE_AUTHORIZATION_URL =
+  "https://accounts.google.com/o/oauth2/v2/auth?" +
+  new URLSearchParams({
+    prompt: "consent",
+    access_type: "offline",
+    response_type: "code",
+  })
+
 async function refreshAccessToken(token: any) {
   try {
     const url =
-      "https://www.googleapis.com/oauth2/v4/token?" +
+      "https://oauth2.googleapis.com/token?" +
       new URLSearchParams({
         client_id: GOOGLE_ID,
         client_secret: GOOGLE_SECRET,
@@ -17,7 +25,7 @@ async function refreshAccessToken(token: any) {
 
     const response = await fetch(url, {
       headers: {
-        "Content-Type": " application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
       },
       method: "POST",
     })
@@ -27,11 +35,11 @@ async function refreshAccessToken(token: any) {
     if (!response.ok) {
       throw refreshedTokens
     }
-
     return {
       ...token,
       accessToken: refreshedTokens.access_token,
       accessTokenExpires: Date.now() + refreshedTokens.expires_in * 1000,
+      isRefreshToken: true,
       refreshToken: refreshedTokens.refresh_token ?? token.refreshToken, // Fall back to old refresh token
     }
   } catch (error) {
@@ -50,13 +58,7 @@ export default NextAuth({
     GoogleProvider({
       clientId: GOOGLE_ID,
       clientSecret: GOOGLE_SECRET,
-      authorization: {
-        params: {
-          prompt: "consent",
-          access_type: "offline",
-          response_type: "code",
-        },
-      },
+      authorization: GOOGLE_AUTHORIZATION_URL,
     }),
     // ...add more providers here
   ],
@@ -64,11 +66,12 @@ export default NextAuth({
     signIn: "/auth/signin",
   },
   callbacks: {
-    async jwt({ token, user, account, profile, isNewUser }): Promise<any> {
+    async jwt({ token, user, account, profile, isNewUser }) {
+      //initial sign in
       if (account && user) {
         return {
           accessToken: account.access_token,
-          accessTokenExpires: Date.now() + account.expires_at * 1000,
+          accessTokenExpires: account.expires_at * 1000,
           refreshToken: account.refresh_token,
           user,
         }
@@ -83,6 +86,8 @@ export default NextAuth({
     async session({ session, token }) {
       session.user = token.user
       session.accessToken = token.accessToken
+      session.accessTokenExpires = token.accessTokenExpires
+      session.isRefreshToken = token.isRefreshToken ?? false
       session.error = token.error
       return session
     },

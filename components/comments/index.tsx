@@ -4,10 +4,12 @@ import { XIcon, LogoutIcon } from "@heroicons/react/outline"
 import { useSession, signOut } from "next-auth/react"
 import CommentsView from "./comment-view"
 import { FaRegComments } from "react-icons/fa"
+import { Session } from "../../lib/types"
 
 const Comments = forwardRef((props, ref) => {
-  const { data: session } = useSession()
+  const { data } = useSession()
   const [sideBar, setSideBar] = useState(false)
+  const session = data as Session
 
   useImperativeHandle(
     ref,
@@ -32,7 +34,7 @@ const Comments = forwardRef((props, ref) => {
               x: "100%",
             }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-            className="fixed bg-black text-white shadow-lg top-0 right-0 w-full max-w-sm min-h-screen p-5 z-50 overflow-y-scroll"
+            className="hidden sm:block fixed bg-gradient-to-b from-[#0f0c29] to-[#24243e] text-white shadow-lg top-0 right-0 w-full max-w-sm min-h-screen p-5 z-50 overflow-y-scroll"
           >
             <div className="flex items-center space-x-3">
               <motion.div

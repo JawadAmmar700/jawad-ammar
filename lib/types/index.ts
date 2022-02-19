@@ -25,4 +25,46 @@ interface Data {
   projects: Array<ProjectType>
 }
 
-export type { subSkillType, ProjectType, Skills, Data }
+interface Reply {
+  id: string
+  createdAt: string
+  updatedAt: string
+  repliedComment: string
+  repliedUser: string
+  image: string
+  commentId: string
+}
+
+interface Comment {
+  id: string
+  createdAt: string
+  updatedAt: string
+  username: string
+  comment: string
+  image: string
+  Replies: Array<Reply>
+}
+
+type User = {
+  id: string
+  email: string
+  name: string
+  image: string
+}
+
+type Session = {
+  accessToken: string
+  expires: string
+  user: User
+}
+
+export type {
+  subSkillType,
+  ProjectType,
+  Skills,
+  Data,
+  Reply,
+  Comment,
+  User,
+  Session,
+}
