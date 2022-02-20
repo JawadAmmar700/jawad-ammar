@@ -6,6 +6,7 @@ import { CodeIcon, PlayIcon, GlobeAltIcon } from "@heroicons/react/outline"
 import { ChevronLeftIcon } from "@heroicons/react/solid"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const projects = await prisma.data.findMany()
@@ -33,12 +34,13 @@ export const getStaticProps: GetStaticProps = async ctx => {
 const Details = ({ specificProject }: { specificProject: string }) => {
   const data: ProjectType = JSON.parse(specificProject)
   return (
-    <div className="w-full min-h-screen md:relative flex flex-col md:flex-none space-y-2 items-center justify-center">
+    <div className="w-full min-h-screen md:relative flex flex-col md:flex-none space-y-2 items-center">
       <img
         src={data.src}
         alt={data.name}
-        className="w-full md:h-screen h-[200px]  object-contain z-10 rounded-lg opacity-90 md:opacity-20"
+        className="w-full md:h-screen h-[200px] object-contain z-10 rounded-lg opacity-90 md:opacity-20"
       />
+
       <div className="w-full md:w-[600px] text-white flex flex-col space-y-3 justify-center z-30 md:absolute md:top-24 opacity-100">
         <Link href="/#Showcase">
           <motion.div
@@ -52,11 +54,11 @@ const Details = ({ specificProject }: { specificProject: string }) => {
         </Link>
         <p className="text-2xl font-bold mx-auto mb-4">{data.name}</p>
 
-        <p className="text-sm font-medium mx-auto w-[400px] md:w-auto text-left break-words">
+        <p className="text-sm font-medium mx-auto w-[400px] md:w-auto text-left break-words px-5">
           Libraries: {data.technology}
         </p>
 
-        <p className="first-letter:text-3xl text-sm font-medium text-left md:h-[150px] h-[110px]  break-words w-[400px] mx-auto  md:w-auto overflow-y-scroll hide-scroll-bar cursor-all-scroll">
+        <p className="first-letter:text-3xl text-sm font-medium text-left md:h-[150px] h-[110px] px-5 break-words w-[400px] mx-auto  md:w-auto overflow-y-scroll hide-scroll-bar cursor-all-scroll">
           {data.description}
         </p>
 
