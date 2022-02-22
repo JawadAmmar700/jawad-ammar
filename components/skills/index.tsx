@@ -3,7 +3,7 @@ import ProgressBar from "./ProgressBar"
 import { ChevronDownIcon } from "@heroicons/react/solid"
 import { ChevronUpIcon } from "@heroicons/react/solid"
 import { motion } from "framer-motion"
-import { Skills, subSkillType } from "../lib/types"
+import { Skills, subSkillType } from "../../lib/types"
 
 const SKills = ({
   skills,

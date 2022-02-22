@@ -58,6 +58,14 @@ type Session = {
   user: User
 }
 
+type GoogleProvider = {
+  callbackUrl: string
+  id: string
+  name: string
+  signinUrl: string
+  type: string
+}
+
 export type {
   subSkillType,
   ProjectType,
@@ -67,4 +75,5 @@ export type {
   Comment,
   User,
   Session,
+  GoogleProvider,
 }

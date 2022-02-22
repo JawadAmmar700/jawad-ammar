@@ -1,4 +1,4 @@
-import { ProjectType } from "../lib/types"
+import { ProjectType } from "../../lib/types"
 import Card from "./Card"
 
 const ShowCase = ({
@@ -21,7 +21,7 @@ const ShowCase = ({
         </p>
       </div>
 
-      <div className="w-full  flex justify-center items-center">
+      <div className="w-full flex justify-center items-center">
         <div className=" overflow-y-hidden grid grid-cols-1 md:grid-cols-3 gap-10 w-[90%] place-content-center py-2">
           {projects?.map((item: any, index: number) => (
             <Card key={index} {...item} />

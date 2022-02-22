@@ -1,25 +1,41 @@
 import { motion } from "framer-motion"
 import { getProviders, signIn } from "next-auth/react"
+import Image from "next/image"
+import { FcGoogle } from "react-icons/fc"
+import { GoogleProvider } from "../../lib/types"
 
-export default function SignIn({ providers }: { providers: any }) {
+export default function SignIn({ providers }: { providers: GoogleProvider[] }) {
   return (
-    <div className="w-full h-screen flex items-center justify-center">
-      {Object.values(providers).map(provider => (
-        <div key={provider.name}>
-          <motion.button
-            whileHover={{ scale: 1.1, rotate: 360 }}
-            className="p-3 rounded text-black font-bold bg-slate-50 hover:bg-slate-200 cursor-pointer"
-            onClick={() => signIn(provider.id, { callbackUrl: "/" })}
-          >
-            Sign in with {provider.name}
-          </motion.button>
-        </div>
-      ))}
+    <div className="w-full h-screen flex justify-center">
+      <div className="flex flex-col space-y-5 mt-24 items-center">
+        <Image
+          src="/J.png"
+          width={250}
+          height={250}
+          alt="J"
+          placeholder="blur"
+          blurDataURL="/blur.jpg"
+        />
+        {Object.values(providers).map((provider: GoogleProvider) => (
+          <div key={provider.name}>
+            <motion.button
+              whileHover={{
+                scale: [1, 1.1, 1],
+                rotate: [0, -5, 5, 0],
+              }}
+              className="p-3 rounded text-black flex items-center space-x-2 font-medium bg-slate-50 cursor-pointer"
+              onClick={() => signIn(provider.id, { callbackUrl: "/" })}
+            >
+              <p>Sign in with {provider.name}</p>
+              <FcGoogle className="w-5 h-5" />
+            </motion.button>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
 
-// This is the recommended way for Next.js 9.3 or newer
 export async function getServerSideProps() {
   const providers = await getProviders()
   return {
