@@ -2,17 +2,20 @@ import { useRef } from "react"
 import { FiFacebook, FiLinkedin, FiGithub } from "react-icons/fi"
 import { ChevronDownIcon, ChatAlt2Icon } from "@heroicons/react/outline"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import Comments from "./comments"
 
 const Intro = ({ introRef }: { introRef: React.RefObject<HTMLDivElement> }) => {
   const sideBarRef = useRef<any>(null)
   return (
     <section ref={introRef} id="Intro" className="w-full z-50 h-screen -mt-16">
-      <img
-        src="https://www.wallpaperup.com/uploads/wallpapers/2012/10/03/18069/8dcd6050eb6fb49944489290ddf26625-700.jpg"
-        alt="intro-image"
-        className="w-full h-screen object-fill z-50"
-      />
+      <div className="w-full h-screen relative">
+        <Image
+          src="https://www.wallpaperup.com/uploads/wallpapers/2012/10/03/18069/8dcd6050eb6fb49944489290ddf26625-700.jpg"
+          alt="intro-image"
+          layout="fill"
+        />
+      </div>
       <div className="w-full z-30 h-screen flex-col absolute top-0 flex items-center justify-center text-white">
         <motion.div
           initial={{ opacity: 0 }}

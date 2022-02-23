@@ -14,7 +14,7 @@ export default function SignIn({ providers }: { providers: GoogleProvider[] }) {
           height={250}
           alt="J"
           placeholder="blur"
-          blurDataURL="/blur.jpg"
+          blurDataURL="/blur.png"
         />
         {Object.values(providers).map((provider: GoogleProvider) => (
           <div key={provider.name}>

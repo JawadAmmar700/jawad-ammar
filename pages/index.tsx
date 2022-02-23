@@ -12,6 +12,7 @@ import {
   Footer,
 } from "../components"
 import { useRef } from "react"
+import Image from "next/image"
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await prisma.data.findMany()
@@ -55,11 +56,9 @@ export default function Home({ data }: { data: string }) {
         <title>Jawad's resume</title>
         <link rel="icon" href="/J.png" />
       </Head>
-      <img
-        src="/fixedImage.jpg"
-        alt="fixed image"
-        className="w-full h-screen fixed -z-10"
-      />
+      <div className="w-full h-screen fixed">
+        <Image src="/fixedImage.jpg" alt="fixed image" layout="fill" />
+      </div>
       <main className="w-full absolute top-0">
         <Header refs={refs} />
         <div>

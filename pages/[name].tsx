@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async ctx => {
 const Details = ({ specificProject }: { specificProject: string }) => {
   const data: ProjectType = JSON.parse(specificProject)
   return (
-    <div className="w-full h-screen md:relative flex flex-col md:flex-none space-y-2 items-center justify-center">
+    <div className="w-full h-screen md:relative flex flex-col md:flex-none items-center justify-evenly">
       <img
         src={data.src}
         alt={data.name}
@@ -45,7 +45,7 @@ const Details = ({ specificProject }: { specificProject: string }) => {
             <motion.div
               initial={{ scale: 0.9 }}
               whileHover={{ scale: 1 }}
-              className="fixed top-1 left-2 md:top-2 md:left-3  text-blue-500 flex justify-center items-center hover:text-blue-600 cursor-pointer group"
+              className="fixed top-2 left-3  text-blue-500 flex justify-center items-center hover:text-blue-600 cursor-pointer group"
             >
               <ChevronLeftIcon className="w-[20px] group-hover:animate-pulse" />
               <p className="font-medium text-sm">Home</p>
