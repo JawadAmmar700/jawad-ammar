@@ -1,10 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { forwardRef, useImperativeHandle, useState } from "react"
-import { XIcon, LogoutIcon } from "@heroicons/react/outline"
-import { useSession, signOut } from "next-auth/react"
+import { XIcon, LogoutIcon, LoginIcon } from "@heroicons/react/outline"
+import { useSession, signOut, signIn } from "next-auth/react"
 import CommentsView from "./comment-view"
 import Skeleton from "./comment-skeleton"
-import { FaRegComments } from "react-icons/fa"
 import { Session } from "../../lib/types"
 
 const Comments = forwardRef((props, ref) => {
@@ -25,7 +24,7 @@ const Comments = forwardRef((props, ref) => {
   return (
     <AnimatePresence>
       {sideBar && (
-        <>
+        <div>
           <motion.div
             initial={{ x: "100%" }}
             animate={{
@@ -35,9 +34,9 @@ const Comments = forwardRef((props, ref) => {
               x: "100%",
             }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-            className=" fixed bg-white text-white shadow-lg top-0 right-0 w-full max-w-sm min-h-screen p-5 z-50 overflow-y-scroll"
+            className="hidden md:flex flex-col fixed bg-white text-white shadow-lg top-0 right-0 w-full max-w-sm min-h-screen p-5 z-50 overflow-y-scroll"
           >
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 flex-none">
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 onClick={() => setSideBar(!sideBar)}
@@ -59,8 +58,31 @@ const Comments = forwardRef((props, ref) => {
               )}
             </div>
             <Skeleton />
-            <CommentsView session={session} />
+            {/* <div className="flex-1 mt-5"> */}
+            {!session ? (
+              <div className="mt-16 text-[#161616]">
+                <h2 className="text-xl capitalize leading-loose font-extrabold">
+                  Hello!
+                </h2>
+                <p className="leading-relaxed text-sm font-semibold">
+                  Sign in to comment, make a suggestion, or ask a question.
+                </p>
+
+                <motion.button
+                  initial={{ scale: 0.9 }}
+                  whileHover={{ scale: 1 }}
+                  onClick={() => signIn()}
+                  className="text-sm flex items-center space-x-2 font-medium uppercase mt-4 scale-90 hover:scale-100 p-3 w-[100px] text-black bg-slate-100 rounded shadow-inner"
+                >
+                  <p>login</p>
+                  <LoginIcon className="w-5 h-5 text-black" />
+                </motion.button>
+              </div>
+            ) : (
+              <CommentsView session={session} />
+            )}
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{
@@ -73,7 +95,7 @@ const Comments = forwardRef((props, ref) => {
             onClick={() => setSideBar(!sideBar)}
             className="bg-transparent px-5 fixed h-full w-full flex items-center justify-center top-0 left-0 z-30"
           />
-        </>
+        </div>
       )}
     </AnimatePresence>
   )

@@ -17,15 +17,15 @@ const Intro = ({ introRef }: { introRef: React.RefObject<HTMLDivElement> }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ ease: "easeOut", duration: 3 }}
-          className="flex flex-col space-y-3 text-slate-100 items-center md:w-[600px] md:px-0  px-3  w-full"
+          className="flex flex-col space-y-3 text-slate-100 items-center md:w-[600px] w-full"
         >
-          <h1 className="text-xl font-extrabold uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-slate-700">
+          <h1 className="text-lg md:text-xl font-extrabold uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-slate-700">
             Hello,
           </h1>
-          <p className="font-extrabold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
+          <p className="font-extrabold md:text-3xl text-xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
             I'm A Full Stack Web Developer
           </p>
-          <p className="text-md font-bold break-words text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
+          <p className="px-5 md:px-0 md:text-md text-sm font-bold break-words text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt
             nostrum aliquam possimus hic eligendi nisi nobis neque ea placeat
             ducimus.
@@ -51,7 +51,7 @@ const Intro = ({ introRef }: { introRef: React.RefObject<HTMLDivElement> }) => {
         </div>
 
         <button
-          className="absolute bottom-0 right-0 m-4 font-bold text-slate-50 scale-95 hover:scale-105 hover:text-sky-500 hover:animate-pulse"
+          className="hidden md:block absolute bottom-0 right-0 m-4 font-bold text-slate-50 scale-95 hover:scale-105 hover:text-sky-500 hover:animate-pulse"
           onClick={() => sideBarRef.current.toggle()}
         >
           <ChatAlt2Icon className="w-5 text-slate-50 " />
