@@ -17,7 +17,7 @@ const Intro = ({ introRef }: { introRef: React.RefObject<HTMLDivElement> }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ ease: "easeOut", duration: 3 }}
-          className="flex flex-col space-y-3 text-slate-100 items-center w-[600px]"
+          className="flex flex-col space-y-3 text-slate-100 items-center md:w-[600px] md:px-0  px-3  w-full"
         >
           <h1 className="text-xl font-extrabold uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-slate-700">
             Hello,

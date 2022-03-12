@@ -35,7 +35,7 @@ const Comments = forwardRef((props, ref) => {
               x: "100%",
             }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-            className="hidden sm:block fixed bg-white text-white shadow-lg top-0 right-0 w-full max-w-sm min-h-screen p-5 z-50 overflow-y-scroll"
+            className=" fixed bg-white text-white shadow-lg top-0 right-0 w-full max-w-sm min-h-screen p-5 z-50 overflow-y-scroll"
           >
             <div className="flex items-center space-x-3">
               <motion.div
