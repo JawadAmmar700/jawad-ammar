@@ -51,7 +51,7 @@ const Intro = ({ introRef }: { introRef: React.RefObject<HTMLDivElement> }) => {
         </div>
 
         <button
-          className="hidden sm:block absolute bottom-0 right-0 m-4 font-bold text-slate-50 scale-95 hover:scale-105 hover:text-sky-500 hover:animate-pulse"
+          className="absolute bottom-0 right-0 m-4 font-bold text-slate-50 scale-95 hover:scale-105 hover:text-sky-500 hover:animate-pulse"
           onClick={() => sideBarRef.current.toggle()}
         >
           <ChatAlt2Icon className="w-5 text-slate-50 " />
