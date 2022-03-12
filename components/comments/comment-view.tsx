@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useMemo, useRef, useState } from "react"
 import { signIn } from "next-auth/react"
 import { motion } from "framer-motion"
 import { LoginIcon } from "@heroicons/react/outline"
-import { FiSend } from "react-icons/fi"
 import moment from "moment"
 import axios from "../../lib/axios"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
@@ -15,9 +14,8 @@ const CommentsView = ({ session }: { session: Session | null }) => {
   const [reply, setReply] = useState<string>("")
   const [comments, setComments] = useState<Comment[]>([])
   const [openCommentContent, setOpenCommentContent] = useState<number>(-1)
-  const [buttonState, setButtonState] = useState<boolean>(false)
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const commentRef = useRef<any>(null)
+  const replyRef = useRef<any>(null)
 
   const getComments = async () => {
     setIsLoading(true)
@@ -36,8 +34,6 @@ const CommentsView = ({ session }: { session: Session | null }) => {
   const handleComment = async (e: any) => {
     e.preventDefault()
     if (comment) {
-      setButtonState(true)
-
       await axios
         .post("addComment", {
           comment,
@@ -45,14 +41,11 @@ const CommentsView = ({ session }: { session: Session | null }) => {
           image: session?.user?.image,
         })
         .then(data => {
-          setComments([...comments, data.data])
+          const arr = comments
+          arr.unshift(data.data)
+          setComments([...arr])
         })
       setComment("")
-      setButtonState(false)
-      commentRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      })
     } else {
       toast.error("Please write a comment")
     }
@@ -61,7 +54,6 @@ const CommentsView = ({ session }: { session: Session | null }) => {
   const handleReply = async (e: any, commentId: string) => {
     e.preventDefault()
     if (reply) {
-      setButtonState(true)
       await axios
         .post("addReply", {
           reply,
@@ -73,14 +65,18 @@ const CommentsView = ({ session }: { session: Session | null }) => {
           const Comments = comments.map(comment => {
             if (comment.id !== data.commentId) return comment
             const Replies = !comment.Replies ? [] : comment.Replies
-            return { ...comment, Replies: [...Replies, data] }
+            Replies.unshift(data)
+            return { ...comment, Replies: [...Replies] }
           })
 
           setComments(Comments)
+          replyRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          })
         })
 
       setReply("")
-      setButtonState(false)
     } else {
       toast.error("Please write a reply")
     }
@@ -92,11 +88,13 @@ const CommentsView = ({ session }: { session: Session | null }) => {
   }
 
   return (
-    <div>
+    <div className="relative">
       {!session ? (
-        <div className="mt-16">
-          <h2 className="text-4xl capitalize leading-loose">hello!</h2>
-          <p className="leading-relaxed">
+        <div className="mt-16 text-[#161616]">
+          <h2 className="text-xl capitalize leading-loose font-extrabold">
+            Hello!
+          </h2>
+          <p className="leading-relaxed text-sm font-semibold">
             Sign in to comment, make a suggestion, or ask a question.
           </p>
 
@@ -104,7 +102,7 @@ const CommentsView = ({ session }: { session: Session | null }) => {
             initial={{ scale: 0.9 }}
             whileHover={{ scale: 1 }}
             onClick={() => signIn()}
-            className="text-sm flex items-center space-x-2 font-medium uppercase mt-4 scale-90 hover:scale-100 p-3 w-[100px] text-black bg-slate-50 rounded"
+            className="text-sm flex items-center space-x-2 font-medium uppercase mt-4 scale-90 hover:scale-100 p-3 w-[100px] text-black bg-slate-100 rounded shadow-inner"
           >
             <p>login</p>
             <LoginIcon className="w-5 h-5 text-black" />
@@ -113,24 +111,24 @@ const CommentsView = ({ session }: { session: Session | null }) => {
       ) : (
         <div className="flex flex-col space-y-3">
           {isLoading ? (
-            <div className="text-center text-xl mx-auto mt-8  h-[370px]">
+            <div className="text-center text-xl mx-auto mt-8">
               <AiOutlineLoading3Quarters className="w-5 h-5 text-white animate-spin mt-10" />
             </div>
           ) : (
-            <div className="mt-8 h-[370px] overflow-y-scroll hide-scroll-bar">
+            <div className="mt-8 h-[340px] overflow-y-scroll hide-scroll-bar">
               {comments.length <= 0 ? (
-                <p className="text-center text-xl mx-auto mt-8  h-[370px]">
+                <p className="text-center h-[340px] font-semibold text-xl mx-auto mt-8 text-[#383838]">
                   No comments yet
                 </p>
               ) : (
-                <div>
+                <div className="h-[340px] overflow-y-scroll hide-scroll-bar pb-2">
                   {comments.map((comment: Comment, id: number) => (
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.3, type: "linear" }}
                       key={comment.id}
-                      className="flex flex-col p-2 bg-slate-200 rounded mt-2  shadow-[0_15px_70px_-15px_#ffee004b]"
+                      className="flex flex-col p-2 bg-white rounded mt-2  shadow-md"
                     >
                       <div
                         className="flex items-center justify-between space-x-2 cursor-pointer"
@@ -148,18 +146,19 @@ const CommentsView = ({ session }: { session: Session | null }) => {
                             {comment.username}
                           </h2>
                         </div>
-                        <p className="text-xs text-black">
+                        <p className="text-xs text-black font-medium">
                           {moment().from(comment.createdAt).replace("in", "")}{" "}
                           ago
                         </p>
                       </div>
                       {openCommentContent === id ? (
                         <>
-                          <p className="px-10 break-words text-sm text-black">
+                          <p className="px-10 break-words text-sm text-[#adabab]">
                             {comment.comment}
                           </p>
 
                           {/* replies goes here */}
+                          <div ref={replyRef}></div>
                           <div className="overflow-y-scroll overflow-x-hidden">
                             {comment?.Replies?.map((reply: any, id: number) => (
                               <motion.div
@@ -171,7 +170,7 @@ const CommentsView = ({ session }: { session: Session | null }) => {
                                 transition={{ duration: 0.4, type: "fade" }}
                                 key={reply.id}
                               >
-                                <div className="flex flex-col px-4 bg-slate-200 rounded mt-2 py-1 shadow-[0_25px_50px_-15px_#2f00ff49]">
+                                <div className="flex flex-col px-4 bg-white mt-2 py-1">
                                   <div className="flex justify-between">
                                     <div className="flex items-center space-x-2">
                                       <Image
@@ -185,7 +184,7 @@ const CommentsView = ({ session }: { session: Session | null }) => {
                                         {reply.repliedUser}
                                       </h2>
                                     </div>
-                                    <p className="text-xs text-black">
+                                    <p className="text-xs text-black font-medium">
                                       {moment()
                                         .from(reply.createdAt)
                                         .replace("in", "")}{" "}
@@ -193,7 +192,7 @@ const CommentsView = ({ session }: { session: Session | null }) => {
                                     </p>
                                   </div>
 
-                                  <p className="px-10 break-words text-sm text-black">
+                                  <p className="px-10 break-words text-sm text-[#adabab]">
                                     {reply.reliedComment}
                                   </p>
                                 </div>
@@ -211,30 +210,27 @@ const CommentsView = ({ session }: { session: Session | null }) => {
 
                           {/* -------------------- */}
                           <form
-                            className="w-full h-8 flex items-center justify-center bg-slate-200 rounded mt-2 shadow-[0_25px_50px_35px_#2f00ff49]"
+                            className="w-full h-10 px-2 flex items-center justify-center bg-slate-100 rounded mt-2 shadow-inner "
                             onSubmit={e => handleReply(e, comment.id)}
                           >
+                            <div className="w-[30px] h-[30px] border-4 border-[#BEA5F4] rounded-full">
+                              <img
+                                src={session?.user.image}
+                                className="w-full h-full rounded-full"
+                              ></img>
+                            </div>
                             <input
                               type="text"
                               className="text-black bg-transparent flex-1 text-sm h-8 rounded  outline-none px-2 "
-                              placeholder="reply to comment"
+                              placeholder="Add reply"
                               onChange={e => setReply(e.target.value)}
                               value={reply}
                             />
-
-                            <motion.button
-                              type="submit"
-                              whileHover={{ scale: 1.1 }}
-                              className="flex items-center justify-center h-8 flex-none p-4"
-                              disabled={buttonState}
-                            >
-                              <FiSend className="w-5 h-5 text-black" />
-                            </motion.button>
                           </form>
                         </>
                       ) : (
                         <div className="p-2  ">
-                          <p className="px-10 break-words text-sm text-black -mt-2">
+                          <p className="px-10 break-words text-sm text-[#adabab] -mt-2">
                             {comment.comment.length < 10
                               ? comment.comment
                               : comment?.comment?.substring(0, 10) + "..."}
@@ -250,34 +246,30 @@ const CommentsView = ({ session }: { session: Session | null }) => {
                       )}
                     </motion.div>
                   ))}
-                  <div ref={commentRef}></div>
                 </div>
               )}
             </div>
           )}
-
-          <form
-            className="w-full h-10 relative top-2 flex items-center shadow-[0_25px_100px_10px_#ffee004b] justify-center bg-slate-200 rounded"
-            onSubmit={handleComment}
-          >
-            <input
-              type="text"
-              className="text-black flex-1 bg-transparent text-sm h-10 border-gray-300 rounded outline-none px-2 "
-              placeholder="Enter a comment..."
-              onChange={e => setComment(e.target.value)}
-              value={comment}
-            />
-            <motion.button
-              type="submit"
-              whileHover={{ scale: 1.1 }}
-              className="flex items-center justify-center h-10 flex-none p-4"
-              disabled={buttonState}
-            >
-              <FiSend className="w-5 h-5 text-black" />
-            </motion.button>
-          </form>
         </div>
       )}
+      <form
+        className="w-full h-10 flex px-2 items-center shadow-inner justify-center bg-slate-100 rounded absolute top-96"
+        onSubmit={handleComment}
+      >
+        <div className="w-[30px] h-[30px] border-4 border-[#BEA5F4] rounded-full">
+          <img
+            src={session?.user.image}
+            className="w-full h-full rounded-full"
+          ></img>
+        </div>
+        <input
+          type="text"
+          className="text-black flex-1 bg-transparent text-sm h-10 border-gray-300 rounded outline-none px-2 "
+          placeholder="Add comment"
+          onChange={e => setComment(e.target.value)}
+          value={comment}
+        />
+      </form>
       <Toaster position="top-right" reverseOrder={true} />
     </div>
   )

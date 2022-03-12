@@ -3,6 +3,7 @@ import { forwardRef, useImperativeHandle, useState } from "react"
 import { XIcon, LogoutIcon } from "@heroicons/react/outline"
 import { useSession, signOut } from "next-auth/react"
 import CommentsView from "./comment-view"
+import Skeleton from "./comment-skeleton"
 import { FaRegComments } from "react-icons/fa"
 import { Session } from "../../lib/types"
 
@@ -34,13 +35,13 @@ const Comments = forwardRef((props, ref) => {
               x: "100%",
             }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-            className="hidden sm:block fixed bg-gradient-to-b from-[#0f0c29] to-[#24243e] text-white shadow-lg top-0 right-0 w-full max-w-sm min-h-screen p-5 z-50 overflow-y-scroll"
+            className="hidden sm:block fixed bg-white text-white shadow-lg top-0 right-0 w-full max-w-sm min-h-screen p-5 z-50 overflow-y-scroll"
           >
             <div className="flex items-center space-x-3">
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 onClick={() => setSideBar(!sideBar)}
-                className="p-2 bg-slate-50 rounded-lg w-10 h-10 flex items-center justify-center cursor-pointer"
+                className="p-2 bg-slate-50 rounded-lg w-10 h-10 flex items-center justify-center cursor-pointer shadow-inner"
               >
                 <XIcon className="w-5 h-5 text-black" />
               </motion.div>
@@ -51,13 +52,13 @@ const Comments = forwardRef((props, ref) => {
                   className="p-2 bg-indigo-600 rounded-lg w-10 h-10 flex items-center justify-center cursor-pointer relative group"
                 >
                   <LogoutIcon className="w-5 h-5 text-white" />
-                  <p className="text-white text-left text-sm font-bold opacity-0 group-hover:opacity-100 -z-10 group-hover:z-0 absolute left-12 w-[100px]">
+                  <p className="text-[#383838] text-left text-sm font-bold opacity-0 group-hover:opacity-100 -z-10 group-hover:z-0 absolute left-12 w-[100px]">
                     sign out
                   </p>
                 </motion.button>
               )}
             </div>
-            <FaRegComments className="w-20 h-20 text-indigo-600 mx-auto" />
+            <Skeleton />
             <CommentsView session={session} />
           </motion.div>
           <motion.div

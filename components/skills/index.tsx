@@ -50,9 +50,9 @@ const SKills = ({
                     <ProgressBar percent={skill.percent} />
                     <div
                       onClick={() => setIsOpen(index === isOpen ? -1 : index)}
-                      className="text-sm mt-1 px-4 flex items-center space-x-3 cursor-pointer hover:text-blue-500"
+                      className="w-[105px] text-sm mt-1 justify-center flex items-center space-x-3 cursor-pointer hover:text-blue-500"
                     >
-                      View More{" "}
+                      view more
                       {isOpen == index ? (
                         <ChevronUpIcon className="w-[15px] h-[15px]" />
                       ) : (

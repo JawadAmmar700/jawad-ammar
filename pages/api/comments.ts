@@ -10,6 +10,9 @@ export default async function handler(
       include: {
         Replies: true,
       },
+      orderBy: {
+        createdAt: "desc",
+      },
     })
     res.status(201).json(comments)
   }

@@ -21,7 +21,8 @@ const Footer = () => {
         </a>
       </div>
       <p className="text-gray-600">
-        <span className="text-gray-800">Made by</span> Jawad Ammar
+        <span className="text-gray-800 font-semibold">Made by</span>{" "}
+        <span className="font-bold">Jawad Ammar</span>
       </p>
     </footer>
   )

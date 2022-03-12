@@ -10,32 +10,36 @@ const Intro = ({ introRef }: { introRef: React.RefObject<HTMLDivElement> }) => {
   return (
     <section ref={introRef} id="Intro" className="w-full z-50 h-screen -mt-16">
       <div className="w-full h-screen relative">
-        <Image
-          src="https://www.wallpaperup.com/uploads/wallpapers/2012/10/03/18069/8dcd6050eb6fb49944489290ddf26625-700.jpg"
-          alt="intro-image"
-          layout="fill"
-        />
+        <Image src="/landing-image.png" alt="intro-image" layout="fill" />
       </div>
       <div className="w-full z-30 h-screen flex-col absolute top-0 flex items-center justify-center text-white">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ ease: "easeOut", duration: 3 }}
-          className="flex flex-col items-center  space-y-8 justify-center text-white"
+          className="flex flex-col space-y-3 text-slate-100 items-center w-[600px]"
         >
-          <div className="text-center">
-            <p>Jawad Ammar</p>
-            <p className="mt-4 md:text-xl lg:text-2xl">Full Stack Developer</p>
-          </div>
-          <div className="flex space-x-4 ">
+          <h1 className="text-xl font-extrabold uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-slate-700">
+            Hello,
+          </h1>
+          <p className="font-extrabold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
+            I'm A Full Stack Web Developer
+          </p>
+          <p className="text-md font-bold break-words text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt
+            nostrum aliquam possimus hic eligendi nisi nobis neque ea placeat
+            ducimus.
+          </p>
+
+          <div className="flex space-x-2">
             <a href={process.env.NEXT_PUBLIC_FACEBOOK_LINK} target="_blank">
-              <FiFacebook className="w-[25px] hover:text-blue-500 scale-100 hover:scale-125 h-[25px] cursor-pointer" />
+              <FiFacebook className="w-[25px] text-purple-400  scale-110 hover:scale-125 h-[20px] cursor-pointer" />
             </a>
             <a href={process.env.NEXT_PUBLIC_LINKEDIN_LINK} target="_blank">
-              <FiLinkedin className="w-[25px] hover:text-blue-500 scale-100 hover:scale-125 h-[25px] cursor-pointer" />
+              <FiLinkedin className="w-[25px] text-pink-400  scale-110 hover:scale-125 h-[20px] cursor-pointer" />
             </a>
             <a href={process.env.NEXT_PUBLIC_GITHUB_LINK} target="_blank">
-              <FiGithub className="w-[25px] hover:text-blue-500 scale-100 hover:scale-125 h-[25px] cursor-pointer" />
+              <FiGithub className="w-[25px]  text-green-400 scale-110 hover:scale-125 h-[20px] cursor-pointer" />
             </a>
           </div>
         </motion.div>
