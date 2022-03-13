@@ -12,6 +12,7 @@ const Header = ({ refs }: { refs: React.RefObject<HTMLDivElement>[] }) => {
       } sticky top-0  w-full h-16 flex items-center justify-center z-50`}
     >
       <ProgressBar bgcolor="blue" duration="0.2" />
+
       <Scrollspy sectionRefs={refs}>
         {({ currentElementIndexInViewport }) => (
           <div className="flex space-x-5 md:space-x-10 lg:space-x-12 xl:space-x-16 items-center justify-center text-white">
