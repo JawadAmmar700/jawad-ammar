@@ -31,53 +31,48 @@ const CommentsView = ({ session }: { session: Session | null }) => {
 
   const handleComment = async (e: any) => {
     e.preventDefault()
-    if (comment) {
-      await axios
-        .post("addComment", {
-          comment,
-          username: session?.user?.name ?? "unknown",
-          image: session?.user?.image,
-        })
-        .then(data => {
-          const arr = comments
-          arr.unshift(data.data)
-          setComments([...arr])
-        })
-      setComment("")
-    } else {
-      toast.error("Please write a comment")
-    }
+    if (!comment) return toast.error("Please write a comment")
+    await axios
+      .post("addComment", {
+        comment,
+        username: session?.user?.name ?? "unknown",
+        image: session?.user?.image,
+      })
+      .then(data => {
+        const arr = comments
+        arr.unshift(data.data)
+        setComments([...arr])
+      })
+    setComment("")
   }
 
   const handleReply = async (e: any, commentId: string) => {
     e.preventDefault()
-    if (reply) {
-      await axios
-        .post("addReply", {
-          reply,
-          username: session?.user?.name ?? "unknown",
-          commentId,
-          image: session?.user?.image,
-        })
-        .then(({ data }: { data: Reply }) => {
-          const Comments = comments.map(comment => {
-            if (comment.id !== data.commentId) return comment
-            const Replies = !comment.Replies ? [] : comment.Replies
-            Replies.unshift(data)
-            return { ...comment, Replies: [...Replies] }
-          })
+    if (!reply) return toast.error("Please write a reply")
 
-          setComments(Comments)
-          replyRef.current.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          })
+    await axios
+      .post("addReply", {
+        reply,
+        username: session?.user?.name ?? "unknown",
+        commentId,
+        image: session?.user?.image,
+      })
+      .then(({ data }: { data: Reply }) => {
+        const Comments = comments.map(comment => {
+          if (comment.id !== data.commentId) return comment
+          const Replies = !comment.Replies ? [] : comment.Replies
+          Replies.unshift(data)
+          return { ...comment, Replies: [...Replies] }
         })
 
-      setReply("")
-    } else {
-      toast.error("Please write a reply")
-    }
+        setComments(Comments)
+        replyRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        })
+      })
+
+    setReply("")
   }
 
   const openComment = (id: number) => {
