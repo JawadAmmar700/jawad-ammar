@@ -34,53 +34,56 @@ const Comments = forwardRef((props, ref) => {
               x: "100%",
             }}
             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-            className="hidden md:flex flex-col fixed bg-white text-white shadow-lg top-0 right-0 w-full max-w-sm min-h-screen p-5 z-50 overflow-y-scroll"
+            className="hidden md:flex flex-col fixed text-white shadow-lg top-0 right-0 w-full px-2 bg-white max-w-sm min-h-screen z-50"
           >
-            <div className="flex items-center space-x-3 flex-none">
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                onClick={() => setSideBar(!sideBar)}
-                className="p-2 bg-slate-50 rounded-lg w-10 h-10 flex items-center justify-center cursor-pointer shadow-inner"
-              >
-                <XIcon className="w-5 h-5 text-black" />
-              </motion.div>
-              {session && (
-                <motion.button
+            <div className="flex-none">
+              <div className="flex items-center space-x-3 flex-none p-2">
+                <motion.div
                   whileHover={{ scale: 1.1 }}
-                  onClick={() => signOut()}
-                  className="p-2 bg-indigo-600 rounded-lg w-10 h-10 flex items-center justify-center cursor-pointer relative group"
+                  onClick={() => setSideBar(!sideBar)}
+                  className="p-2 bg-slate-50 rounded-lg w-10 h-10 flex items-center justify-center cursor-pointer shadow-inner"
                 >
-                  <LogoutIcon className="w-5 h-5 text-white" />
-                  <p className="text-[#383838] text-left text-sm font-bold opacity-0 group-hover:opacity-100 -z-10 group-hover:z-0 absolute left-12 w-[100px]">
-                    sign out
+                  <XIcon className="w-5 h-5 text-black" />
+                </motion.div>
+                {session && (
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    onClick={() => signOut()}
+                    className="p-2 bg-indigo-600 rounded-lg w-10 h-10 flex items-center justify-center cursor-pointer relative group"
+                  >
+                    <LogoutIcon className="w-5 h-5 text-white" />
+                    <p className="text-[#383838] text-left text-sm font-bold opacity-0 group-hover:opacity-100 -z-10 group-hover:z-0 absolute left-12 w-[100px]">
+                      sign out
+                    </p>
+                  </motion.button>
+                )}
+              </div>
+              <Skeleton />
+            </div>
+            <div className="flex-auto relative">
+              {!session ? (
+                <div className="mt-16 text-[#161616]">
+                  <h2 className="text-xl capitalize leading-loose font-extrabold">
+                    Hello!
+                  </h2>
+                  <p className="leading-relaxed text-sm font-semibold">
+                    Sign in to comment, make a suggestion, or ask a question.
                   </p>
-                </motion.button>
+
+                  <motion.button
+                    initial={{ scale: 0.9 }}
+                    whileHover={{ scale: 1 }}
+                    onClick={() => signIn()}
+                    className="text-sm flex items-center space-x-2 font-medium uppercase mt-4 scale-90 hover:scale-100 p-3 w-[100px] text-black bg-slate-100 rounded shadow-inner"
+                  >
+                    <p>login</p>
+                    <LoginIcon className="w-5 h-5 text-black" />
+                  </motion.button>
+                </div>
+              ) : (
+                <CommentsView session={session} />
               )}
             </div>
-            <Skeleton />
-            {/* <div className="flex-1 mt-5"> */}
-            {!session ? (
-              <div className="mt-16 text-[#161616]">
-                <h2 className="text-xl capitalize leading-loose font-extrabold">
-                  Hello!
-                </h2>
-                <p className="leading-relaxed text-sm font-semibold">
-                  Sign in to comment, make a suggestion, or ask a question.
-                </p>
-
-                <motion.button
-                  initial={{ scale: 0.9 }}
-                  whileHover={{ scale: 1 }}
-                  onClick={() => signIn()}
-                  className="text-sm flex items-center space-x-2 font-medium uppercase mt-4 scale-90 hover:scale-100 p-3 w-[100px] text-black bg-slate-100 rounded shadow-inner"
-                >
-                  <p>login</p>
-                  <LoginIcon className="w-5 h-5 text-black" />
-                </motion.button>
-              </div>
-            ) : (
-              <CommentsView session={session} />
-            )}
           </motion.div>
 
           <motion.div
