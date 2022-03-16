@@ -15,7 +15,11 @@ import { useRef } from "react"
 import Image from "next/image"
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projects = await prisma.data.findMany()
+  const projects = await prisma.data.findMany({
+    orderBy: {
+      createdAt: "asc",
+    },
+  })
   const skillsData = await prisma.skills.findMany()
 
   const skills = skillsData.map(skill => {

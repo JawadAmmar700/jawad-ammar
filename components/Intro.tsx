@@ -49,13 +49,18 @@ const Intro = ({ introRef }: { introRef: React.RefObject<HTMLDivElement> }) => {
             <ChevronDownIcon className="w-[45px] h-[45px] animate-bounce cursor-pointer hover:text-blue-500" />
           </a>
         </div>
-
-        <button
-          className="hidden md:block absolute bottom-0 right-0 m-4 font-bold text-slate-50 scale-95 hover:scale-105 hover:text-sky-500 hover:animate-pulse"
-          onClick={() => sideBarRef.current.toggle()}
-        >
-          <ChatAlt2Icon className="w-5 text-slate-50 " />
-        </button>
+        <div className="space-x-3 hidden md:flex absolute bottom-0 right-0 m-4">
+          <p className="text-xs text-slate-50 animate-pulse">
+            comments &#8594;
+          </p>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            className="font-bold text-slate-50"
+            onClick={() => sideBarRef.current.toggle()}
+          >
+            <ChatAlt2Icon className="w-5 text-slate-50 " />
+          </motion.button>
+        </div>
       </div>
       <Comments ref={sideBarRef} />
     </section>
