@@ -37,7 +37,7 @@ const Details = ({ specificProject }: { specificProject: string }) => {
       <img
         src={data.src}
         alt={data.name}
-        className="w-full md:h-screen h-[200px] object-contain z-10 rounded-lg opacity-90 md:opacity-20"
+        className="w-full md:h-screen h-[200px] object-contain z-10  opacity-90 md:opacity-20"
       />
       <div className="mb-8 md:mb-0 w-full md:h-screen h-auto md:absolute md:top-0 flex items-center justify-center">
         <div className="w-full md:w-[600px] text-white flex flex-col space-y-3 justify-center items-center z-30 opacity-100">

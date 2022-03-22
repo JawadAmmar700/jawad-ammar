@@ -20,6 +20,7 @@ export const getStaticProps: GetStaticProps = async () => {
       createdAt: "asc",
     },
   })
+
   const skillsData = await prisma.skills.findMany()
 
   const skills = skillsData.map(skill => {
