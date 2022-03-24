@@ -59,7 +59,7 @@ export default function Home({ data }: { data: string }) {
     <div className="relative">
       <Head>
         <title>Jawad's resume</title>
-        <link rel="icon" href="/J.png" />
+        <link rel="icon" href="/jawad.png" />
       </Head>
       <div className="w-full h-screen fixed">
         <Image src="/fixedImage.jpg" alt="fixed image" layout="fill" />

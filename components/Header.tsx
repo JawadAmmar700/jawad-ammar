@@ -35,7 +35,7 @@ const Header = ({ refs }: { refs: React.RefObject<HTMLDivElement>[] }) => {
             <div>
               <a href="#Intro">
                 <img
-                  src="/J.png"
+                  src="/jawad.png"
                   className={`w-[50px] scale-110 cursor-pointer  ${
                     currentElementIndexInViewport === 2 &&
                     "animate-pulse text-blue-500"

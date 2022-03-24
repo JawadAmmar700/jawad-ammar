@@ -6,6 +6,7 @@ import { CodeIcon, PlayIcon, GlobeAltIcon } from "@heroicons/react/outline"
 import { ChevronLeftIcon } from "@heroicons/react/solid"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const projects = await prisma.data.findMany()
@@ -39,6 +40,7 @@ const Details = ({ specificProject }: { specificProject: string }) => {
         alt={data.name}
         className="w-full md:h-screen h-[200px] object-contain z-10  opacity-90 md:opacity-20"
       />
+
       <div className="mb-8 md:mb-0 w-full md:h-screen h-auto md:absolute md:top-0 flex items-center justify-center">
         <div className="w-full md:w-[600px] text-white flex flex-col space-y-3 justify-center items-center z-30 opacity-100">
           <Link href="/#Showcase">
