@@ -5,7 +5,7 @@ import { html, isOnline } from "../lib/connection"
 export async function middleware(req: NextRequest, ev: NextFetchEvent) {
   const is_online = await isOnline()
 
-  if (!is_online) {
+  if (!is_online && process.env.NODE_ENV === "development") {
     return new Response(html, {
       status: 404,
       headers: {
