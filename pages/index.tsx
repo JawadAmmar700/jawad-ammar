@@ -13,8 +13,19 @@ import {
 } from "../components"
 import { useRef } from "react"
 import Image from "next/image"
+import { isOnline } from "../lib/connection"
 
 export const getStaticProps: GetStaticProps = async () => {
+  const is_online = await isOnline()
+  if (!is_online) {
+    return {
+      redirect: {
+        destination: "/12029",
+        permanent: false,
+      },
+    }
+  }
+
   const projects = await prisma.data.findMany({
     orderBy: {
       createdAt: "asc",
