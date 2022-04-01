@@ -77,9 +77,8 @@ const Contact = ({
           <div>
             <h1 className="text-3xl font-bold text-white">Contact Me</h1>
             <p className="xl:w-[700px] w-[300px] md:w-[500px] text-gray-200">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Consequatur at accusamus repudiandae dignissimos debitis
-              voluptatem quam itaque ullam dicta nostrum.
+              Need to get in touch with me? For all enquiries, please email me
+              using the form below.
             </p>
           </div>
           <div className="flex flex-col">

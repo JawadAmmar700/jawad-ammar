@@ -33,7 +33,7 @@ const SKills = ({
             <div className="p-4 font-medium ">
               <p>2- Baccalaureate Degree</p>
               <div className="ml-10">
-                <li> Cedars Cultural School, Kabr Chmoun, Lebanon </li>
+                <li> Cedars Cultural School, Kabr Chamoun, Lebanon </li>
                 <li> 2017-2018</li>
               </div>
             </div>

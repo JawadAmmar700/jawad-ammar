@@ -23,12 +23,12 @@ const Intro = ({ introRef }: { introRef: React.RefObject<HTMLDivElement> }) => {
             Hello,
           </h1>
           <p className="font-extrabold md:text-3xl text-xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
-            I'm A Full Stack Web Developer
+            Full-Stack Web Developer
           </p>
           <p className="px-5 md:px-0 md:text-md text-sm font-bold break-words text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt
-            nostrum aliquam possimus hic eligendi nisi nobis neque ea placeat
-            ducimus.
+            I'm associated with the creation of web applications in designing
+            the front-end and the back-end of an application while ensuring its
+            effiency, reliability and other crucial features.
           </p>
 
           <div className="flex space-x-2">

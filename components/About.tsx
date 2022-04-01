@@ -6,7 +6,7 @@ const About = ({ aboutRef }: { aboutRef: React.RefObject<HTMLDivElement> }) => {
     <div id="About" className=" w-full h-[600px] flex items-center">
       <div className="w-full h-[500px]  bg-slate-100 mt-24 flex items-center justify-center space-x-5">
         <img
-          src="/profile.JPG"
+          src="/jawadAmmarProfile.JPG"
           alt="profile"
           className="rounded lg:w-[400px] lg:h-[400px] md:w-[300px] md:h-[400px] object-cover hidden md:block"
         />
@@ -15,10 +15,14 @@ const About = ({ aboutRef }: { aboutRef: React.RefObject<HTMLDivElement> }) => {
             Hi, I'm
             <span className="text-black font-bold"> Jawad Ammar</span>
           </h1>
-          <p className="text-sm mt-2 font-semibold">
-            I'm a full stack web developer, I have a passion for building
-            applications that are easy to use and easy to understand. I love
-            learning new things and I'm always looking to improve my skills.
+          <p className="text-xs mt-2 font-semibold">
+            I'm an undergraduate engineer willing to be a full-stack developer
+            and to do programming as a profession. My interests range from
+            back-side, front-end and system management. I am willing to find a
+            desirable future in the software development field since I am
+            interested in all parts of application development. I have developed
+            a few projects and worked on the portfolio here in a relatively
+            small period of time by myself.
           </p>
           <ul className="flex flex-col space-y-1 mt-3">
             <li>
@@ -27,7 +31,7 @@ const About = ({ aboutRef }: { aboutRef: React.RefObject<HTMLDivElement> }) => {
             </li>
             <li>
               <span className="text-sm font-semibold ">City:</span>
-              <span className="text-sm"> Ain Anoub - Hay Al Fawara</span>
+              <span className="text-sm"> Aley - Ain Anoub - Hay Al Fawara</span>
             </li>
             <li>
               <span className="text-sm font-semibold ">Phone:</span>
@@ -35,7 +39,7 @@ const About = ({ aboutRef }: { aboutRef: React.RefObject<HTMLDivElement> }) => {
             </li>
             <li>
               <span className="text-sm font-semibold ">Email:</span>
-              <span className="text-sm"> JawadAmmar27janu2000@gmail.com</span>
+              <span className="text-sm"> jawadammar000@gmail.com</span>
             </li>
           </ul>
           <div ref={aboutRef} className="mt-4 cursor-pointer">
