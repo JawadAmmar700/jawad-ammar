@@ -1,4 +1,5 @@
 import { ProjectType } from "../../lib/types"
+import { ExclamationIcon } from "@heroicons/react/solid"
 import Card from "./Card"
 
 const ShowCase = ({
@@ -20,6 +21,12 @@ const ShowCase = ({
           Here are some interactive and responsive applications I've worked on,
           built with different frameworks and libraries.
         </p>
+        <div className="flex items-center justify-center space-x-2">
+          <ExclamationIcon className="w-5 h-5 text-yellow-500" />
+          <p className="text-gray-300 text-sm ">
+            some project demo's wont work due to database limitation
+          </p>
+        </div>
       </div>
 
       <div className="w-full flex justify-center items-center">
