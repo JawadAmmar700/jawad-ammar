@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.link {
+  @apply scale-90 hover:scale-110 cursor-pointer font-bold hover:animate-pulse;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: black;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(102, 100, 100);
+  /* border-radius: 50px; */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+}
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
