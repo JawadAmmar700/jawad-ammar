@@ -11,47 +11,45 @@ datasource db {
 }
 
 model Data {
-  id        String @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
-  name String
-  src String
-  link String
-  videoUrl String
-  technology String
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+  name        String
+  src         String
+  link        String
+  videoUrl    String
+  technology  String
   description String
-  site String
-  span Int
-
-} 
+  site        String
+  span        Int
+}
 
 model Skills {
-  id        String @id @default(cuid())
+  id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
-  lng String
-  percent String
-  subSkill String[]
-
+  lng       String
+  percent   String
+  subSkill  String[]
 }
 
 model Comment {
-  id String @id @default(cuid())
+  id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
-  username String
-  comment String
-  image String
-  Replies Reply[]
+  username  String
+  comment   String
+  image     String
+  Replies   Reply[]
 }
 
 model Reply {
-  id String @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now())
   reliedComment String
-  repliedUser String
-  commentId String
-  image String
-  replies Comment @relation(fields:[commentId], references:[id])
+  repliedUser   String
+  commentId     String
+  image         String
+  replies       Comment  @relation(fields: [commentId], references: [id])
 }

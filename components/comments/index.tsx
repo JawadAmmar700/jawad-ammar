@@ -1,25 +1,25 @@
-import { AnimatePresence, motion } from "framer-motion"
-import { forwardRef, useImperativeHandle, useState } from "react"
-import { XIcon, LogoutIcon, LoginIcon } from "@heroicons/react/outline"
-import { useSession, signOut, signIn } from "next-auth/react"
-import CommentsView from "./comment-view"
-import Skeleton from "./comment-skeleton"
-import { Session } from "../../lib/types"
+import { AnimatePresence, motion } from "framer-motion";
+import { forwardRef, useImperativeHandle, useState } from "react";
+import { XIcon, LogoutIcon, LoginIcon } from "@heroicons/react/outline";
+import { useSession, signOut, signIn } from "next-auth/react";
+import CommentsView from "./comment-view";
+import Skeleton from "./comment-skeleton";
+import { Session } from "../../lib/types";
 
 const Comments = forwardRef((props, ref) => {
-  const { data } = useSession()
-  const [sideBar, setSideBar] = useState(false)
-  const session = data as Session
+  const { data } = useSession();
+  const [sideBar, setSideBar] = useState(false);
+  const session = data as Session;
 
   useImperativeHandle(
     ref,
     () => {
       return {
         toggle: () => setSideBar(!sideBar),
-      }
+      };
     },
     [sideBar]
-  )
+  );
 
   return (
     <AnimatePresence>
@@ -101,7 +101,7 @@ const Comments = forwardRef((props, ref) => {
         </div>
       )}
     </AnimatePresence>
-  )
-})
+  );
+});
 
-export default Comments
+export default Comments;

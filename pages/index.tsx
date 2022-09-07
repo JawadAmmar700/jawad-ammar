@@ -1,7 +1,7 @@
-import type { GetStaticProps } from "next"
-import Head from "next/head"
-import prisma from "../lib/prisma"
-import { ProjectType, Skills } from "../lib/types"
+import type { GetStaticProps } from "next";
+import Head from "next/head";
+import prisma from "../lib/prisma";
+import { ProjectType, Skills } from "../lib/types";
 import {
   Intro,
   Header,
@@ -10,61 +10,60 @@ import {
   ShowCase,
   Contact,
   Footer,
-} from "../components"
-import { useRef } from "react"
-import Image from "next/image"
-import { isOnline } from "../lib/connection"
+} from "../components";
+import { useRef } from "react";
+import Image from "next/image";
+import { isOnline } from "../lib/connection";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const is_online = await isOnline()
+  const is_online = await isOnline();
   if (!is_online) {
     return {
       redirect: {
         destination: "/12029",
         permanent: false,
       },
-    }
+    };
   }
 
   const projects = await prisma.data.findMany({
     orderBy: {
       createdAt: "asc",
     },
-  })
+  });
 
-  const skillsData = await prisma.skills.findMany()
-
-  const skills = skillsData.map(skill => {
-    const convertedSubSkill = skill.subSkill.map(str => JSON.parse(str))
+  const skillsData = await prisma.skills.findMany();
+  const skills = skillsData.map((skill) => {
+    const convertedSubSkill = skill.subSkill.map((str) => JSON.parse(str));
     return {
       lng: skill.lng,
       percent: skill.percent,
       subSkill: convertedSubSkill,
-    }
-  })
+    };
+  });
 
   const data = {
     skills,
     projects,
-  }
+  };
 
   return {
     props: {
       data: JSON.stringify(data),
     },
-  }
-}
+  };
+};
 
 export default function Home({ data }: { data: string }) {
-  const skills: Skills[] = JSON.parse(data).skills
-  const projects: ProjectType[] = JSON.parse(data).projects
+  const skills: Skills[] = JSON.parse(data).skills;
+  const projects: ProjectType[] = JSON.parse(data).projects;
   const refs = [
     useRef<HTMLDivElement>(null),
     useRef<HTMLDivElement>(null),
     useRef<HTMLDivElement>(null),
     useRef<HTMLDivElement>(null),
     useRef<HTMLDivElement>(null),
-  ]
+  ];
 
   return (
     <div className="relative">
@@ -87,5 +86,5 @@ export default function Home({ data }: { data: string }) {
         </div>
       </main>
     </div>
-  )
+  );
 }
