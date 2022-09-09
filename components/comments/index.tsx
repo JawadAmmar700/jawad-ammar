@@ -1,6 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { forwardRef, useImperativeHandle, useState } from "react";
-import { XIcon, LogoutIcon, LoginIcon } from "@heroicons/react/outline";
+import {
+  XMarkIcon,
+  ArrowLeftOnRectangleIcon,
+  ArrowRightOnRectangleIcon,
+} from "@heroicons/react/24/outline";
 import { useSession, signOut, signIn } from "next-auth/react";
 import CommentsView from "./comment-view";
 import Skeleton from "./comment-skeleton";
@@ -43,7 +47,7 @@ const Comments = forwardRef((props, ref) => {
                   onClick={() => setSideBar(!sideBar)}
                   className="p-2 bg-slate-50 rounded-lg w-10 h-10 flex items-center justify-center cursor-pointer shadow-inner"
                 >
-                  <XIcon className="w-5 h-5 text-black" />
+                  <XMarkIcon className="w-5 h-5 text-black" />
                 </motion.div>
                 {session && (
                   <motion.button
@@ -51,7 +55,7 @@ const Comments = forwardRef((props, ref) => {
                     onClick={() => signOut()}
                     className="p-2 bg-indigo-600 rounded-lg w-10 h-10 flex items-center justify-center cursor-pointer relative group"
                   >
-                    <LogoutIcon className="w-5 h-5 text-white" />
+                    <ArrowRightOnRectangleIcon className="w-5 h-5 text-white" />
                     <p className="text-[#383838] text-left text-sm font-bold opacity-0 group-hover:opacity-100 -z-10 group-hover:z-0 absolute left-12 w-[100px]">
                       sign out
                     </p>
@@ -77,7 +81,7 @@ const Comments = forwardRef((props, ref) => {
                     className="text-sm flex items-center space-x-2 font-medium uppercase mt-4 scale-90 hover:scale-100 p-3 w-[100px] text-black bg-slate-100 rounded shadow-inner"
                   >
                     <p>login</p>
-                    <LoginIcon className="w-5 h-5 text-black" />
+                    <ArrowLeftOnRectangleIcon className="w-5 h-5 text-black" />
                   </motion.button>
                 </div>
               ) : (

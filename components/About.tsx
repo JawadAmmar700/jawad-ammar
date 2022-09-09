@@ -1,5 +1,8 @@
-import { PaperAirplaneIcon, DownloadIcon } from "@heroicons/react/outline"
-import { motion } from "framer-motion"
+import {
+  PaperAirplaneIcon,
+  ArrowDownOnSquareIcon,
+} from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 
 const About = ({ aboutRef }: { aboutRef: React.RefObject<HTMLDivElement> }) => {
   return (
@@ -64,13 +67,13 @@ const About = ({ aboutRef }: { aboutRef: React.RefObject<HTMLDivElement> }) => {
             >
               <p>Download CV</p>
 
-              <DownloadIcon className="w-[20px] h-[20px] group-hover:animate-pulse" />
+              <ArrowDownOnSquareIcon className="w-[20px] h-[20px] group-hover:animate-pulse" />
             </motion.a>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;

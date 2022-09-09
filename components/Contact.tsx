@@ -1,22 +1,22 @@
-import { useEffect, useState } from "react"
-import { CheckCircleIcon } from "@heroicons/react/solid"
-import { motion, useAnimation } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+import { useEffect, useState } from "react";
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Contact = ({
   contactRef,
 }: {
-  contactRef: React.RefObject<HTMLDivElement>
+  contactRef: React.RefObject<HTMLDivElement>;
 }) => {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [subject, setSubject] = useState("")
-  const [message, setMessage] = useState("")
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
 
   const { ref, inView } = useInView({
     threshold: 0.1,
-  })
-  const controls = useAnimation()
+  });
+  const controls = useAnimation();
 
   useEffect(() => {
     if (inView) {
@@ -28,7 +28,7 @@ const Contact = ({
           duration: 1,
           bounce: 0.3,
         },
-      })
+      });
     } else {
       controls.start({
         x: -100,
@@ -38,12 +38,12 @@ const Contact = ({
           duration: 1,
           bounce: 0.3,
         },
-      })
+      });
     }
-  }, [inView])
+  }, [inView]);
 
   const SendEmail = async (e: any) => {
-    e.preventDefault()
+    e.preventDefault();
     if (name && email) {
       window.open(
         `mailto:${
@@ -53,14 +53,14 @@ const Contact = ({
         )}&body=hello I'm ${encodeURIComponent(name)} (${encodeURIComponent(
           email
         )}): ${encodeURIComponent(message)}`
-      )
+      );
 
-      setName("")
-      setEmail("")
-      setSubject("")
-      setMessage("")
+      setName("");
+      setEmail("");
+      setSubject("");
+      setMessage("");
     }
-  }
+  };
 
   return (
     <div id="Contact" className="w-full h-[900px] mt-16">
@@ -90,7 +90,7 @@ const Contact = ({
               size={35}
               id="contactName1"
               name="contactName1"
-              onChange={e => setName(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
               className="w-full h-8 px-1 outline-none border-2 text-black rounded focus:border-blue-500"
             />
           </div>
@@ -104,7 +104,7 @@ const Contact = ({
               placeholder="1234@example.com"
               id="contactName2"
               name="contactName2"
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-1 h-8 outline-none border-2 text-black rounded focus:border-blue-500"
             />
           </div>
@@ -116,7 +116,7 @@ const Contact = ({
               size={35}
               id="contactName3"
               name="contactName3"
-              onChange={e => setSubject(e.target.value)}
+              onChange={(e) => setSubject(e.target.value)}
               className="w-full px-1 h-8 outline-none border-2 text-black rounded focus:border-blue-500"
             />
           </div>
@@ -130,7 +130,7 @@ const Contact = ({
               value={message}
               id="contactName4"
               name="contactName4"
-              onChange={e => setMessage(e.target.value)}
+              onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </div>
 
@@ -142,7 +142,7 @@ const Contact = ({
         </motion.form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

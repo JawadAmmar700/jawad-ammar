@@ -1,4 +1,5 @@
 import type { GetStaticProps } from "next";
+import { useState } from "react";
 import Head from "next/head";
 import prisma from "../lib/prisma";
 import { ProjectType, Skills } from "../lib/types";
@@ -13,19 +14,8 @@ import {
 } from "../components";
 import { useRef } from "react";
 import Image from "next/image";
-import { isOnline } from "../lib/connection";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const is_online = await isOnline();
-  if (!is_online) {
-    return {
-      redirect: {
-        destination: "/12029",
-        permanent: false,
-      },
-    };
-  }
-
   const projects = await prisma.data.findMany({
     orderBy: {
       createdAt: "asc",
@@ -55,6 +45,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export default function Home({ data }: { data: string }) {
+  const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
   const skills: Skills[] = JSON.parse(data).skills;
   const projects: ProjectType[] = JSON.parse(data).projects;
   const refs = [
@@ -72,12 +63,17 @@ export default function Home({ data }: { data: string }) {
         <link rel="icon" href="/jawad.png" />
       </Head>
       <div className="w-full h-screen fixed">
-        <Image src="/fixedImage.jpg" alt="fixed image" layout="fill" />
+        <Image
+          src="/fixedImage.jpg"
+          alt="fixed image"
+          layout="fill"
+          onLoadingComplete={() => setIsImgLoaded(true)}
+        />
       </div>
       <main className="w-full absolute top-0">
         <Header refs={refs} />
         <div>
-          <Intro introRef={refs[2]} />
+          <Intro introRef={refs[2]} isImgLoaded={isImgLoaded} />
           <About aboutRef={refs[0]} />
           <SKills skills={skills} skillRef={refs[1]} />
           <ShowCase projects={projects} showcaseRef={refs[3]} />

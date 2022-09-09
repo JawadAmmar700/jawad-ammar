@@ -1,18 +1,17 @@
-import { useState } from "react"
-import ProgressBar from "./ProgressBar"
-import { ChevronDownIcon } from "@heroicons/react/solid"
-import { ChevronUpIcon } from "@heroicons/react/solid"
-import { motion } from "framer-motion"
-import { Skills, subSkillType } from "../../lib/types"
+import { useState } from "react";
+import ProgressBar from "./ProgressBar";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid";
+import { motion } from "framer-motion";
+import { Skills, subSkillType } from "../../lib/types";
 
 const SKills = ({
   skills,
   skillRef,
 }: {
-  skills: Skills[]
-  skillRef: React.RefObject<HTMLDivElement>
+  skills: Skills[];
+  skillRef: React.RefObject<HTMLDivElement>;
 }) => {
-  const [isOpen, setIsOpen] = useState(-1)
+  const [isOpen, setIsOpen] = useState(-1);
 
   return (
     <div id="Skills" ref={skillRef} className="w-ful relative mt-72">
@@ -88,7 +87,7 @@ const SKills = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SKills
+export default SKills;

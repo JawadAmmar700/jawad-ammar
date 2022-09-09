@@ -1,13 +1,13 @@
-import { ProjectType } from "../../lib/types"
-import { ExclamationIcon } from "@heroicons/react/solid"
-import Card from "./Card"
+import { ProjectType } from "../../lib/types";
+import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";
+import Card from "./Card";
 
 const ShowCase = ({
   projects,
   showcaseRef,
 }: {
-  projects: ProjectType[]
-  showcaseRef: React.RefObject<HTMLDivElement>
+  projects: ProjectType[];
+  showcaseRef: React.RefObject<HTMLDivElement>;
 }) => {
   return (
     <div
@@ -22,7 +22,7 @@ const ShowCase = ({
           built with different frameworks and libraries.
         </p>
         <div className="flex items-center justify-center space-x-2">
-          <ExclamationIcon className="w-5 h-5 text-yellow-500" />
+          <ExclamationTriangleIcon className="w-5 h-5 text-yellow-500" />
           <p className="text-gray-300 text-sm ">
             some project demo's wont work due to database limitation
           </p>
@@ -37,7 +37,7 @@ const ShowCase = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ShowCase
+export default ShowCase;

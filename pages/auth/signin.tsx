@@ -1,15 +1,15 @@
-import { motion } from "framer-motion"
-import { getProviders, signIn } from "next-auth/react"
-import Image from "next/image"
-import { FcGoogle } from "react-icons/fc"
-import { GoogleProvider } from "../../lib/types"
+import { motion } from "framer-motion";
+import { getProviders, signIn } from "next-auth/react";
+import Image from "next/image";
+import { FcGoogle } from "react-icons/fc";
+import { GoogleProvider } from "../../lib/types";
 
 export default function SignIn({ providers }: { providers: GoogleProvider[] }) {
   return (
     <div className="w-full h-screen flex justify-center">
       <div className="flex flex-col space-y-5 mt-24 items-center">
         <Image
-          src="/J.png"
+          src="/jawad.png"
           width={250}
           height={250}
           alt="J"
@@ -33,12 +33,12 @@ export default function SignIn({ providers }: { providers: GoogleProvider[] }) {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export async function getServerSideProps() {
-  const providers = await getProviders()
+  const providers = await getProviders();
   return {
     props: { providers },
-  }
+  };
 }

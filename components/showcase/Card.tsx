@@ -1,12 +1,12 @@
-import { useState } from "react"
-import { ArrowNarrowRightIcon } from "@heroicons/react/outline"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { ProjectType } from "../../lib/types"
+import { useState } from "react";
+import { ArrowSmallRightIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { ProjectType } from "../../lib/types";
 
 const Card = ({ name, src, span }: ProjectType) => {
-  const [revealCard, setRevealCard] = useState(false)
+  const [revealCard, setRevealCard] = useState(false);
 
   return (
     <div
@@ -44,13 +44,13 @@ const Card = ({ name, src, span }: ProjectType) => {
               animate={{ x: [0, 5, 0] }}
               transition={{ ease: "easeOut", duration: 2, repeat: Infinity }}
             >
-              <ArrowNarrowRightIcon className="text-sky-500 animate-pulse w-4 " />
+              <ArrowSmallRightIcon className="text-sky-500 animate-pulse w-4 " />
             </motion.div>
           </motion.div>
         </Link>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
