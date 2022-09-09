@@ -2,8 +2,12 @@ import { useState } from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
 import prisma from "../lib/prisma";
 import { ProjectType } from "../lib/types";
-import { CodeIcon, PlayIcon, GlobeAltIcon } from "@heroicons/react/outline";
-import { ChevronLeftIcon } from "@heroicons/react/solid";
+import {
+  CodeBracketIcon,
+  PlayIcon,
+  GlobeAltIcon,
+} from "@heroicons/react/24/outline";
+import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -78,7 +82,7 @@ const Details = ({ specificProject }: { specificProject: string }) => {
                 className="border-2 font-bold h-[50px] border-white rounded flex space-x-3 w-[150px] items-center justify-center group"
               >
                 <p> Code</p>
-                <CodeIcon className="w-[30px] group-hover:animate-pulse" />
+                <CodeBracketIcon className="w-[30px] group-hover:animate-pulse" />
               </motion.a>
               <motion.a
                 whileHover={{
