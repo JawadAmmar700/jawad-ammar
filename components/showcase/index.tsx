@@ -17,14 +17,14 @@ const ShowCase = ({
     >
       <div className="flex flex-col items-center space-y-4 mt-12">
         <p className="font-bold text-white text-2xl">Projects</p>
-        <p className="text-gray-300 text-sm text-center md:text-xl">
+        <p className="text-gray-300 text-sm text-center md:text-xl px-4">
           Here are some interactive and responsive applications I've worked on,
           built with different frameworks and libraries.
         </p>
-        <div className="flex items-center justify-center space-x-2">
+        <div className="flex flex-col md:flex-row md:space-x-2  justify-center items-center">
           <ExclamationTriangleIcon className="w-5 h-5 text-yellow-500" />
-          <p className="text-gray-300 text-sm ">
-            some project demo's wont work due to database limitation
+          <p className="text-gray-300 text-sm text-center">
+            Some project demo's wont work due to database limitation
           </p>
         </div>
       </div>

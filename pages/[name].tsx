@@ -10,7 +10,7 @@ import {
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image from "next/future/image";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const projects = await prisma.data.findMany();
@@ -44,7 +44,8 @@ const Details = ({ specificProject }: { specificProject: string }) => {
         <Image
           src={data.src}
           alt={data.name}
-          layout="fill"
+          fill
+          sizes="100vw"
           onLoadingComplete={() => setIsImgLoaded(true)}
         />
       </div>

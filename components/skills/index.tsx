@@ -11,7 +11,7 @@ const SKills = ({
   skills: Skills[];
   skillRef: React.RefObject<HTMLDivElement>;
 }) => {
-  const [isOpen, setIsOpen] = useState(-1);
+  const [isOpen, setIsOpen] = useState<number>(-1);
 
   return (
     <div id="Skills" ref={skillRef} className="w-ful relative mt-72">

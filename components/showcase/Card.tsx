@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowSmallRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image from "next/future/image";
 import { ProjectType } from "../../lib/types";
 
 const Card = ({ name, src, span }: ProjectType) => {
@@ -21,8 +21,8 @@ const Card = ({ name, src, span }: ProjectType) => {
       <Image
         src={src}
         alt={src}
-        layout="fill"
-        objectFit="fill"
+        sizes="100vw"
+        fill
         placeholder="blur"
         blurDataURL="/blur.png"
         className={`object-cover rounded  ${

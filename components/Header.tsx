@@ -1,9 +1,10 @@
-import useTrackScreenHeight from "../lib/hooks/useTrackScreenHeight"
-import ProgressBar from "react-scroll-progress-bar"
-import { Scrollspy } from "@makotot/ghostui"
+import useTrackScreenHeight from "../lib/hooks/useTrackScreenHeight";
+import ProgressBar from "react-scroll-progress-bar";
+import { Scrollspy } from "@makotot/ghostui";
+import Image from "next/future/image";
 
 const Header = ({ refs }: { refs: React.RefObject<HTMLDivElement>[] }) => {
-  const trackHeight = useTrackScreenHeight()
+  const trackHeight = useTrackScreenHeight();
 
   return (
     <div
@@ -34,9 +35,11 @@ const Header = ({ refs }: { refs: React.RefObject<HTMLDivElement>[] }) => {
             </div>
             <div>
               <a href="#Intro">
-                <img
+                <Image
                   src="/jawad.png"
-                  className={`w-[50px] scale-110 cursor-pointer  ${
+                  width={50}
+                  height={50}
+                  className={` scale-110 cursor-pointer  ${
                     currentElementIndexInViewport === 2 &&
                     "animate-pulse text-blue-500"
                   } `}
@@ -64,7 +67,7 @@ const Header = ({ refs }: { refs: React.RefObject<HTMLDivElement>[] }) => {
         )}
       </Scrollspy>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -5,7 +5,7 @@ import axios from "../../lib/axios";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { Toaster, toast } from "react-hot-toast";
 import { Reply, Comment, Session } from "../../lib/types";
-import Image from "next/image";
+import Image from "next/future/image";
 
 const CommentsView = ({ session }: { session: Session | null }) => {
   const [comment, setComment] = useState<string>("");
@@ -13,17 +13,8 @@ const CommentsView = ({ session }: { session: Session | null }) => {
   const [comments, setComments] = useState<Comment[]>([]);
   const [openCommentContent, setOpenCommentContent] = useState<number>(-1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [zoom, setZoom] = useState<number>(0);
-  const replyRef = useRef<any>(null);
-  const commentRef = useRef<any>(null);
-
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      let zoom = ((window.outerWidth - 10) / window.innerWidth) * 100;
-      console.log(zoom);
-      setZoom(Math.floor(zoom) + 1);
-    });
-  }, []);
+  const replyRef = useRef<HTMLDivElement>(null);
+  const commentRef = useRef<HTMLDivElement>(null);
 
   const getComments = async () => {
     setIsLoading(true);
@@ -51,10 +42,12 @@ const CommentsView = ({ session }: { session: Session | null }) => {
         const arr = comments;
         arr.unshift(data.data);
         setComments([...arr]);
-        commentRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
+        if (commentRef.current) {
+          commentRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
       });
     setComment("");
   };
@@ -79,10 +72,12 @@ const CommentsView = ({ session }: { session: Session | null }) => {
         });
 
         setComments(Comments);
-        replyRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
+        if (replyRef.current) {
+          replyRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
       });
 
     setReply("");

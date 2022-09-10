@@ -5,7 +5,7 @@ import {
   ChatBubbleBottomCenterTextIcon,
 } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image from "next/future/image";
 import Comments from "./comments";
 
 const Intro = ({
@@ -23,7 +23,8 @@ const Intro = ({
         <Image
           src="/landing-image.png"
           alt="intro-image"
-          layout="fill"
+          fill
+          sizes="100vw"
           onLoadingComplete={() => setLoadingImg(false)}
         />
       </div>
