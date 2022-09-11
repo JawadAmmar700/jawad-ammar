@@ -37,6 +37,7 @@ const Header = ({ refs }: { refs: React.RefObject<HTMLDivElement>[] }) => {
               <a href="#Intro">
                 <Image
                   src="/jawad.png"
+                  priority
                   width={50}
                   height={50}
                   className={` scale-110 cursor-pointer  ${

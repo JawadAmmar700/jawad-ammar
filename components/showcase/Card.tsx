@@ -21,7 +21,9 @@ const Card = ({ name, src, span }: ProjectType) => {
       <Image
         src={src}
         alt={src}
-        sizes="100vw"
+        sizes="(max-width: 768px) 100vw,
+        (max-width: 1200px) 50vw,
+        33vw"
         fill
         placeholder="blur"
         blurDataURL="/blur.png"

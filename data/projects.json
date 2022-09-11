@@ -1,0 +1,214 @@
+[
+        {
+            "name":"Next Amazon",
+            "src":"/projectImages/Next_Amazon.PNG",
+            "link":"https://github.com/JawadAmmar700/Next_Amazon",
+            "videoUrl":"https://www.youtube.com/watch?v=93jYyhGfeJw",
+            "technology":"Nextjs, NextAuth, Firebase, Tailwindcss, Redux, Stripe, Stripe webhook",
+            "description":"Amazon is an e-commerce website that contains list of products rendered from an external API where a logged in user can filter the products by either product type  or by price. Then choose products for purchasing by adding it to their basket, he has the option to add several items of different products or the same product  in which it affects the prices and quantities of the purchased items or to remove some or all the chosen items. Moreover, only the authenticated users can proceed  to checkout and pay using stripe checkout. Upon success, users can view their recent order and get notified about their successful payment via their email.",
+            "site":"https://next-amazon-alpha.vercel.app/",
+            "span":2
+        },
+        {
+            "name":"Tesla Clone",
+            "src":"/projectImages/teslaHomePage.PNG",
+            "link":"https://github.com/JawadAmmar700/Tesla",
+            "videoUrl":"https://www.youtube.com/watch?v=hdFj75GSz8o",
+            "technology":"Nextjs, Styled components, SSG page generation",
+            "description":"Tesla Clone is a design website that displays all car models in the home page and by choosing a specific car model, all details of the selected model like speed, hp and millage will be revealed.",
+            "site":"https://tesla-beta.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"Next Spotify",
+            "src":"/projectImages/Next_Instagram.PNG",
+            "link":"https://github.com/JawadAmmar700/Next_Instagram",
+            "videoUrl":"https://www.youtube.com/watch?v=m8eEjFpTMBQ",
+            "technology":"Nextjs, Tailwindcss, Recoil, NextAuth, Spotify api, hero-icons",
+            "description":"Spotify is a music application that contains some data taken from Spotify API where a logged in user that has a spotify account can access his recent playlist,  search by artist or song name and play the music.",
+            "site":"https://next-spotify-kappa.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"Next Instagram",
+            "src":"/projectImages/Next_Instagram.PNG",
+            "link":"https://github.com/JawadAmmar700/Next_Instagram",
+            "videoUrl":"https://www.youtube.com/watch?v=m8eEjFpTMBQ",
+            "technology":"Nextjs, Tailwindcss, Recoil, NextAuth, Firebase v9",
+            "description":"Next Instagram is a responsive website in which anyone can view a list of posts added by logged in users and in turn a user can add new posts by uploading a photo and adding a caption, react and comment to any available post.",
+            "site":"https://next-instagram-ivory.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"Icon Picker",
+            "src":"/projectImages/IconpickerHomePage.PNG",
+            "link":"https://github.com/JawadAmmar700/IconPicker",
+            "videoUrl":"https://www.youtube.com/watch?v=43ox9mXRWYo",
+            "technology":"Nextjs, SSG page generation, Tailwindcss, IconFinder api, Material tailwind ui, Redux",
+            "description":"Icon Picker is an application that shows icons selected from an API with a data filtration where users can search for icons by name,price or style. Collecting an icon allows the user to choose different sizes and download it.",
+            "site":"",
+            "span":0
+        },
+        {
+            "name":"Uberized",
+            "src":"/projectImages/UberHomePage.PNG",
+            "link":"https://github.com/JawadAmmar700/Uber-Mapbox",
+            "videoUrl":"https://www.youtube.com/watch?v=aBpy1c8Fg28",
+            "technology":"Nextjs, Magic link, Firebase, Material ui, Mapbox, Prisma database, Paypal integration, Tailwindcss, Redux",
+            "description":"Uberized is a website that shows locations on map chosen by logged in user between the current location and the one chosen. After signing in,  a link will be sent to the email to confirm the request and log you into the website. Then you can choose your favorite location and view it on map. You may check  some details between your current location and another by choosing a destination in the menu that in turn reveals some ride options with prices that can be paid online using PayPal checkout. ",
+            "site":"https://uber-mapbox.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"LinkedIn Clone",
+            "src":"/projectImages/linkedinHomePage.PNG",
+            "link":"https://github.com/JawadAmmar700/LinkedInwithNodeandMongo",
+            "videoUrl":"https://www.youtube.com/watch?v=p88hrpmrcpA",
+            "technology":"Nextjs, Nodejs, Google auth using Firebase, Mongodb",
+            "description":"LinkedIn Clone is a website that shows logged in users their own posts and can create new posts by uploading an image or a video. After submission, posts will be  listed according to their recent dates.",
+            "site":"https://next-linked-in.vercel.app/",
+            "span":2
+        },
+        {
+            "name":"Next GoogleDocs",
+            "src":"/projectImages/Next_GoogleDocs.PNG",
+            "link":"https://github.com/JawadAmmar700/Next_Google_docs",
+            "videoUrl":"https://www.youtube.com/watch?v=53MKGvAxmpE",
+            "technology":"Nextjs, NextAuth, Firebase, Rich Text Editor, Tailwindcss, Redux",
+            "description":"GoogleDocs is an application where authenticated users can create a new blank document or edit previous documents in a text editor page.",
+            "site":"https://next-google-docs.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"Next Disney",
+            "src":"/projectImages/Next_Disney.PNG",
+            "link":"https://github.com/JawadAmmar700/Next_Disney",
+            "videoUrl":"https://www.youtube.com/watch?v=xF9kW9FvVj0",
+            "technology":"Nextjs, Firebase, Redux",
+            "description":" Next Design is a website focusing on the design that contains a list of disney movies where logged in users can click a movie and a description page will be displayed.",
+            "site":"https://next-disney.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"Next NetlifyAuth",
+            "src":"/projectImages/Next_NetlifyAuth.PNG",
+            "link":"https://github.com/JawadAmmar700/Next_NetlifyAuth",
+            "videoUrl":"https://www.youtube.com/watch?v=KUZwgltua84",
+            "technology":"Nextjs, Netlify Auth, React context api.",
+            "description":"Next NetlifyAuth is a sign in method that can be integrated in other projects where a user can sign in using NetlifyAuth and this application focus on design  and authentication.",
+            "site":"https://sad-villani-760153.netlify.app/",
+            "span":0
+        },
+        {
+            "name":"React VideoChat",
+            "src":"/projectImages/React_VideoChat.PNG",
+            "link":"https://github.com/JawadAmmar700/React_VideoChat",
+            "videoUrl":"https://www.youtube.com/watch?v=ub3FLsLI4h4",
+            "technology":"ReactJs, Firebase Google auth, socket.io-client, peerjs, nodejs socket.io server.",
+            "description":" React VideoChat is an application where a logged in user can start a meeting by creating a video chat room like google meet and send the room Id to anyone in order to join the room instance with the ability to enable or disable the camera and microphone. The user that was invited to join has also to sign in then join a meeting  by entering the room Id. If both users are muted, they can communicate using a chat palette. Any user in the meeting can present and share his screen with other users.",
+            "site":"https://video-chat-2000.herokuapp.com/",
+            "span":0
+        },
+        {
+            "name":"React Amazon",
+            "src":"/projectImages/React_Amazon.PNG",
+            "link":"https://github.com/JawadAmmar700/React_Amazon",
+            "videoUrl":"https://www.youtube.com/watch?v=jkwwrz_O6tw",
+            "technology":"ReactJs, Firebase, React context api, Stripe Elements",
+            "description":" Amazon is an e-commerce website that contains list of products rendered from an external API where a user can register using a register form then sign in using his credentials. Then choose products for purchasing by adding it to their basket, he has the option to add several items of different products or the same product  and to remove some or all the chosen items. Moreover, only the authenticated users can proceed to checkout and pay using stripe card number.",
+            "site":"https://react-amazon-gilt.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"React FoodApp",
+            "src":"/projectImages/React_FoodApp.PNG",
+            "link":"https://github.com/JawadAmmar700/React_foodApp",
+            "videoUrl":"https://www.youtube.com/watch?v=zcuvGgeqeS8",
+            "technology":"ReactJs, Redux, TheMealDb api",
+            "description":"React FoodApp is an application that displays food categories and show their description. Once a user choose a specific category, a new page will open showing  all items related to the chosen category with the option to read each item ingredients and instruction, also to watch a related video. A user can subscribe by adding his email.",
+            "site":"https://react-food-app-smoky.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"React Google",
+            "src":"/projectImages/React_Google.PNG",
+            "link":"https://github.com/JawadAmmar700/React_Google",
+            "videoUrl":"https://www.youtube.com/watch?v=KnE-yV45Fkc",
+            "technology":"ReactJs, Google Search api, React context api",
+            "description":"React Google is a search engine website where users can search for data in the search input in which only ten listed results will be displayed. ",
+            "site":"https://react-google.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"React Facebook",
+            "src":"/projectImages/React_Facebook.PNG",
+            "link":"https://github.com/JawadAmmar700/React_Facebook",
+            "videoUrl":"https://www.youtube.com/watch?v=JSnQ3Q_pJQs",
+            "technology":"ReactJs, Real Time Firebase, React context api",
+            "description":"React Facebook is a website where logged in users can create a new post, add a caption and upload an image. Also, can view all other user's posts listed in descending time order.",
+            "site":"https://react-facebook.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"React Netflix",
+            "src":"/projectImages/React_Netflix.PNG",
+            "link":"https://github.com/JawadAmmar700/React_Netflix",
+            "videoUrl":"https://www.youtube.com/watch?v=mseBTt0lkQ4",
+            "technology":"ReactJs, Firebase, TheMoviesdb api, React context api",
+            "description":"React Netflix is a website where logged users can enter their email address and get started. Whether they have an account, the email will be automatically filled to enter the password and sign in or the user has to sign in with new email address. After that, the user has to select a plan for subscription in order to be successfully viewing all movies and categories.",
+            "site":"https://react-netflix-zeta.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"React QuizApp",
+            "src":"/projectImages/React_QuizApp.PNG",
+            "link":"https://github.com/JawadAmmar700/React_QuizApp",
+            "videoUrl":"https://www.youtube.com/watch?v=ddiyLfRaeJ8",
+            "technology":"ReactJs, Opentdb api",
+            "description":"React QuizApp is an application where a user can choose any category and start a quiz of ten questions. If no chosen category, a random quiz will be taken. After  submitting all the answers, the score will be displayed.",
+            "site":"https://react-quiz-app-eight.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"React Corona",
+            "src":"/projectImages/React_Corona.PNG",
+            "link":"https://github.com/JawadAmmar700/React_corona",
+            "videoUrl":"https://www.youtube.com/watch?v=Ft5tbN0pcuY",
+            "technology":"ReactJs, Corona api",
+            "description":"React Corona is an application that displays and tracks corona cases worldwide with an overview of country cases starting from the largest numbers. It shows the  number of all the cases, recovered and deaths. Also it displays via a graph the cases for the previous week from the fetched date with exact values for each week day. A user can choose a specific country to check only its cases.",
+            "site":"https://react-corona-coral.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"React Stripe",
+            "src":"/projectImages/React_Stripe.PNG",
+            "link":"https://github.com/JawadAmmar700/React_Stripe",
+            "videoUrl":"https://www.youtube.com/watch?v=axliajWcEtg",
+            "technology":"ReactJs, Stripe",
+            "description":"React Stripe is a testing payment application that uses two ways of stripe payment integrations either by elements or by checkout. This app can be integrated with other projects",
+            "site":"",
+            "span":2
+        },
+        {
+            "name":"Node quote",
+            "src":"/projectImages/Node_Quote.png",
+            "link":"https://github.com/JawadAmmar700/node-quote",
+            "videoUrl":"https://www.youtube.com/watch?v=D13hiF_So9c",
+            "technology":"Nodejs, Express, EJS, MongoDB, tailwindcss",
+            "description":"Node Quote is a website where logged in users can create a new quote by filling a form and selecting the type of the quote appearance. Once it is public, the quote will be displayed in both the dashboard and the quotes section, so all other users can only view it in the dashboard section without being able to edit or delete  any of the quotes. Otherwise, the quote will be only listed in the quotes section specifically for the logged in user, in which he can edit or delete his own quotes  in both the qoutes and dashboard section.",
+            "site":"https://node-quote.vercel.app/",
+            "span":0
+        },
+        {
+            "name":"Next Metamask",
+            "src":"/projectImages/Next_Metamask.png",
+            "link":"https://github.com/JawadAmmar700/Next_Metamask",
+            "videoUrl":"https://www.youtube.com/watch?v=E-2I1G_rqnM",
+            "technology":"Nextjs, Metamask, Moralis, tailwindcss",
+            "description":"",
+            "site":"https://next-metamask.vercel.app",
+            "span":0
+        }
+    ]
+    
+   

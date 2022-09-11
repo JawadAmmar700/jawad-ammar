@@ -55,7 +55,6 @@ export default function Home({ data }: { data: string }) {
     useRef<HTMLDivElement>(null),
     useRef<HTMLDivElement>(null),
   ];
-
   return (
     <div className="relative">
       <Head>
