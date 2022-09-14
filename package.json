@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "vercel-build": "npm run prisma:generate && next build",
     "prisma:generate": "DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma generate --data-proxy",
     "start": "next start",
     "lint": "next lint"
