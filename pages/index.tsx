@@ -15,6 +15,10 @@ import {
 import { useRef } from "react";
 import Image from "next/image";
 
+export const config = {
+  runtime: "experimental-edge",
+};
+
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await prisma.data.findMany({
     orderBy: {

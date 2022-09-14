@@ -1,12 +1,20 @@
-import type { NextApiRequest, NextApiResponse } from "next"
-import prisma from "../../lib/prisma"
+import type { NextRequest } from "next/server";
+import prisma from "../../lib/prisma";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export const config = {
+  runtime: "experimental-edge",
+};
+
+interface BodyProps {
+  reply: string;
+  username: string;
+  commentId: string;
+  image: string;
+}
+
+export default async function handler(req: NextRequest) {
   if (req.method === "POST") {
-    const { reply, username, commentId, image } = req.body
+    const { reply, username, commentId, image }: BodyProps = await req.json();
     const repliedComment = await prisma.reply.create({
       data: {
         reliedComment: reply,
@@ -14,7 +22,12 @@ export default async function handler(
         commentId,
         image,
       },
-    })
-    res.status(201).json(repliedComment)
+    });
+    return new Response(JSON.stringify(repliedComment), {
+      status: 200,
+      headers: {
+        "content-type": "application/json",
+      },
+    });
   }
 }

@@ -23,7 +23,7 @@ const ShowCase = ({
         </p>
         <div className="flex flex-col md:flex-row md:space-x-2  justify-center items-center">
           <ExclamationTriangleIcon className="w-5 h-5 text-yellow-500" />
-          <p className="text-gray-300 text-sm text-center">
+          <p className="text-gray-300 text-sm text-center px-4">
             Some project demo's wont work due to database limitation
           </p>
         </div>

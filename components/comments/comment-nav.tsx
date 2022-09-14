@@ -4,16 +4,10 @@ import {
   XMarkIcon,
   ArrowRightOnRectangleIcon,
 } from "@heroicons/react/24/outline";
-import { Session } from "../../lib/types";
+import { CommentNavProps, Session } from "../../lib/types";
 import { signOut } from "next-auth/react";
 
-type Props = {
-  session: Session | null;
-  setSideBar: (sideBar: boolean) => void;
-  sideBar: boolean;
-};
-
-const CommentNav = ({ session, setSideBar, sideBar }: Props) => {
+const CommentNav = ({ session, setSideBar, sideBar }: CommentNavProps) => {
   return (
     <div className="flex-none w-full z-50">
       <div className="flex items-center space-x-3 flex-none p-2 ">

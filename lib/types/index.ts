@@ -66,6 +66,12 @@ type Providers = {
   type: string;
 };
 
+type CommentNavProps = {
+  session: Session | null;
+  setSideBar: (sideBar: boolean) => void;
+  sideBar: boolean;
+};
+
 export type {
   subSkillType,
   ProjectType,
@@ -76,4 +82,5 @@ export type {
   User,
   Session,
   Providers,
+  CommentNavProps,
 };

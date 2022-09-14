@@ -12,6 +12,10 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/future/image";
 
+export const config = {
+  runtime: "experimental-edge",
+};
+
 export const getStaticPaths: GetStaticPaths = async () => {
   const projects = await prisma.data.findMany();
 
@@ -40,7 +44,7 @@ const Details = ({ specificProject }: { specificProject: string }) => {
   const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
   return (
     <div className="w-full md:relative flex flex-col md:flex-none items-center justify-evenly">
-      <div className="w-full md:h-screen h-[200px] object-contain z-10 opacity-90 md:opacity-20">
+      <div className="w-full md:h-screen h-[200px] object-contain z-10 opacity-90 md:opacity-20 relative">
         <Image
           src={data.src}
           alt={data.name}

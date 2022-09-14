@@ -4,14 +4,17 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/future/image";
 import { ProjectType } from "../../lib/types";
+import { useRouter } from "next/router";
 
 const Card = ({ name, src, span }: ProjectType) => {
-  const [revealCard, setRevealCard] = useState(false);
+  const [revealCard, setRevealCard] = useState<boolean>(false);
+  const router = useRouter();
 
   return (
     <div
       onMouseOver={() => setRevealCard(true)}
       onMouseLeave={() => setRevealCard(false)}
+      onClick={() => router.push(name)}
       className={`${
         span !== 0
           ? "md:col-span-2 md:row-span-2 lg:h-[445px]  h-[300px] w-full"
