@@ -80,7 +80,7 @@ const Intro = ({
               </motion.button>
             </div>
           </div>
-          <Comments ref={sideBarRef} />
+          {/* <Comments ref={sideBarRef} /> */}
         </>
       )}
     </section>
