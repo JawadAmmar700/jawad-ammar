@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "vercel-build": "npm run prisma:generate --data-proxy && next build",
+    "vercel-build": "npm run prisma:generate && next build",
     "start": "next start",
     "lint": "next lint"
   },
