@@ -12,10 +12,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/future/image";
 
-export const config = {
-  runtime: "experimental-edge",
-};
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const projects = await prisma.data.findMany();
 

@@ -1,4 +1,4 @@
-import type { GetStaticProps } from "next";
+import type { GetServerSideProps } from "next";
 import { useState } from "react";
 import Head from "next/head";
 import prisma from "../lib/prisma";
@@ -19,7 +19,7 @@ export const config = {
   runtime: "experimental-edge",
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const projects = await prisma.data.findMany({
     orderBy: {
       createdAt: "asc",

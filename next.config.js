@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   swcMinify: true,
+  experimental: {
+    runtime: 'experimental-edge',
+  },
   reactStrictMode: true,
   images: {
     domains: [
