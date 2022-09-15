@@ -1,4 +1,6 @@
-import { PrismaClient } from "@prisma/client/edge";
+// use this ⬇️ with Edge Functions
+// import { PrismaClient } from "@prisma/client/edge";
+import { PrismaClient } from "@prisma/client";
 
 declare global {
   var prisma: PrismaClient;

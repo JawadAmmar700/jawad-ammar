@@ -1,6 +1,6 @@
 import prisma from "../lib/prisma";
-import Projects from "../data/projects.json";
-import Skills from "../data/skills.json";
+import Projects from "./data/projects.json";
+import Skills from "./data/skills.json";
 
 async function main() {
   await prisma.data.createMany({

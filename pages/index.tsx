@@ -15,9 +15,10 @@ import {
 import { useRef } from "react";
 import Image from "next/image";
 
-export const config = {
-  runtime: "experimental-edge",
-};
+// ! Use this to add it to Edge runtime
+// export const config = {
+//   runtime: "experimental-edge",
+// };
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const projects = await prisma.data.findMany({
