@@ -5,6 +5,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  if (req.method === "POST") return;
   const comments = await prisma.comment.findMany({
     include: {
       Replies: true,
@@ -13,7 +14,7 @@ export default async function handler(
       createdAt: "asc",
     },
   });
-  return res.json(comments);
+  res.json(comments);
 }
 
 // ! Use this to add it to Api Edge routing

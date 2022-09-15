@@ -11,32 +11,45 @@ datasource db {
 }
 
 model Comment {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  comment   String
+  username  String
+  image     String
+  Replies   Reply[]
 }
 
 model Data {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt   DateTime @db.Date
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
   description String
   link        String
   name        String
   site        String
-  span        BigInt
+  span        Int
   src         String
   technology  String
-  updatedAt   DateTime @db.Date
   videoUrl    String
 }
 
 model Reply {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now())
+  reliedComment String
+  repliedUser   String
+  image         String
+  commentId     String
+  comment       Comment  @relation(fields: [commentId], references: [id])
 }
 
 model Skills {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt DateTime @db.Date
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
   lng       String
   percent   String
   subSkill  String[]
-  updatedAt DateTime @db.Date
 }

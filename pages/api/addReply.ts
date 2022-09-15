@@ -12,7 +12,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { reply, username, commentId, image }: BodyProps = await req.body();
+  if (req.method === "GET") return;
+  const { reply, username, commentId, image }: BodyProps = req.body;
   const repliedComment = await prisma.reply.create({
     data: {
       reliedComment: reply,
@@ -21,7 +22,7 @@ export default async function handler(
       image,
     },
   });
-  return res.json(repliedComment);
+  res.json(repliedComment);
 }
 
 // ! Use this to add it to Api Edge routing
