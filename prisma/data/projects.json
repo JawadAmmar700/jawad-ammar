@@ -22,8 +22,8 @@
         {
             "name":"Next Spotify",
             "src":"/projectImages/Next_Instagram.PNG",
-            "link":"https://github.com/JawadAmmar700/Next_Instagram",
-            "videoUrl":"https://www.youtube.com/watch?v=m8eEjFpTMBQ",
+            "link":"https://github.com/JawadAmmar700/Next_Spotify",
+            "videoUrl":"https://www.youtube.com/watch?v=QVUKs3qxqbA&t=6s",
             "technology":"Nextjs, Tailwindcss, Recoil, NextAuth, Spotify api, hero-icons",
             "description":"Spotify is a music application that contains some data taken from Spotify API where a logged in user that has a spotify account can access his recent playlist,  search by artist or song name and play the music.",
             "site":"https://next-spotify-kappa.vercel.app/",
@@ -106,7 +106,7 @@
             "videoUrl":"https://www.youtube.com/watch?v=ub3FLsLI4h4",
             "technology":"ReactJs, Firebase Google auth, socket.io-client, peerjs, nodejs socket.io server.",
             "description":" React VideoChat is an application where a logged in user can start a meeting by creating a video chat room like google meet and send the room Id to anyone in order to join the room instance with the ability to enable or disable the camera and microphone. The user that was invited to join has also to sign in then join a meeting  by entering the room Id. If both users are muted, they can communicate using a chat palette. Any user in the meeting can present and share his screen with other users.",
-            "site":"https://video-chat-2000.herokuapp.com/",
+            "site":"https://react-video-chat-app-two.vercel.app/",
             "span":0
         },
         {

@@ -13,7 +13,7 @@ datasource db {
 model Comment {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   comment   String
   username  String
   image     String
@@ -23,7 +23,7 @@ model Comment {
 model Data {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt   DateTime @default(now())
-  updatedAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
   description String
   link        String
   name        String
@@ -37,7 +37,7 @@ model Data {
 model Reply {
   id            String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt     DateTime @default(now())
-  updatedAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
   reliedComment String
   repliedUser   String
   image         String
@@ -48,7 +48,7 @@ model Reply {
 model Skills {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   lng       String
   percent   String
   subSkill  String[]
