@@ -1,13 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   swcMinify: true,
+  experimental: {
+    runtime: "experimental-edge",
+  },
   reactStrictMode: true,
   images: {
     domains: [
       "images7.alphacoders.com",
       "www.wallpaperup.com",
       "lh3.googleusercontent.com",
-      "avatars.githubusercontent.com"
+      "avatars.githubusercontent.com",
     ],
   },
   eslint: {
@@ -16,6 +19,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

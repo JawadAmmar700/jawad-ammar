@@ -6,7 +6,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 import Image from "next/future/image";
-import Comments from "./comments";
+// import Comments from "./comments";
 
 const Intro = ({
   introRef,
@@ -67,7 +67,7 @@ const Intro = ({
                 <ChevronDownIcon className="w-[45px] h-[45px] animate-bounce cursor-pointer hover:text-blue-500" />
               </a>
             </div>
-            <div className="space-x-3 hidden md:flex absolute bottom-0 right-0 m-4">
+            {/* <div className="space-x-3 hidden md:flex absolute bottom-0 right-0 m-4">
               <p className="text-xs text-slate-50 animate-pulse">
                 comments &#8594;
               </p>
@@ -78,9 +78,9 @@ const Intro = ({
               >
                 <ChatBubbleBottomCenterTextIcon className="w-5 text-slate-50 " />
               </motion.button>
-            </div>
+            </div> */}
           </div>
-          <Comments ref={sideBarRef} />
+          {/* <Comments ref={sideBarRef} /> */}
         </>
       )}
     </section>
