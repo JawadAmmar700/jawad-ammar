@@ -32,23 +32,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## Configuration
-
-Prisma db is configured using mongodb:
-
-1- Login to Mongo atlas with google credentials.
-2- Upon that we can connect and reveal the credentails.
-
-## In The Future
-
-Whenever next-auth supports Edge Functions, we can use prisma Edge proxy over the prisma server as below:⬇️
-
-- Generate a Prisma Proxy Url by navigating to the [Prisma Data Proxy](https://cloud.prisma.io).
-- Create a new Project then paste the DATABASE_URL environment variable into the form.
-- Afterwards copy the generated prisma proxy url.
-- The generated url will look like 'prisma://{prisma_server}/?api_key={api_key}'
-- Update the env file in the root project directory to reflect the changes:
-  1- Change DATABASE_URL to the proxy url.
-  2- Add MIGRATE_DATABASE_URL which is equivalent to the original mongodb url.
-  3- Add this env to vercel -- PRISMA_GENERATE_DATAPROXY=true

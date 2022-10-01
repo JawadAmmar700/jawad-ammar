@@ -1,0 +1,208 @@
+## Configuration
+
+Prisma db is configured using mongodb:
+
+1- Login to Mongo atlas with google credentials.
+2- Upon that we can connect and reveal the credentails.
+
+## In The Future
+
+Whenever next-auth supports Edge Functions, we can use prisma Edge proxy over the prisma server as below:⬇️
+
+- Generate a Prisma Proxy Url by navigating to the [Prisma Data Proxy](https://cloud.prisma.io).
+- Create a new Project then paste the DATABASE_URL environment variable into the form.
+- Afterwards copy the generated prisma proxy url.
+- The generated url will look like 'prisma://{prisma_server}/?api_key={api_key}'
+- Update the env file in the root project directory to reflect the changes:
+  1- Change DATABASE_URL to the proxy url.
+  2- Add MIGRATE_DATABASE_URL which is equivalent to the original mongodb url.
+  3- Add this env to vercel -- PRISMA_GENERATE_DATAPROXY=true
+
+## add next-auth when supports edge functions
+
+- creare folder called auth in pages/api.
+- add [...next-auth] file inside it.
+---
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+import GitHubProvider from "next-auth/providers/github";
+
+const GOOGLE_ID: string = `${process.env.GOOGLE_ID}`;
+const GOOGLE_SECRET: string = `${process.env.GOOGLE_SECRET}`;
+const GITHUB_ID: string = `${process.env.GITHUB_ID}`;
+const GITHUB_SECRET: string = `${process.env.GITHUB_SECRET}`;
+
+const GOOGLE_AUTHORIZATION_URL =
+"https://accounts.google.com/o/oauth2/v2/auth?" +
+new URLSearchParams({
+prompt: "consent",
+access_type: "offline",
+response_type: "code",
+});
+
+async function refreshAccessToken(token: any) {
+try {
+const providedUrl =
+token.provider === "google"
+? "https://oauth2.googleapis.com/token?"
+: "https://github.com/login/oauth/access_token?";
+const url =
+providedUrl +
+new URLSearchParams({
+client_id: token.provider === "google" ? GOOGLE_ID : GITHUB_ID,
+client_secret:
+token.provider === "google" ? GOOGLE_SECRET : GITHUB_SECRET,
+grant_type: "refresh_token",
+refresh_token: token.refreshToken,
+});
+
+    const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Accept: "application/json",
+      },
+      method: "POST",
+    });
+
+    const refreshedTokens = await response.json();
+
+    if (!response.ok) {
+      throw refreshedTokens;
+    }
+
+    return {
+      ...token,
+      accessToken: refreshedTokens.access_token,
+      accessTokenExpires:
+        Math.floor(Date.now() / 1000) + refreshedTokens.expires_in,
+      isRefreshToken: true,
+      refreshToken: refreshedTokens.refresh_token ?? token.refreshToken, // Fall back to old refresh token
+    };
+
+} catch (error) {
+console.log(error);
+
+    return {
+      ...token,
+      error: "RefreshAccessTokenError",
+    };
+
+}
+}
+
+export default NextAuth({
+// Configure one or more authentication providers
+providers: [
+GoogleProvider({
+clientId: GOOGLE_ID,
+clientSecret: GOOGLE_SECRET,
+authorization: GOOGLE_AUTHORIZATION_URL,
+}),
+GitHubProvider({
+clientId: GITHUB_ID,
+clientSecret: GITHUB_SECRET,
+}),
+// ...add more providers here
+],
+
+pages: {
+signIn: "/auth/signin",
+},
+
+callbacks: {
+async jwt({ token, user, account }: any) {
+//initial sign in
+if (account && user) {
+return {
+accessToken: account.access_token,
+accessTokenExpires: account.expires_at,
+refreshToken: account.refresh_token,
+provider: account.provider,
+user,
+};
+}
+// Return previous token if the access token has not expired yet
+if (Math.floor(Date.now() / 1000) < token.accessTokenExpires) {
+return token;
+}
+// Access token has expired, try to update it
+return refreshAccessToken(token);
+},
+async session({ session, token }: any) {
+session.user = token.user;
+session.accessToken = token.accessToken;
+session.accessTokenExpires = token.accessTokenExpires;
+session.isRefreshToken = token.isRefreshToken ?? false;
+session.error = token.error;
+return session;
+},
+},
+secret: process.env.NEXTAUTH_SECRET,
+});
+---
+
+
+- creare folder called auth in pages.
+- add signIn file inside it.
+
+---
+import { motion } from "framer-motion";
+import { getProviders, signIn } from "next-auth/react";
+import Image from "next/future/image";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
+import { Providers } from "../../lib/types";
+
+export default function SignIn({ providers }: { providers: Providers[] }) {
+return (
+<div className="w-full h-screen flex justify-center bg-[#000000]">
+<div className="flex flex-col space-y-5 mt-24 items-center">
+{/_ <Image
+          src="/jawad.png"
+          width={250}
+          height={250}
+          alt="J"
+          placeholder="blur"
+          blurDataURL="/blur.png"
+        /> _/}
+<div className="flex justify-center items-center space-x-2">
+<h1 className="font-bold text-white text-xl">Log in to </h1>
+<Image
+            src="/jawad.png"
+            width={30}
+            height={30}
+            alt="J"
+            placeholder="blur"
+            blurDataURL="/blur.png"
+          />
+</div>
+{Object.values(providers).map((provider: Providers) => (
+<div key={provider.name}>
+<motion.button
+whileHover={{
+                scale: [1, 1.1, 1],
+                rotate: [0, -5, 5, 0],
+              }}
+className={`p-3 rounded text-white flex items-center space-x-2 font-bold bg-slate-50 cursor-pointer ${ provider.id === "google" ? "bg-[#6B4FBB]" : "bg-[#24292E]" }`}
+onClick={() => signIn(provider.id, { callbackUrl: "/" })} >
+{provider.id === "google" ? (
+<FcGoogle className="w-5 h-5" />
+) : (
+<FaGithub className="w-5 h-5" />
+)}
+<p>Continue with {provider.name}</p>
+</motion.button>
+</div>
+))}
+</div>
+</div>
+);
+}
+
+export async function getServerSideProps() {
+const providers = await getProviders();
+return {
+props: { providers },
+};
+}
+---
