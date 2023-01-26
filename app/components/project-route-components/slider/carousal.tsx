@@ -1,0 +1,39 @@
+"use client";
+import Image from "next/image";
+import Slider from "react-slick";
+import NextArrow from "./next-arrow";
+import PrevArrow from "./prev-arrow";
+
+const settings = {
+  dots: false,
+  fade: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
+};
+
+export default function Carousal({ slides }: { slides: Slides }) {
+  return (
+    <section className="mt-16 relative flex items-center justify-center flex-col space-y-4 mb-32">
+      <div className="w-4/5">
+        <Slider {...settings}>
+          {Array(parseInt(slides?.imagesLength))
+            .fill("")
+            .map((_, i) => (
+              <Image
+                key={i}
+                src={`/assets/slides/${slides.folder}/slide-${i + 1}.png`}
+                alt={`${slides.folder}-slide-${i + 1}`}
+                width={1920}
+                height={1080}
+                className="rounded-2xl"
+              />
+            ))}
+        </Slider>
+      </div>
+    </section>
+  );
+}

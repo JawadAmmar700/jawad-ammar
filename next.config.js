@@ -2,16 +2,8 @@
 const nextConfig = {
   swcMinify: true,
   experimental: {
-    runtime: "experimental-edge",
-  },
-  reactStrictMode: true,
-  images: {
-    domains: [
-      "images7.alphacoders.com",
-      "www.wallpaperup.com",
-      "lh3.googleusercontent.com",
-      "avatars.githubusercontent.com",
-    ],
+    // runtime: "experimental-edge",
+    appDir: true,
   },
   eslint: {
     ignoreDuringBuilds: true,

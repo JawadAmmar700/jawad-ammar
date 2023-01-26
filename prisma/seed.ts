@@ -7,18 +7,8 @@ async function main() {
     data: Projects,
   });
 
-  const skills = Skills.map((skill) => {
-    return {
-      lng: skill.lng,
-      percent: `${skill.percent}`,
-      subSkill: skill.subSkill.map((subSkill) => {
-        return JSON.stringify(subSkill);
-      }),
-    };
-  });
-
   await prisma.skills.createMany({
-    data: skills,
+    data: Skills,
   });
 }
 

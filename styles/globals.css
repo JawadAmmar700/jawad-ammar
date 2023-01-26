@@ -2,13 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-.link {
-  @apply scale-90 hover:scale-110 cursor-pointer font-bold hover:animate-pulse;
+@layer components {
+  .link {
+    @apply scale-90 hover:scale-110 cursor-pointer font-bold hover:animate-pulse no-underline;
+  }
+
+  .activeLink {
+    @apply animate-pulse text-blue-500;
+  }
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: black;
+  height: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -34,6 +40,7 @@ html {
 .hide-scroll-bar {
   -ms-overflow-style: none;
 }
+
 .hide-scroll-bar::-webkit-scrollbar {
   display: none;
 }
