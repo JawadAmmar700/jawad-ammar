@@ -14,6 +14,7 @@ type Technology = {
 };
 
 type ProjectType = {
+  id: string;
   name: string;
   src: string;
   repo: string;

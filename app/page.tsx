@@ -19,14 +19,14 @@ const Home = async () => {
       <main className="w-full absolute top-0">
         <Header />
 
-        <div>
+        <>
           <Intro />
           <About />
           <SKills skills={skills} />
           <ShowCase projects={projects} />
           <Contact />
           <Footer />
-        </div>
+        </>
       </main>
     </div>
   );

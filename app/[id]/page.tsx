@@ -6,20 +6,16 @@ import ProjectSocial from "../components/project-route-components/project-social
 import ProjectDetail from "../components/project-route-components/project-detail";
 import { projectQuery, projectsQuery } from "../../lib/queries";
 
-export const config = {
-  runtime: "nodejs",
-};
-
 export async function generateStaticParams() {
   const projects = await projectsQuery();
 
   return projects.map((project) => ({
-    name: project.name,
+    id: project.id,
   }));
 }
 
-const Details = async ({ params }: { params: { name: string } }) => {
-  const data = await projectQuery(params.name.replace("%20", " "));
+const Details = async ({ params }: { params: { id: string } }) => {
+  const data = await projectQuery(params.id);
 
   return (
     <div className="w-full bg-[#0F172A]">

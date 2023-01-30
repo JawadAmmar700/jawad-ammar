@@ -9,20 +9,20 @@ const Footer = ({ marginTop = "44" }: { marginTop?: string }) => {
     >
       <a
         href="#"
-        className="w-[60px] h-[60px] relative -top-8   rounded-full flex items-center justify-center cursor-pointer hover:bg-white transition-all border-2 border-white "
+        className="w-[60px] h-[60px] relative -top-8 rounded-full flex items-center justify-center cursor-pointer hover:bg-white transition-all border-2 border-white "
       >
         <Image src="/code/uparrow.png" alt="arrow up" width={24} height={24} />
       </a>
 
       <div className="flex items-center space-x-4 text-white">
         <Link href={process.env.NEXT_PUBLIC_FACEBOOK_LINK!} target="_blank">
-          <FiFacebook className="w-[25px] hover:text-blue-500 scale-100 hover:scale-125 h-[25px] cursor-pointer" />
+          <FiFacebook className="w-[25px] hover:text-sky-500 scale-100 hover:scale-125 h-[25px] cursor-pointer" />
         </Link>
         <Link href={process.env.NEXT_PUBLIC_LINKEDIN_LINK!} target="_blank">
-          <FiLinkedin className="w-[25px] hover:text-blue-500 scale-100 hover:scale-125 h-[25px] cursor-pointer" />
+          <FiLinkedin className="w-[25px] hover:text-violet-500 scale-100 hover:scale-125 h-[25px] cursor-pointer" />
         </Link>
         <Link href={process.env.NEXT_PUBLIC_GITHUB_LINK!} target="_blank">
-          <FiGithub className="w-[25px] hover:text-blue-500 scale-100 hover:scale-125 h-[25px] cursor-pointer" />
+          <FiGithub className="w-[25px] hover:text-pink-500 scale-100 hover:scale-125 h-[25px] cursor-pointer" />
         </Link>
       </div>
       <p className="text-gray-600">

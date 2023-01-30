@@ -16,10 +16,10 @@ const skillsQuery = async () => {
   return skills;
 };
 
-const projectQuery = async (name: string) => {
+const projectQuery = async (id: string) => {
   const project = await prisma.data.findFirst({
     where: {
-      name: name,
+      id: id,
     },
   });
   if (!project) {

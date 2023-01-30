@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const Card = ({ name, src, span }: ProjectType) => {
+const Card = ({ id, name, src, span }: ProjectType) => {
   const [revealCard, setRevealCard] = useState<boolean>(false);
 
   return (
@@ -18,17 +18,15 @@ const Card = ({ name, src, span }: ProjectType) => {
       }  relative rounded`}
     >
       <Image
-        src={`/assets/${src}.png`}
+        src={`/assets/${src.toLowerCase()}.png`}
         alt={src}
-        sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+        sizes="100%"
         fill
-        className="group-hover:opacity-30 scale-150 group-hover:scale-100 transition-all duration-200 ease-in-out transform w-full rounded"
+        className="group-hover:opacity-30 scale-125 group-hover:scale-100 transition-all duration-200 ease-in-out transform w-full rounded"
       />
 
       {revealCard && (
-        <Link href={name}>
+        <Link href={id}>
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 0.9, y: 0 }}
@@ -40,7 +38,7 @@ const Card = ({ name, src, span }: ProjectType) => {
             <h1 className="font-bold text-white">{name}</h1>
 
             <p className="text-red-500 text-sm cursor-pointer animate-pulse ">
-              click for more details on {name}
+              Read more
             </p>
           </motion.div>
         </Link>

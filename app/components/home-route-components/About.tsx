@@ -2,7 +2,6 @@ import {
   PaperAirplaneIcon,
   ArrowDownOnSquareIcon,
 } from "@heroicons/react/24/outline";
-// import { motion } from "framer-motion";
 
 const About = () => {
   return (
@@ -16,9 +15,9 @@ const About = () => {
         <div className="w-[400px] h-[400px]">
           <h1 className="text-black first-letter:text-3xl font-bold">
             Hi, I'm
-            <span className="text-black font-bold"> Jawad Ammar</span>
+            <span className="font-bold"> Jawad Ammar</span>
           </h1>
-          <p className="text-xs mt-2 font-semibold">
+          <p className="text-xs mt-2 font-semibold text-black">
             I'm an undergraduate engineer willing to be a full-stack developer
             and to do programming as a profession. My interests range from
             back-side, front-end and system management. I am willing to find a
@@ -27,7 +26,7 @@ const About = () => {
             a few projects and worked on the portfolio here in a relatively
             small period of time by myself.
           </p>
-          <ul className="flex flex-col space-y-1 mt-3">
+          <ul className="flex flex-col space-y-1 mt-3 text-black">
             <li>
               <span className="text-sm font-semibold ">Country:</span>
               <span className="text-sm"> Lebanon</span>
@@ -47,13 +46,10 @@ const About = () => {
           </ul>
           <div id="About" className="mt-4 cursor-pointer">
             <a
-              // initial={{ scale: 0.9 }}
-              // whileHover={{ scale: 1 }}
               href="#Contact"
-              className="group flex items-center space-x-3 justify-center border-2 border-white bg-black p-3 rounded text-white font-bold  "
+              className="group flex items-center space-x-3 justify-center border-2 border-white bg-black p-3 rounded text-white font-bold"
             >
               <p>Get In Touch</p>
-
               <PaperAirplaneIcon className="w-[20px] h-[20px] rotate-180  group-hover:animate-pulse" />
             </a>
           </div>

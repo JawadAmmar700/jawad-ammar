@@ -1,6 +1,7 @@
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
+import { FiGithub, FiLinkedin, FiFacebook } from "react-icons/fi";
 
 const Intro = () => {
   return (
@@ -25,31 +26,13 @@ const Intro = () => {
 
           <div className="flex space-x-2">
             <Link href={process.env.NEXT_PUBLIC_FACEBOOK_LINK!} target="_blank">
-              <Image
-                src="/social/facebook.svg"
-                alt="facebook icon"
-                width={25}
-                height={25}
-                className="scale-100 hover:scale-125 cursor-pointer"
-              />
+              <FiFacebook className="w-[25px] hover:text-sky-500 scale-100 hover:scale-125 h-[25px] cursor-pointer" />
             </Link>
             <Link href={process.env.NEXT_PUBLIC_LINKEDIN_LINK!} target="_blank">
-              <Image
-                src="/social/linkedin.svg"
-                alt="linkedin icon"
-                width={30}
-                height={30}
-                className="scale-100 hover:scale-125 cursor-pointer"
-              />
+              <FiLinkedin className="w-[25px] hover:text-violet-500 scale-100 hover:scale-125 h-[25px] cursor-pointer" />
             </Link>
             <Link href={process.env.NEXT_PUBLIC_GITHUB_LINK!} target="_blank">
-              <Image
-                src="/social/github.svg"
-                alt="github icon"
-                width={20}
-                height={20}
-                className="scale-100 hover:scale-125 cursor-pointer"
-              />
+              <FiGithub className="w-[25px] hover:text-pink-500 scale-100 hover:scale-125 h-[25px] cursor-pointer" />
             </Link>
           </div>
         </div>
