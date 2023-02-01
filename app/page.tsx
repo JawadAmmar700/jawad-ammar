@@ -8,6 +8,8 @@ import Intro from "./components/home-route-components/Intro";
 import ShowCase from "./components/home-route-components/showcase";
 import SKills from "./components/home-route-components/skills";
 
+export const runtime = "experimental-edge";
+
 const Home = async () => {
   const projects = await projectsQuery();
   const skills = await skillsQuery();

@@ -2,7 +2,7 @@
 const nextConfig = {
   swcMinify: true,
   experimental: {
-    // runtime: "experimental-edge",
+    runtime: "experimental-edge",
     appDir: true,
   },
   eslint: {
