@@ -15,7 +15,7 @@ const About = () => {
     <div id="About" className="w-full flex flex-col items-center">
       <div className="w-full p-4 bg-slate-100 mt-24 flex items-center justify-center space-x-5 z-20">
         <img
-          src="/profile.jpg"
+          src="/jawad.jpg"
           alt="profile"
           className="rounded lg:w-[400px] lg:h-[400px] md:w-[300px] md:h-[400px] object-cover hidden md:block"
         />
@@ -94,7 +94,7 @@ const About = () => {
                 </a>
                 <a
                   className="group hover:scale-105 flex items-center space-x-3 justify-center border-2 border-white bg-red-500 p-3 rounded text-white font-bold  "
-                  href="/word-file/Resume_Jawad_Ammar.docx"
+                  href="/word-file/JawadAmmar_Resume.pdf"
                   download
                 >
                   <p>Download CV</p>
