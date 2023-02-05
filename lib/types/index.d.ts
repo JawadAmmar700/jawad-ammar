@@ -54,3 +54,9 @@ type ProjectDetailProps = {
   description: string;
   technology: Technology[];
 };
+
+type CardsProps = {
+  data: ProjectType[];
+  paginationRight: number;
+  paginationLeft: number;
+};

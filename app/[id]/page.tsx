@@ -1,10 +1,11 @@
-import Carousal from "../components/project-route-components/slider/carousal";
-import Footer from "../components/home-route-components/Footer";
-import Header from "../components/project-route-components/header";
-import OverflowImage from "../components/project-route-components/overflow-image";
-import ProjectSocial from "../components/project-route-components/project-social";
-import ProjectDetail from "../components/project-route-components/project-detail";
+import Carousal from "../../components/project-route-components/slider/carousal";
+import Footer from "../../components/home-route-components/Footer";
+import Header from "../../components/project-route-components/header";
+import OverflowImage from "../../components/project-route-components/overflow-image";
+import ProjectSocial from "../../components/project-route-components/project-social";
+import ProjectDetail from "../../components/project-route-components/project-detail";
 import { projectQuery, projectsQuery } from "../../lib/queries";
+import Image from "next/image";
 
 export const runtime = "experimental-edge";
 

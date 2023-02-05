@@ -1,5 +1,5 @@
 "use client";
-import useTrackScreenHeight from "../../../lib/hooks/useTrackScreenHeight";
+import useTrackScreenHeight from "../../lib/hooks/useTrackScreenHeight";
 // @ts-ignore
 import ScrollspyNav from "react-scrollspy-nav";
 // @ts-ignore

@@ -85,7 +85,7 @@ const Contact = () => {
               id="contactName1"
               name="contactName1"
               onChange={(e) => setName(e.target.value)}
-              className="w-full h-8 px-1 outline-none border-2 text-black rounded focus:border-blue-500"
+              className="input input-bordered w-full"
             />
           </div>
           <div className="flex flex-col">
@@ -99,7 +99,7 @@ const Contact = () => {
               id="contactName2"
               name="contactName2"
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-1 h-8 outline-none border-2 text-black rounded focus:border-blue-500"
+              className="input input-bordered w-full"
             />
           </div>
           <div className="flex flex-col">
@@ -111,7 +111,7 @@ const Contact = () => {
               id="contactName3"
               name="contactName3"
               onChange={(e) => setSubject(e.target.value)}
-              className="w-full px-1 h-8 outline-none border-2 text-black rounded focus:border-blue-500"
+              className="input input-bordered w-full"
             />
           </div>
           <div className="flex flex-col">
@@ -119,8 +119,8 @@ const Contact = () => {
 
             <textarea
               cols={30}
-              rows={10}
-              className="w-full px-1 h-[150px] outline-none border-2 text-black rounded focus:border-blue-500"
+              rows={5}
+              className="textarea textarea-bordered textarea-xs w-full"
               value={message}
               id="contactName4"
               name="contactName4"
