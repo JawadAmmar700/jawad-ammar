@@ -7,7 +7,7 @@ import ProjectDetail from "../../components/project-route-components/project-det
 import { projectQuery, projectsQuery } from "../../lib/queries";
 import Image from "next/image";
 
-export const runtime = "experimental-edge";
+// export const runtime = "experimental-edge";
 
 export async function generateStaticParams() {
   const projects = await projectsQuery();
