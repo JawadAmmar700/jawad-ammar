@@ -14,12 +14,13 @@ type DataSlide {
 
 type DataTechnology {
   color String
+  src   String
   name  String
 }
 
 type SkillsSubSkill {
-  lng     String
-  percent String
+  name String
+  src  String
 }
 
 model Data {
@@ -28,6 +29,7 @@ model Data {
   name        String
   repo        String
   site        String
+  ref         String
   slide       DataSlide
   span        String
   src         String
@@ -36,8 +38,8 @@ model Data {
 }
 
 model Skills {
-  id       String           @id @default(auto()) @map("_id") @db.ObjectId
-  lng      String
-  percent  String
-  subSkill SkillsSubSkill[]
+  id     String           @id @default(auto()) @map("_id") @db.ObjectId
+  title  String
+  ref    String
+  skills SkillsSubSkill[]
 }

@@ -1,55 +1,24 @@
-"use client";
-import React, { useState } from "react";
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid";
-import { motion } from "framer-motion";
+import Image from "next/image";
 
-import ProgressBar from "./ProgressBar";
-
-const SkillsContent = ({ skills }: { skills: Skills[] }) => {
-  const [isOpen, setIsOpen] = useState<number>(-1);
-
+const SkillsContent = ({ skills }: { skills: subSkillType[] }) => {
   return (
     <div className="p-4 font-medium">
-      {skills?.map((skill: Skills, index: number) => (
-        <div key={index}>
-          <p>
-            {index + 1}- {skill.lng}- {skill.percent}%
-          </p>
-          <div id="Skills" className="px-8">
-            <ProgressBar percent={skill.percent} />
-            <div
-              onClick={() => setIsOpen(index === isOpen ? -1 : index)}
-              className="w-[105px] text-sm mt-1 justify-center flex items-center space-x-3 cursor-pointer hover:text-blue-500"
-            >
-              view more
-              {isOpen == index ? (
-                <ChevronUpIcon className="w-[15px] h-[15px]" />
-              ) : (
-                <ChevronDownIcon className="w-[15px] h-[15px]" />
-              )}
-            </div>
-            {isOpen === index && (
-              <div className="px-4">
-                {skill.subSkill.map((subSkill: subSkillType, index: number) => (
-                  <div key={index}>
-                    <li>
-                      {subSkill.lng}- {subSkill.percent}%
-                    </li>
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${subSkill.percent}%` }}
-                      transition={{ duration: 0.5 }}
-                      className="px-4"
-                    >
-                      <ProgressBar percent={subSkill.percent} />
-                    </motion.div>
-                  </div>
-                ))}
-              </div>
-            )}
+      <div className="space-x-2 flex flex-wrap w-full gap-y-2">
+        {skills?.map((skill, index) => (
+          <div
+            key={index}
+            className="flex space-x-2 items-center p-2 rounded-lg bg-white shadow-2xl"
+          >
+            <Image
+              src={`/technology/${skill.src}.svg`}
+              alt={skill.name}
+              width={20}
+              height={20}
+            />
+            <p className="text-xs text-black font-bold">{skill.name}</p>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

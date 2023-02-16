@@ -1,6 +1,6 @@
 type subSkillType = {
-  lng: string;
-  percent: string;
+  name: string;
+  src: string;
 };
 
 type Slide = {
@@ -27,9 +27,10 @@ type ProjectType = {
 };
 
 type Skills = {
-  lng: string;
-  percent: string;
-  subSkill: Array<subSkillType>;
+  id: String;
+  title: String;
+  ref: String;
+  skills: SkillsSubSkill[];
 };
 
 type Slides = {

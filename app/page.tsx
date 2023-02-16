@@ -24,7 +24,7 @@ const Home = async () => {
         <>
           <Intro />
           <About />
-          <SKills skills={skills} />
+          <SKills data={skills} />
           <ShowCase projects={projects} />
           <Contact />
           <Footer />
