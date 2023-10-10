@@ -37,13 +37,13 @@ const Content = ({ projects }: { projects: ProjectType[] }) => {
   return (
     <div className="w-full h-full flex flex-col items-center relative">
       <div className="w-full flex items-center justify-between md:justify-evenly px-5  sm:px-24">
-        <div className="tabs tabs-boxed ">
+        <div className="tabs tabs-boxed bg-black text-white">
           {tabs.map((item, i) => (
             <button
               onClick={() => filterByCategory(item)}
               key={item + i}
-              className={`tab ${
-                item === tabCatategory ? "tab-active" : ""
+              className={`text-white  tab ${
+                item === tabCatategory ? "tab-active " : ""
               } uppercase `}
             >
               {item}

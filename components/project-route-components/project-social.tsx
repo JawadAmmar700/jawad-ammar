@@ -32,6 +32,7 @@ const ProjectSocial = ({ repo, site, youtube }: ProjectSocialProps) => {
 
         <Link
           href={youtube}
+          target="_blank"
           className="hover:scale-110 transition-all duration-150 flex items-center space-x-2  bg-[#FF2E2E] px-2 py-1 rounded-lg cursor-pointer shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]"
         >
           <FiYoutube className="w-5 text-white" />

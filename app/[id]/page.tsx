@@ -5,7 +5,6 @@ import OverflowImage from "../../components/project-route-components/overflow-im
 import ProjectSocial from "../../components/project-route-components/project-social";
 import ProjectDetail from "../../components/project-route-components/project-detail";
 import { projectQuery, projectsQuery } from "../../lib/queries";
-import Image from "next/image";
 
 export const runtime = "edge";
 

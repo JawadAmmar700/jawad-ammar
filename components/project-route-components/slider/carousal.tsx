@@ -23,14 +23,15 @@ export default function Carousal({ slides }: { slides: Slides }) {
           {Array(parseInt(slides?.imagesLength))
             .fill("")
             .map((_, i) => (
-              <Image
-                key={i}
-                src={`/assets/slides/${slides.folder}/slide-${i + 1}.png`}
-                alt={`${slides.folder}-slide-${i + 1}`}
-                width={1920}
-                height={1080}
-                className="rounded-2xl"
-              />
+              <div className="p-2 h-[450px] relative rounded-lg">
+                <Image
+                  key={i}
+                  src={`/assets/slides/${slides.folder}/slide-${i + 1}.png`}
+                  alt={`${slides.folder}-slide-${i + 1}`}
+                  fill
+                  className="rounded-lg object-contain"
+                />
+              </div>
             ))}
         </Slider>
       </div>
