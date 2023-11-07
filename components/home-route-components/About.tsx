@@ -99,7 +99,7 @@ const About = () => {
                 </a>
                 <a
                   className="group hover:scale-105 text-xs sm-text-sm  flex items-center space-x-2 justify-center border-2 border-white bg-red-500 p-2 rounded-lg text-white font-bold  "
-                  href="/word-file/jawad_Ammar_Resume.pdf"
+                  href="/word-file/Jawad_Ammar_Resume.pdf"
                   download
                 >
                   <p>Download CV</p>
