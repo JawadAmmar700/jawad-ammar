@@ -41,7 +41,7 @@ const Header = () => {
             />
           </Link>
           <Link href="#Showcase" className="link">
-            Work
+            Projects
           </Link>
           <Link href="#Contact" className="link">
             Contact

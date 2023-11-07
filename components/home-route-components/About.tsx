@@ -16,7 +16,7 @@ const About = () => {
     <div id="About" className="w-full flex flex-col items-center">
       <div className="w-full p-4 bg-slate-100 mt-24 flex items-center justify-center space-x-5 z-20">
         <Image
-          src="/ava3.webp"
+          src="/jawad-ammar-profile.jpg"
           alt="profile"
           width={400}
           height={400}
@@ -99,7 +99,7 @@ const About = () => {
                 </a>
                 <a
                   className="group hover:scale-105 text-xs sm-text-sm  flex items-center space-x-2 justify-center border-2 border-white bg-red-500 p-2 rounded-lg text-white font-bold  "
-                  href="/word-file/JawadAmmar_Resume.pdf"
+                  href="/word-file/jawad_Ammar_Resume.pdf"
                   download
                 >
                   <p>Download CV</p>
@@ -125,14 +125,14 @@ const About = () => {
                 </p>
                 <div className="ml-10 text-xs">
                   <li> Lebanese International University, Beirut, Lebanon</li>
-                  <li> 2018 - May 2023</li>
+                  <li> Mar 2018 - May 2023</li>
                 </div>
               </div>
               <div className="p-4 font-medium ">
                 <p className="text-xs">2- Baccalaureate Degree</p>
                 <div className="ml-10 text-xs">
                   <li> Cedars Cultural School, Kabr Chamoun, Lebanon </li>
-                  <li> 2017 - 2018</li>
+                  <li> Oct 2011 - Mar 2018</li>
                 </div>
               </div>
             </motion.div>

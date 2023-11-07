@@ -16,8 +16,8 @@ const ShowCase = ({ projects }: { projects: ProjectType[] }) => {
         <div className="flex flex-col md:flex-row md:space-x-2  justify-center items-center">
           <ExclamationTriangleIcon className="w-5 h-5 text-yellow-500" />
           <p className="text-gray-300 text-sm text-center px-4">
-            Some project demo's wont function normally due to database
-            limitation
+            Some project will display an error due to database free trial
+            limitations.
           </p>
         </div>
       </div>
