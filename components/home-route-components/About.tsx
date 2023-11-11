@@ -20,7 +20,7 @@ const About = () => {
           alt="profile"
           width={400}
           height={400}
-          className="rounded lg:w-[400px] md:w-[300px] object-cover hidden md:block"
+          className="rounded lg:w-[300px] md:w-[300px]  hidden md:block"
         />
         <div className="w-[400px]">
           <div className="w-full flex items-center justify-start">
@@ -58,15 +58,13 @@ const About = () => {
                 <span className="font-bold"> Jawad Ammar</span>
               </h1>
               <p className="text-xs mt-2 font-semibold text-black">
-                As a recent graduate with a degree in Computer and Communication
-                Engineering from Lebanese International University, I am
-                determined to launch my career in the technology industry. I
-                have a solid understanding in technologies like Next.js and
-                React.js. I’m eager to apply my knowledge and skills to
-                real-world projects. Despite my lack of professional experience,
-                I am a fast learner and dedicated to ongoing development in this
-                field and I’m excited about the opportunity to join a dynamic
-                and innovative team as I set out on my professional journey.
+                Analytically minded individual with a bachelor’s degree in
+                computer and communication engineering, eager to advance my
+                career in programming and committed to continuous skill
+                development. I am actively seeking a web developer role in a
+                growth-oriented company, and I am excited about the opportunity
+                to join a dynamic and innovative team as I initiate my
+                professional journey.
               </p>
               <ul className="flex flex-col space-y-1 mt-3 text-black">
                 <li>
@@ -99,7 +97,7 @@ const About = () => {
                 </a>
                 <a
                   className="group hover:scale-105 text-xs sm-text-sm  flex items-center space-x-2 justify-center border-2 border-white bg-red-500 p-2 rounded-lg text-white font-bold  "
-                  href="/word-file/Jawad_Ammar_Resume.pdf"
+                  href="/word-file/Resume_Jawad_Youssef_Ammar.pdf"
                   download
                 >
                   <p>Download CV</p>

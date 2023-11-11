@@ -29,9 +29,6 @@ const Cards = ({ data, paginationLeft, paginationRight }: CardsProps) => {
               <h1 className="text-sm md:text-md font-bold ">{item.name}</h1>
             </div>
             <div className="w-full h-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100">
-              <p className="p-10 text-sm font-bold text-neutral-content">
-                {item.description.substring(0, 100).concat("...")}
-              </p>
               <Link href={`/${item.id}`}>
                 <motion.div
                   initial={{ scale: 1 }}
@@ -39,7 +36,7 @@ const Cards = ({ data, paginationLeft, paginationRight }: CardsProps) => {
                   transition={{ duration: 0.2 }}
                   className="flex items-center justify-center space-x-3 p-2 text-black rounded-lg bg-slate-100  border-2 border-white"
                 >
-                  <p className="text-sm font-bold">Intrested</p>
+                  <p className="text-sm font-bold">Read more</p>
                   <CursorArrowRaysIcon className="h-5 w-5 text-black text-right" />
                 </motion.div>
               </Link>
