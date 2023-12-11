@@ -6,7 +6,7 @@ import ProjectSocial from "../../components/project-route-components/project-soc
 import ProjectDetail from "../../components/project-route-components/project-detail";
 import { projectQuery, projectsQuery } from "../../lib/queries";
 
-export const runtime = "edge";
+// export const runtime = "edge";
 
 export async function generateStaticParams() {
   const projects = await projectsQuery();

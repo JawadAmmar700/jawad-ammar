@@ -8,7 +8,7 @@ import Intro from "../components/home-route-components/Intro";
 import ShowCase from "../components/home-route-components/showcase";
 import SKills from "../components/home-route-components/skills";
 
-export const runtime = "edge";
+// export const runtime = "edge";
 
 const Home = async () => {
   const projects = await projectsQuery();
