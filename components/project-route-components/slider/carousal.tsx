@@ -23,7 +23,7 @@ export default function Carousal({ slides }: { slides: Slides }) {
           {Array(parseInt(slides?.imagesLength))
             .fill("")
             .map((_, i) => (
-              <div className="p-2 h-[450px] relative rounded-lg">
+              <div className="p-2 h-[450px] relative rounded-lg" key={i}>
                 <Image
                   key={i}
                   src={`/assets/slides/${slides.folder}/slide-${i + 1}.png`}

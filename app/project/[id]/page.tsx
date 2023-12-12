@@ -1,12 +1,12 @@
-import Carousal from "../../components/project-route-components/slider/carousal";
-import Footer from "../../components/home-route-components/Footer";
-import Header from "../../components/project-route-components/header";
-import OverflowImage from "../../components/project-route-components/overflow-image";
-import ProjectSocial from "../../components/project-route-components/project-social";
-import ProjectDetail from "../../components/project-route-components/project-detail";
-import { projectQuery, projectsQuery } from "../../lib/queries";
+import Carousal from "../../../components/project-route-components/slider/carousal";
+import Footer from "../../../components/home-route-components/Footer";
+import Header from "../../../components/project-route-components/header";
+import OverflowImage from "../../../components/project-route-components/overflow-image";
+import ProjectSocial from "../../../components/project-route-components/project-social";
+import ProjectDetail from "../../../components/project-route-components/project-detail";
+import { projectQuery, projectsQuery } from "../../../lib/queries";
 
-// export const runtime = "edge";
+export const runtime = "edge";
 
 export async function generateStaticParams() {
   const projects = await projectsQuery();

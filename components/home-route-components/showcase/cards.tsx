@@ -29,7 +29,7 @@ const Cards = ({ data, paginationLeft, paginationRight }: CardsProps) => {
               <h1 className="text-sm md:text-md font-bold ">{item.name}</h1>
             </div>
             <div className="w-full h-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100">
-              <Link href={`/${item.id}`}>
+              <Link href={`/project/${item.id}`}>
                 <motion.div
                   initial={{ scale: 1 }}
                   whileHover={{ scale: 1.1 }}
