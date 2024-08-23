@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+  provider  = "mongodb"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_DATABASE_URL")
 }
 
@@ -15,11 +15,11 @@ type DataSlide {
 
 type DataTechnology {
   color String
-  src   String
   name  String
+  src   String
 }
 
-type SkillsSubSkill {
+type SkillsSkills {
   name String
   src  String
 }
@@ -28,9 +28,9 @@ model Data {
   id          String           @id @default(auto()) @map("_id") @db.ObjectId
   description String
   name        String
+  ref         String
   repo        String
   site        String
-  ref         String
   slide       DataSlide
   span        String
   src         String
@@ -39,8 +39,8 @@ model Data {
 }
 
 model Skills {
-  id     String           @id @default(auto()) @map("_id") @db.ObjectId
-  title  String
+  id     String         @id @default(auto()) @map("_id") @db.ObjectId
   ref    String
-  skills SkillsSubSkill[]
+  skills SkillsSkills[]
+  title  String
 }
