@@ -3,11 +3,12 @@
     {
       "name": "Next Meetly",
       "ref": "next",
+      "src": "Next_Meetly",
       "repo": "https://github.com/JawadAmmar700/senior-client-app",
       "youtube": "https://www.youtube.com/watch?v=PkHE8OAGpps",
-      "slides": {
+      "slide": {
         "folder": "next_meetly",
-        "imagesLength": "3"
+        "imagesLength": "10"
       },
       "technology": [
         {
@@ -48,7 +49,7 @@
       ],
       "description": "Meetly is an innovative video chat application that connects people worldwide effortlessly. Its user-friendly interface offers high-quality video and audio communication, creating a truly immersive experience. Beyond the basics, Meetly provides features like Participants History for easy reconnection, an Attendance Calculator for seamless tracking, and Record Meetings for convenient review and reference. The addition of a Reminders feature keeps users organized and on top of their schedules. Join the growing Meetly community, foster connections, collaborate effectively, and enjoy video chats like never before. Let Meetly bring you closer to the important people in your life.",
       "site": "https://meetly-omega.vercel.app",
-      "span": 2
+      "span": "2"
     },
     {
       "name": "Next Amazon",
