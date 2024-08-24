@@ -4,7 +4,7 @@ import { skills } from "./data/skills.json";
 
 async function main() {
   await prisma.data.createMany({
-    data: projects as any,
+    data: projects,
   });
 
   await prisma.skills.createMany({
