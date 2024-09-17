@@ -17,9 +17,11 @@ type ProjectType = {
   id: string;
   name: string;
   src: string;
+  ref: string;
   repo: string;
   youtube: string;
   slide: Slide;
+  bulletPoints: string[];
   technology: Technology[];
   description: string;
   site?: string;

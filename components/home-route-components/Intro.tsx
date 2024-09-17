@@ -1,4 +1,5 @@
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { FileSearch } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { FiGithub, FiLinkedin, FiFacebook } from "react-icons/fi";
@@ -41,6 +42,15 @@ const Intro = () => {
           <a href="#About">
             <ChevronDownIcon className="w-[45px] h-[45px] animate-bounce cursor-pointer hover:text-blue-500" />
           </a>
+        </div>
+        <div className="absolute bottom-4 right-5">
+          <Link
+            href="v2"
+            className="px-6 py-2 rounded-lg flex items-center justify-center space-x-5 bg-black/40"
+          >
+            <p>Interact with The CV</p>
+            <FileSearch />
+          </Link>
         </div>
       </div>
     </section>

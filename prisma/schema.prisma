@@ -34,6 +34,7 @@ model Data {
   slide       DataSlide
   span        String
   src         String
+  bulletPoints String[]
   technology  DataTechnology[]
   youtube     String
 }
