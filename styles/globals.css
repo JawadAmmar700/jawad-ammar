@@ -17,13 +17,19 @@ html {
   height: 100%;
 }
 
+/* body {
+  background-color: #000000;
+  background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
+  
+} */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent !important;
+  background: black !important;
 }
 
 /* Handle */

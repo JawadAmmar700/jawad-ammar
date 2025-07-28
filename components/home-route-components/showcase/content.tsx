@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { ForwardIcon, BackwardIcon } from "@heroicons/react/24/outline";
 import Cards from "./cards";
 import { tabs } from "../../../lib/constants";
+import { Button } from "@/components/ui/button";
 
 const Content = ({ projects }: { projects: ProjectType[] }) => {
   // const [revealCard, setRevealCard] = useState<boolean>(false);
@@ -39,15 +40,15 @@ const Content = ({ projects }: { projects: ProjectType[] }) => {
       <div className="w-full flex items-center justify-between md:justify-evenly px-5  sm:px-24">
         <div className="tabs tabs-boxed bg-black text-white">
           {tabs.map((item, i) => (
-            <button
+            <Button
               onClick={() => filterByCategory(item)}
               key={item + i}
-              className={`text-white  tab ${
-                item === tabCatategory ? "tab-active " : ""
+              className={`text-white ml-2 ${
+                item === tabCatategory && "bg-blue-500 "
               } uppercase `}
             >
               {item}
-            </button>
+            </Button>
           ))}
         </div>
         <div className="flex items-center space-x-5">

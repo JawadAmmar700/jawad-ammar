@@ -6,7 +6,7 @@ const ProjectDetail = ({
   technology,
 }: ProjectDetailProps) => {
   return (
-    <div id="detail" className="flex items-center justify-center">
+    <div id="detail" className="flex items-center justify-center text-white">
       <section className="flex flex-col space-y-5 items-center mt-16 w-4/5 ">
         <h1 className="text-neutral-content font-bold text-3xl">
           <span className="text-blue-500">{String("{ ")}</span>
@@ -14,7 +14,9 @@ const ProjectDetail = ({
           <span className="text-blue-500">{String(" }")}</span>
         </h1>
 
-        <p className="text-neutral-content text-center w-4/5">{description}</p>
+        <p className="text-neutral-content text-center w-4/5 font-semibold">
+          {description}
+        </p>
 
         {/* techno used */}
         <div className="flex flex-col items-center space-y-6 w-4/5 ">
@@ -29,7 +31,7 @@ const ProjectDetail = ({
                 key={id}
                 className="indicator group hover:scale-110 transform transition-all duration-150"
               >
-                <p className="transform transition-all duration-300 hidden group-hover:block indicator-item indicator-top indicator-end badge bg-neutral-content text-sm  outline-none border-0 text-black font-medium ">
+                <p className="transform transition-all text-white bg-red-400 duration-300 hidden group-hover:block indicator-item indicator-top indicator-end badge bg-neutral-content text-sm  outline-none border-0  font-medium ">
                   <span>{item.name}</span>
                 </p>
 

@@ -4,7 +4,7 @@ import { FiGithub, FiYoutube } from "react-icons/fi";
 
 const ProjectSocial = ({ repo, site, youtube }: ProjectSocialProps) => {
   return (
-    <section className="flex-col space-y-6 w-full h-16 mt-16 flex items-center justify-evenly relative ">
+    <section className="flex-col space-y-6 w-full h-16 mt-16 flex items-center justify-evenly relative text-white">
       <h1 className="font-bold text-2xl text-center text-neutral-content">
         You can find more about this project
       </h1>

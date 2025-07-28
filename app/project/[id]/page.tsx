@@ -20,7 +20,7 @@ const Details = async ({ params }: { params: { id: string } }) => {
   const data = await projectQuery(params.id);
 
   return (
-    <div className="w-full bg-[#0F172A]">
+    <div className="w-full bg-black overflow-x-hidden">
       <Header name={data.name} />
       <OverflowImage
         src={data.src}
